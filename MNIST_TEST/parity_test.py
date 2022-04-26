@@ -19,19 +19,20 @@ def information_leakage():
     # MNIST Dataset
     
     transform = transforms.ToTensor()
-    dataset = datasets.MNIST(root='./mnist_data', train=True, transform=transform, download=True)
-    train_dataset, val_dataset = torch.utils.data.random_split(dataset, [40000, 20000])
+    train_dataset = datasets.MNIST(root='./mnist_data', train=True, transform=transform, download=True)
+    #train_dataset, val_dataset = torch.utils.data.random_split(dataset, [40000, 20000])
 
     test_dataset = datasets.MNIST(root='./mnist_data/', train=False, transform=transforms.ToTensor(), download=True)
 
 
     # Data Loader (Input Pipeline)
     train_loader = torch.utils.data.DataLoader(dataset=train_dataset, batch_size=bs, shuffle=True)
-    val_loader = torch.utils.data.DataLoader(dataset=val_dataset, batch_size=bs, shuffle=True)
+    val_loader = train_loader #torch.utils.data.DataLoader(dataset=val_dataset, batch_size=bs, shuffle=True)
+
     test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=bs, shuffle=False)
 
 
-    path = '/home/marconato/GrayVAE/disentanglement-pytorch/mnist_data/'
+    path = '/home/emarcona/GrayVAE/disentanglement-pytorch/mnist_data/'
 
 
     ### BUILD VAE
@@ -43,14 +44,24 @@ def information_leakage():
     else:
         vae = VAE(x_dim=784, h_dim1=128, h_dim2=128, z_dim=10)
         if torch.cuda.is_available(): vae.cuda()
-        optimizer = optim.Adam(vae.parameters())
+        optimizer = optim.Adam(vae.parameters(), lr=0.0001)
+        scheduler = optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.9)
 
-        for epoch in range(21):
+        for epoch in range(31):
             vae = vae_train(epoch, vae, optimizer, train_loader)
             vae_test(vae, test_loader)
+            scheduler.step()
 
         with torch.no_grad():
             z = torch.randn(size=(64, 10)).cuda()
+            for i in range(64):
+                if i % 2 == 0:
+                    z[i, 0] = 100
+                    z[i, 1] = -100
+                else:
+                    z[i, 0] = -100
+                    z[i, 1] = 100
+            
             sample = vae.decoder(z).cuda()
             save_image(sample.view(64, 1, 28, 28), path+'samples/sample_MNIST' + '.png')
         
@@ -84,10 +95,12 @@ def information_leakage():
             cbm.cuda()
 
         optimizer = optim.Adam(cbm.parameters())
+        scheduler = optim.lr_scheduler.ExponentialLR(optimizer, gamma=0.9)
 
         for epoch in range(21):
             cbm = cbm_train(epoch, cbm, optimizer, train_loader)
             cbm_test(cbm, test_loader)
+            scheduler.step()
 
         del optimizer
         torch.save(cbm, path+'cbm.pt')

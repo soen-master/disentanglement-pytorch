@@ -489,9 +489,14 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
     split = int(np.floor(validation_split * dataset_size))
     train_indices, val_indices = indices[split:], indices[:split]
 
+    l = len(indices[split:])
+    val_indices, test_indices = indices[split: int(split+np.floor(l/2))], indices[int(split + np.floor(l/2)):]  
+
+
     # Creating PT data samplers and loaders:
     train_sampler = SubsetRandomSampler(train_indices)
-    test_sampler = SubsetRandomSampler(val_indices)
+    val_sampler = SubsetRandomSampler(val_indices)
+    test_sampler = SubsetRandomSampler(test_indices)
 
     data_loader = DataLoader(dataset,
                              batch_size=batch_size,
@@ -499,6 +504,13 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
                              pin_memory=pin_memory,
                              drop_last=droplast,
                              sampler=train_sampler)
+
+    val_loader = DataLoader(dataset,
+                             batch_size=batch_size,
+                             num_workers=num_workers,
+                             pin_memory=pin_memory,
+                             drop_last=droplast,
+                             sampler=val_sampler)
 
     test_loader = DataLoader(dataset,
                              batch_size=batch_size,
@@ -511,7 +523,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         logging.info('num_classes: {}'.format(dataset.num_classes(False)))
         logging.info('class_values: {}'.format(class_values))
 
-    return data_loader, test_loader
+    return data_loader, val_loader, test_loader
 
 
 

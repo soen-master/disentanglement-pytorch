@@ -2,21 +2,20 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
-def pred_loss(pred, ys):
-    
+def pred_loss(preds, ys, sampling=False):
+    val = torch.zeros(size=ys.size())
     for i, y in enumerate(ys):
-        val = torch.zeros(size=ys.size())
-        if y % 2 == 0:
-            val[i] = 0
-        else:
-            val[i] = 1
-
-        #if y != 4 and y != 5:
-    loss = nn.CrossEntropyLoss(reduction='mean')(pred, val.to(dtype=torch.long).cuda())
-    #print(loss)
-    #print(pred)
-    #print(val)
+            if y % 2 == 0: val[i] = 0
+            else: val[i] = 1
     
+    if not sampling:       
+        pred = preds 
+        loss = nn.CrossEntropyLoss(reduction='mean')(pred, val.to(dtype=torch.long).cuda())
+    else:
+        loss = 0
+        for pred in preds:
+            loss += nn.CrossEntropyLoss(reduction='mean')(pred, val.to(dtype=torch.long).cuda())    
+        loss /= len(preds)
     return loss
 
 def latent_error(z, ys):
@@ -58,44 +57,53 @@ class VAE(nn.Module):
         h = F.relu(self.fc2(h))
         return self.fc31(h), self.fc32(h)  # mu, log_var
 
-    def sampling(self, mu, log_var):
-        std = torch.exp(0.5 * log_var)
-        eps = torch.randn_like(std)
-        return eps.mul(std).add_(mu)  # return z sample
+    def sampling(self, mu, log_var, n_samples=1):
+        if n_samples == 1:
+            std = torch.exp(0.5 * log_var)
+            eps = torch.randn_like(std)
+            return eps.mul(std).add_(mu)  # return z sample
+        else:
+            std = torch.exp(0.5 * log_var)
+            z = []
+            for _ in range(n_samples):
+                eps = torch.randn_like(std)
+                z.append(eps.mul(std).add_(mu))
+            return z
 
     def decoder(self, z):
         h = F.relu(self.fc4(z))
         h = F.relu(self.fc5(h))
         return F.sigmoid(self.fc6(h))
 
-    def predict(self, z):
-        prob = nn.Softmax(dim=1)(z)[:, 1]
-        return self.classifier(z), prob
+    def predict(self, zs, sampling=True):
+        if not sampling:
+            z = zs
+            return self.classifier(z)
+        else:
+            preds = []
+            for z in zs:
+                preds.append(self.classifier(z))
+            return preds
 
-    def forward(self, x):
+
+    def forward(self, x, n_samples=1):   
         mu, log_var = self.encoder(x.view(-1, 784))
-        z = self.sampling(mu, log_var)
-        return self.decoder(z), mu, log_var, z
-
-    def loss_function(self, recon_x, x, mu, log_var, z=None, pred=None, y=None, only_class=False ):
-        BCE = F.binary_cross_entropy(recon_x, x.view(-1, 784), reduction='sum')
-        KLD = -0.5 * torch.sum(1 + log_var[:,2:] - mu[:,2:].pow(2) - log_var[:,2:].exp()) * 100
-
+        z = self.sampling(mu, log_var, n_samples)
+        if n_samples==1:
+            return self.decoder(z), mu, log_var, z
+        else:
+            return self.decoder(mu), mu, log_var, z
+    def loss_function(self, recon_x, x, mu, log_var, z=None, pred=None, y=None, only_class=False):
         ## ADD 4/5 test for parity prediction
-
-        PRED, LAT = 0, 0
-        if y is not None:
-            PRED = pred_loss(pred, y)
-
-            LAT = latent_error(z, y) * 100
-
+        PRED, LAT = torch.tensor(0), torch.tensor(0)
         if only_class:
-            BCE, KLD, LAT = torch.tensor(0), torch.tensor(0), torch.tensor(0)
+            PRED = pred_loss(pred,y, sampling=True)
             return PRED, {'pred': PRED}
         else:
-            PRED = torch.tensor(0)
-            return BCE + KLD + LAT, {'rec': BCE, 'kld': KLD, 'pred': PRED, 'lat': LAT}  # PRED + LAT
-
+            BCE = F.binary_cross_entropy(recon_x, x.view(-1, 784), reduction='sum')
+            KLD = -0.5 * torch.sum(1 + log_var - mu.pow(2) - log_var.exp()) * 100
+            LAT = latent_error(z, y) * 100
+            return BCE + KLD + LAT, {'rec': BCE, 'kld': KLD, 'pred': PRED, 'lat': LAT} 
 
 class CBM(nn.Module):
     def __init__(self, x_dim, h_dim1, h_dim2, z_dim, version='seq'):
@@ -123,8 +131,7 @@ class CBM(nn.Module):
         return self.fc3(h)
 
     def predict(self, z):
-        prob = nn.Softmax(dim=1)(self.classifier(z))[:, 1]
-        return self.classifier(z), prob
+        return self.classifier(z)
 
     def forward(self, x):
         return self.encoder(x.view(-1, 784))

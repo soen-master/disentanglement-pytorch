@@ -14,14 +14,14 @@ def vae_train(epoch, vae, optimizer, train_loader ):
     train_loss = 0
     for batch_idx, (data, y) in enumerate(train_loader):
         ## BIN VERSION
-        mask =  (y > 0) & (y < 6)  #(y != 0) & (y != 1) & (y != 2) & (y != 3)  & (y != 4) & (y != 5)
+        mask =  (y ==4) | (y == 5)  #(y != 0) & (y != 1) & (y != 2) & (y != 3)  & (y != 4) & (y != 5)
         data = data[mask].cuda()
         y = y[mask].cuda()
 
         optimizer.zero_grad()
 
         recon_batch, mu, log_var, z = vae(data)
-        pred, _ = vae.predict(z[:,:2])
+        pred = vae.predict(z[:,:2])
 
         loss, _ = vae.loss_function(recon_batch, data, mu, log_var, z, pred, y)
 
@@ -42,11 +42,11 @@ def vae_test(vae, test_loader):
     test_dict = {'rec': 0, 'kld': 0, 'pred': 0, 'lat': 0}
     with torch.no_grad():
         for data, y in test_loader:
-            mask =  (y > 0) & (y < 6)  #(y != 0) & (y != 1) & (y != 2) & (y != 3)  & (y != 4) & (y != 5)
+            mask =  (y == 4) | (y == 5)  #(y != 0) & (y != 1) & (y != 2) & (y != 3)  & (y != 4) & (y != 5)
             data = data[mask].cuda()
             y = y[mask].cuda()
             recon, mu, log_var, z = vae(data)
-            pred, _ = vae.predict(z[:,:2])
+            pred = vae.predict(z[:,:2])
 
             # sum up batch loss
             p_loss, l_dict = vae.loss_function(recon, data, mu, log_var, z, pred, y)
@@ -67,14 +67,14 @@ def cbm_train(epoch, cbm, optimizer, train_loader):
     for batch_idx, (data, y) in enumerate(train_loader):
 
         ## BIN VERSION
-        mask =  (y > 0) & (y < 6)  #(y != 0) & (y != 1) & (y != 2) & (y != 3)  & (y != 4) & (y != 5)
+        mask =  (y == 4) | (y == 5)  #(y != 0) & (y != 1) & (y != 2) & (y != 3)  & (y != 4) & (y != 5)
         data = data[mask].cuda()
         y = y[mask].cuda()
         
         optimizer.zero_grad()
 
         mu = cbm(data)
-        pred, _ = cbm.predict(mu)
+        pred = cbm.predict(mu)
 
         loss, _ = cbm.loss_function(data, mu, pred, y)
 
@@ -95,11 +95,11 @@ def cbm_test(cbm, test_loader):
     test_dict = {'rec': 0, 'kld': 0, 'pred': 0, 'lat': 0}
     with torch.no_grad():
         for data, y in test_loader:
-            mask =  (y > 0) & (y < 6)  #(y != 0) & (y != 1) & (y != 2) & (y != 3)  & (y != 4) & (y != 5)
+            mask =  (y == 4) | (y == 5)  #(y != 0) & (y != 1) & (y != 2) & (y != 3)  & (y != 4) & (y != 5)
             data = data[mask].cuda()
             y = y[mask].cuda()
             mu = cbm(data)
-            pred, _ = cbm.predict(mu)
+            pred = cbm.predict(mu)
 
             # sum up batch loss
             p_loss, l_dict = cbm.loss_function(data, mu, pred, y)
@@ -123,19 +123,22 @@ def train_parity(epoch, model, optimizer, dataloader, name='vae' ):
 
     for batch_idx, (data,y) in enumerate(dataloader):
 
-        mask = (y > 0) & (y < 6)
+        mask = (y == 4) | (y == 5)
 
         data = data[~mask].cuda()
         y = y[~mask].cuda()
 
         optimizer.zero_grad()
         if name == 'vae':
-            recon, mu, log_var, z = model(data)
-            pred, prob = model.predict(z[:,:2])
-            loss, _ = model.loss_function(recon, data, mu, log_var, z, pred, y, only_class=True)
+            recon, mu, log_var, z = model(data, n_samples=1000)
+            zs = []
+            for latent in z:
+                zs.append(latent[:,:2])
+            pred = model.predict(zs, sampling=True)
+            loss, _ = model.loss_function(recon, data, mu, log_var, zs, pred, y, only_class=True)
         elif name == 'cbm':
             mu = model(data)
-            pred, prob = model.predict(mu)
+            pred = model.predict(mu)
             loss, _ = model.loss_function(data, mu, pred, y, only_class=True)
         else:
             NotImplementedError('Wrong')
@@ -152,43 +155,61 @@ def train_parity(epoch, model, optimizer, dataloader, name='vae' ):
 def test_parity(model, test_loader, name='vae'):
     bs = test_loader.batch_size
     accuracy = 0
-
+    log_vars = []
     for index, (x,y) in enumerate(test_loader):
 
-        mask = (y > 0) & (y < 6)
+        mask = (y == 4) | (y == 5)
 
         x  = x[~mask].cuda()
         y = y[~mask].cuda()
         if name == 'vae':
-            _, _, _, z = model(x)
+            _, _, log_var, z = model(x, n_samples=100)
+            log_vars.append(log_var)
+            zs = []
+            for latent in z:
+                zs.append(latent[:,:2])
+            preds = model.predict(zs, sampling=True)
+            probs = []
+            for pred in preds:
+                probs.append(nn.Softmax(dim=1)(pred)[:,1])
+
+            
         elif name == 'cbm':
             z = model(x)
-
-        pred, _ = model.predict(z[:, :2])
-        prob = nn.Softmax(dim=1)(pred)[:,1]
+            pred = model.predict(z)            
+            probs = [nn.Softmax(dim=1)(pred)[:,1]]
 
         # CALCULATE PROB
         accuracy_term = 0
         tot = 0
-        for j, p in enumerate(prob):
-            tot += 1
-            if p > 0.5: res = 1
-            else: res = 0
+        for prob in probs:
 
-            if y[j] % 2 == 0: y_true = 0
-            else: y_true = 1
-            
-            if res == y_true: 
-                accuracy_term += 1
+            for j, p in enumerate(prob):
+                tot += 1
+                if p > 0.5: res = 1
+                else: res = 0
 
+                if y[j] % 2 == 0: y_true = 0
+                else: y_true = 1
+                
+                if res == y_true: 
+                    accuracy_term += 1
 
-        accuracy += accuracy_term/tot
+            accuracy += accuracy_term/tot
+    accuracy /= len(probs)
     torch.set_printoptions(2, sci_mode=False)
-    #print(y)
-    #print(prob)
-        
 
-    print('# TEST -> Overall performance:', accuracy / (index + 1))
+    print('# TEST -> Overall accuracy:', accuracy / (index + 1))
+
+    if name=='vae':
+        mean_var = torch.zeros(10).cuda()
+        mean_log_var = torch.zeros(10).cuda()
+        for log_var in log_vars:
+            mean_log_var += torch.mean(log_var, dim=0)
+            mean_var += torch.mean( torch.exp(log_var)/2, dim=0)
+        print('Log expectations:', mean_log_var)
+        print('Expectations:', mean_var)
+    
     return accuracy / (index + 1)
 
 
@@ -202,7 +223,7 @@ def vae_leakage(epoch, model, optimizer, dataloader, name='vae' ):
 
     for batch_idx, (data,y) in enumerate(dataloader):
 
-        mask = (y > 0) & (y < 6)
+        mask = (y == 4) | (y == 5)
 
         data = data[~mask].cuda()
         y = y[~mask].cuda()

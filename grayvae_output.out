@@ -1,11 +1,1 @@
 name=slurm_script
-Pre-Processing CelebA
-labels (30000, 32)
-All classes percentages: [0.2936666666666667, 0.2319, 0.12203333333333333, 0.18716666666666668, 0.16523333333333334, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
-Initialized GrayVAE_Join model
-## Initializing Train indexes
-->path chosen:: logs/celebA__GrayVAE_Join__2022_04/11-21/train_runs
-Losses: {'total_vae': tensor(19558.9941, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(12064.4297, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(25.0457, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1676.0958, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(5793.4224, device='cuda:0', grad_fn=<MulBackward0>)}
-[0:239]  loss_total_vae=11636.729  loss_recon=7126.521  loss_kld=734.975  loss_prediction=1144.484  loss_true_values=2630.750  loss_total_vae_epoch=12502.919  
-Losses: {'total_vae': tensor(11504.5781, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7049.2769, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(749.1245, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1075.3962, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2630.7803, device='cuda:0', grad_fn=<MulBackward0>)}
-[1:479]  loss_total_vae=11147.736  loss_recon=6813.686  loss_kld=828.946  loss_prediction=936.688  loss_true_values=2568.417  loss_total_vae_epoch=11372.532  

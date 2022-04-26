@@ -57,8 +57,6 @@ class GrayVAE_Join(VAE):
                               args.w_recon_scheduler, args.w_recon_scheduler_args)
 
         ## add binary classification layer
-#        self.classification = nn.Linear(self.z_dim, 1, bias=False).to(self.device)
-        # TODO: SET HERE HOW MANY CLASS TO PREDICT
         self.n_classes = args.n_classes
         self.classification = nn.Linear(self.z_dim, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
         self.classification_epoch = args.classification_epoch
@@ -78,14 +76,17 @@ class GrayVAE_Join(VAE):
             self.latent_weight = args.label_weight 
         else:
             self.latent_weight = args.latent_weight
-
         self.masking_fact = args.masking_fact
+        self.latent_loss = args.latent_loss
+        
+        ## OTHER STUFF
         self.show_loss = args.show_loss
+        self.wait_counter = 0
+        self.save_model = True
 
         self.dataframe_dis = pd.DataFrame() #columns=self.evaluation_metric)
         self.dataframe_eval = pd.DataFrame()
-
-        self.latent_loss = args.latent_loss
+        self.validation_scores = pd.DataFrame()
 
     def predict(self, **kwargs):
         """
@@ -96,7 +97,7 @@ class GrayVAE_Join(VAE):
         pred = nn.Softmax(dim=1)(pred_raw)
         return  pred_raw, pred.to(self.device, dtype=torch.float32) #nn.Sigmoid()(self.classification(input_x).resize(len(input_x)))
 
-    def vae_classification(self, losses, x_true1, label1, y_true1, examples, classification=False):
+    def vae_classification(self, losses, x_true1, label1, y_true1, examples):
 
         mu, logvar = self.model.encode(x=x_true1,)
 
@@ -119,79 +120,56 @@ class GrayVAE_Join(VAE):
         #print('Prediction:')
         #print(prediction[:10])
 
-        if not classification:
-            loss_fn_args = dict(x_recon=x_recon, x_true=x_true1, mu=mu[label1.size(1):], logvar=logvar[label1.size(1):], z=z)
-            loss_dict = self.loss_fn(losses, reduce_rec=False, **loss_fn_args)
-            losses.update(loss_dict)
+        
+        loss_fn_args = dict(x_recon=x_recon, x_true=x_true1, mu=mu[label1.size(1):], logvar=logvar[label1.size(1):], z=z)
+        loss_dict = self.loss_fn(losses, reduce_rec=False, **loss_fn_args)
+        losses.update(loss_dict)
 
-            pred_loss = nn.CrossEntropyLoss(reduction='mean')(prediction, y_true1) *self.label_weight  # her efor celebA
-            losses.update(prediction=pred_loss)
-            losses[c.TOTAL_VAE] += pred_loss
+        pred_loss = nn.CrossEntropyLoss(reduction='mean')(prediction, y_true1) *self.label_weight  # her efor celebA
+        losses.update(prediction=pred_loss)
+        losses[c.TOTAL_VAE] += pred_loss
 
 #            losses.update({'total_vae': loss_dict['total_vae'].detach(), 'recon': loss_dict['recon'].detach(),
- #                          'kld': loss_dict['kld'].detach()})
-            del loss_dict, pred_loss
+#                          'kld': loss_dict['kld'].detach()})
+        del loss_dict, pred_loss
 
-            if n_passed > 0: # added the presence of only small labelled generative factors
+        if n_passed > 0: # added the presence of only small labelled generative factors
 
-                ## loss of categorical variables
+            ## loss of categorical variables
 
-                ## loss of continuous variables
+            ## loss of continuous variables
 
-                if self.latent_loss == 'MSE':
-                    #TODO: PLACE ONEHOT ENCODING
-                   
-                    loss_bin = nn.MSELoss(reduction='mean')( mu_processed[rn_mask][:, :label1.size(1)], 2*label1[rn_mask]-1  )
-                    ## track losses
-                    err_latent = []
-                    for i in range(label1.size(1)):
-                        err_latent.append(nn.MSELoss(reduction='mean')(mu_processed[rn_mask][:, i], 2 * label1[rn_mask][:,i] - 1).detach().item() )
-                    losses.update(true_values=self.latent_weight * loss_bin)
-                    losses[c.TOTAL_VAE] += self.latent_weight * loss_bin
+            if self.latent_loss == 'MSE':
+                #TODO: PLACE ONEHOT ENCODING
+                
+                loss_bin = nn.MSELoss(reduction='mean')( mu_processed[rn_mask][:, :label1.size(1)], 2*label1[rn_mask]-1  )
+                ## track losses
+                err_latent = []
+                for i in range(label1.size(1)):
+                    err_latent.append(nn.MSELoss(reduction='mean')(mu_processed[rn_mask][:, i], 2 * label1[rn_mask][:,i] - 1).detach().item() )
+                losses.update(true_values=self.latent_weight * loss_bin)
+                losses[c.TOTAL_VAE] += self.latent_weight * loss_bin
 
-                elif self.latent_loss == 'BCE':
-                    loss_bin = nn.BCELoss(reduction='mean')((1+mu_processed[rn_mask][:, :label1.size(1)])/2,
-                                                             label1[rn_mask] )
+            elif self.latent_loss == 'BCE':
+                loss_bin = nn.BCELoss(reduction='mean')((1+mu_processed[rn_mask][:, :label1.size(1)])/2,
+                                                            label1[rn_mask] )
 
-                    ## track losses
-                    err_latent = []
-                    for i in range(label1.size(1)):
-                        err_latent.append(nn.BCELoss(reduction='mean')((1+mu_processed[rn_mask][:, i])/2,
-                                                                        label1[rn_mask][:, i] ).detach().item())
-                    losses.update(true_values=self.latent_weight * loss_bin)
-                    losses[c.TOTAL_VAE] += self.latent_weight * loss_bin
-
-                else:
-                    raise NotImplementedError('Not implemented loss.')
+                ## track losses
+                err_latent = []
+                for i in range(label1.size(1)):
+                    err_latent.append(nn.BCELoss(reduction='mean')((1+mu_processed[rn_mask][:, i])/2,
+                                                                    label1[rn_mask][:, i] ).detach().item())
+                losses.update(true_values=self.latent_weight * loss_bin)
+                losses[c.TOTAL_VAE] += self.latent_weight * loss_bin
 
             else:
-                losses.update(true_values=torch.tensor(-1))
-                err_latent =[-1]*label1.size(1)
-        #            losses[c.TOTAL_VAE] += nn.MSELoss(reduction='mean')(mu[:, :label1.size(1)], label1).detach()
+                raise NotImplementedError('Not implemented loss.')
 
-        if classification:
-            #TODO: INSERT MORE OPTIONS ON HOW TRAINING METRICS AFFECT
-            ## DISJOINT VERSION
+        else:
+            losses.update(true_values=torch.tensor(-1))
+            err_latent =[-1]*label1.size(1)
+    #            losses[c.TOTAL_VAE] += nn.MSELoss(reduction='mean')(mu[:, :label1.size(1)], label1).detach()
 
-            loss_fn_args = dict(x_recon=x_recon, x_true=x_true1, mu=mu, logvar=logvar, z=z)
-            loss_dict = self.loss_fn(losses, reduce_rec=True, **loss_fn_args)
-            loss_dict.update(true_values=torch.tensor(-1)) # nn.BCELoss(reduction='mean')((1+mu_processed[:,:label1.size(1)])/2, label1))
-            loss_dict[c.TOTAL_VAE] += -1 #nn.BCELoss(reduction='mean')((1+z[:, :label1.size(1)])/2, label1)
-            losses.update({'total_vae': loss_dict['total_vae'].detach(), 'recon': loss_dict['recon'].detach(),
-                           'kld': loss_dict['kld'].detach(), 'true_values': loss_dict['true_values']})
-
-            del loss_dict
-
-            #TODO insert MSE Classification
-
-            err_latent = [-1] * label1.size(1)
-
-            #TODO: insert the regression on the latents factor matching
-
-            losses.update(prediction=nn.CrossEntropyLoss(reduction='mean')(prediction, y_true1) )
-
-            ## INSERT DEVICE IN THE CREATION OF EACH TENSOR
-            ### AVOID COPYING FROM CPU TO GPU AS MUCH AS POSSIBLE
 
         return losses, {'x_recon': x_recon, 'mu': mu, 'z': z, 'logvar': logvar, "prediction": prediction,
                         'forecast': forecast, 'latents': err_latent, 'n_passed': n_passed}
@@ -225,6 +203,8 @@ class GrayVAE_Join(VAE):
                 print("## STARTING CLASSIFICATION ##")
                 start_classification = True
             else: start_classification = False
+            #z = torch.zeros(len(self.data_loader), self.z_dim)
+            #g = torch.zeros(len(self.data_loader), self.z_dim)
 
             for internal_iter, (x_true1, label1, y_true1, examples) in enumerate(self.data_loader):
 
@@ -239,16 +219,11 @@ class GrayVAE_Join(VAE):
                 else:
                     label1 = label1.to(self.device)
 
-                #print('Inside the tensors')
-                #print('Label1:', label1.size())
-                #print(label1[:3])
-                #print('ytrue1:', y_true1.size())
-                #
-                #print(y_true1[:10])
-                ###configuration for dsprites
+                losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples)
 
-                losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples,
-                                                         classification=start_classification)
+                ## ADD FOR EVALUATION PURPOSES
+                #z[] = params['z']
+                #g[] = 
 
                 self.optim_G.zero_grad()
                 self.class_G.zero_grad()
@@ -269,22 +244,15 @@ class GrayVAE_Join(VAE):
                 losses[c.TOTAL_VAE_EPOCH] = vae_loss_sum /( internal_iter+1) ## ADDED +1 HERE IDK WHY NOT BEFORE!!!!!
 
                 ## Insert losses -- only in training set
-                if track_changes and (internal_iter%375)==0:
+                if track_changes and (self.iter%375)==0:
                     #TODO: set the tracking at a given iter_number/epoch
-
-                    Iterations.append(internal_iter + 1)
-                    Epochs.append(epoch)
-                    Reconstructions.append(losses['recon'].item())
-                    KLDs.append(losses['kld'].item())
-                    True_Values.append(losses['true_values'].item())
-                    latent_errors.append(params['latents'])
-
-                    Accuracies.append(losses['prediction'].item())
-                    f1_class = Accuracy_Loss()
-                    F1_scores.append(f1_class(params['prediction'], y_true1, dims=self.n_classes).item())
-                    del f1_class
+                    print('tracking changes')
+                    Iterations.append(self.iter + 1); Epochs.append(epoch)
+                    Reconstructions.append(losses['recon'].item()); KLDs.append(losses['kld'].item()); True_Values.append(losses['true_values'].item())
+                    latent_errors.append(params['latents']); Accuracies.append(losses['prediction'].item())
+                    F1_scores.append(Accuracy_Loss()(params['prediction'], y_true1, dims=self.n_classes).item())
                     
-                    if epoch >1:
+                    if epoch >0:
                         sofar = pd.DataFrame(data=np.array([Iterations, Epochs, Reconstructions, KLDs, True_Values, Accuracies, F1_scores]).T,
                                              columns=['iter', 'epoch', 'reconstruction_error', 'kld', 'latent_error', 'classification_error', 'accuracy'], )
                         for i in range(label1.size(1)):
@@ -295,19 +263,27 @@ class GrayVAE_Join(VAE):
 
 #                        if not self.dataframe_eval.empty:
  #                           self.dataframe_eval.to_csv(os.path.join(out_path, 'dis_metrics.csv'), index=False)
+                        # ADD validation step
+                        val_rec, val_kld, val_latent, val_bce, val_acc, _, _, _ =self.test(validation=True, name=self.dset_name)
+                        sofar = pd.DataFrame(np.array([epoch, val_rec, val_kld, val_latent, val_bce, val_acc]).reshape(1,-1), 
+                                            columns=['epoch','rec', 'kld', 'latent', 'bce', 'acc'] )
+                        self.validation_scores = self.validation_scores.append(sofar, ignore_index=True)
+                        self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
+                        del sofar
+
 
                 # TESTSET LOSSES
                 if is_time_for(self.iter, self.test_iter):
 
                     #                    self.dataframe_eval = self.dataframe_eval.append(self.evaluate_results,  ignore_index=True)
                     # test the behaviour on other losses
-                    trec, tkld, tlat, tbce, tacc, I, I_tot = self.test(end_of_epoch=False, name=self.dset_name)
+                    trec, tkld, tlat, tbce, tacc, I, I_tot, err_latent = self.test(end_of_epoch=False, name=self.dset_name)
                     factors = pd.DataFrame(
-                        {'iter': self.iter, 'rec': trec, 'kld': tkld, 'latent': tlat, 'BCE': tbce, 'Acc': tacc,
+                        {'iter': self.iter+1, 'rec': trec, 'kld': tkld, 'latent': tlat, 'BCE': tbce, 'Acc': tacc,
                          'I': I_tot}, index=[0])
 
-                    for i in range(len(I)):
-                        factors['I_%i' % i] = np.asarray(I)[i]
+                    for i in range(len(err_latent)):
+                        factors['latent%i' % i] = np.asarray(err_latent)[i]
 
                     self.dataframe_eval = self.dataframe_eval.append(factors, ignore_index=True)
                     self.net_mode(train=True)
@@ -327,15 +303,15 @@ class GrayVAE_Join(VAE):
                                                   index=False)
                         print('Saved dis_metrics')
 
-                    
-
-                self.log_save(input_image=x_true1, recon_image=params['x_recon'], loss=losses)
+                if epoch > 10: self.validation_stopping()
+                if self.save_model:
+                    self.log_save(input_image=x_true1, recon_image=params['x_recon'], loss=losses)
 
             # end of epoch
 
         self.pbar.close()
 
-    def test(self, end_of_epoch=True, name='dsprites_full', out_path=None):
+    def test(self, end_of_epoch=True, validation=False, name='dsprites_full', out_path=None):
         self.net_mode(train=False)
         rec, kld, latent, BCE, Acc = 0, 0, 0, 0, 0
         I = np.zeros(self.z_dim)
@@ -345,10 +321,13 @@ class GrayVAE_Join(VAE):
         l_dim = self.z_dim
         g_dim = self.z_dim
 
-        z_array = np.zeros( shape=(self.batch_size*len(self.test_disentanglement-pytorchloader), l_dim))
+        z_array = np.zeros( shape=(self.batch_size*len(self.test_loader), l_dim))
         g_array = np.zeros( shape=(self.batch_size*len(self.test_loader), g_dim))
 
-        for internal_iter, (x_true, label, y_true, _) in enumerate(self.test_loader):
+        if validation: loader = self.val_loader
+        else: loader = self.test_loader
+
+        for internal_iter, (x_true, label, y_true, _) in enumerate(loader):
             x_true = x_true.to(self.device)
 
             if self.dset_name == 'dsprites_full':
@@ -381,8 +360,18 @@ class GrayVAE_Join(VAE):
 
             if self.latent_loss == 'MSE':
                 loss_bin = nn.MSELoss(reduction='mean')(mu_processed[:, :label.size(1)], 2 * label.to(dtype=torch.float32) - 1)
+                
+                err_latent = []
+                for i in range(label.size(1)):
+                    err_latent.append(nn.MSELoss(reduction='mean')(mu_processed[:, i],
+                                                                    2*label[:, i].to(dtype=torch.float32)-1 ).detach().item())
             elif self.latent_loss == 'BCE':
                 loss_bin = nn.BCELoss(reduction='mean')((1+mu_processed[:, :label.size(1)])/2, label.to(dtype=torch.float32) )
+                
+                err_latent = []
+                for i in range(label.size(1)):
+                    err_latent.append(nn.BCELoss(reduction='mean')((1+mu_processed[:, i])/2,
+                                                                    label[:, i] ).detach().item())
             else:
                 NotImplementedError('Wrong argument for latent loss.')
 
@@ -407,11 +396,43 @@ class GrayVAE_Join(VAE):
 
 
         print('Done testing')
-        if out_path is not None:
-            with open( os.path.join(out_path,'latents_obtained.npy'), 'wb') as f:
+        if out_path is not None: # and validation is None:
+            with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
                 np.save(f, z_array)
                 np.save(f, g_array)
         
             
         nrm = internal_iter + 1
-        return rec/nrm, kld/nrm, latent/nrm, BCE/nrm, Acc/nrm, I/nrm, I_tot/nrm
+        return rec/nrm, kld/nrm, latent/nrm, BCE/nrm, Acc/nrm, I/nrm, I_tot/nrm, [err/nrm for err in err_latent]
+
+    def validation_stopping(self):
+        val_stop = False
+
+        epochs = np.asarray(self.validation_scores['epoch'])
+        rec =  np.asarray(self.validation_scores['rec'])
+        kld =  np.asarray(self.validation_scores['kld'])
+        latent = np.asarray(self.validation_scores['latent'])
+        bce =  np.asarray(self.validation_scores['bce'])
+
+        all_loss = rec+kld+latent+bce
+        
+        if latent[-1] > latent[-2] or bce[-1] > bce[-2]:
+            self.wait_counter += 1
+            self.save_model = False
+        
+        elif self.wait_counter > 0:
+            if latent[-1] < np.mean(latent[-2:-5]) or bce[-1] < np.mean(bce[-2:-5]):
+                self.save_model = True
+                self.wait_counter = 0
+
+        if self.wait_counter > 10:
+            print('Validation stop')
+            val_stop=True
+#        if bce[-1] > bce[-2]:
+ #           print('Blocked by classification error')
+  #          val_stop = True
+        #if all_loss[-1] > all_loss[-2]:
+         #   print('BLocked by overall error')
+          #  val_stop = True
+
+        self.val_stop = val_stop    

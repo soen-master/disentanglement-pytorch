@@ -68,9 +68,9 @@ class BaseDisentangler(object):
         self.out_path = args.out_path
 
 
-        self.data_loader, self.test_loader  = get_dataloader(args.dset_name, args.dset_dir, args.batch_size, args.seed, args.num_workers,
-                                                args.image_size, args.include_labels, args.pin_memory, not args.test,
-                                                not args.test, d_version=args.d_version, masking_fact=args.masking_fact) # included dsprite version
+        self.data_loader, self.val_loader, self.test_loader  = get_dataloader(args.dset_name, args.dset_dir, args.batch_size, args.seed, args.num_workers,
+                                                                args.image_size, args.include_labels, args.pin_memory, not args.test,
+                                                                not args.test, d_version=args.d_version, masking_fact=args.masking_fact) # included dsprite version
 
         # only used if some supervision was imposed such as in Conditional VAE
         if self.data_loader.dataset.has_labels():
@@ -99,6 +99,7 @@ class BaseDisentangler(object):
         self.iter = 0
         self.epoch = 0
         self.evaluate_results = dict()
+        self.val_stop = False
 
         # logging iterations
         self.print_iter = args.print_iter if args.print_iter else self.num_batches
@@ -506,7 +507,7 @@ class BaseDisentangler(object):
             aicrowd_helpers.register_progress(self.iter / self.max_iter)
 
     def training_complete(self):
-        if self.epoch > self.max_epoch or self.iter > self.max_iter:
+        if self.epoch > self.max_epoch or self.iter > self.max_iter or self.val_stop:
             logging.info("-------Training Finished----------")
             return True
         return False

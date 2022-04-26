@@ -1,4 +1,5 @@
 import os.path
+from tkinter import E
 import torch
 from torch import nn
 import torch.optim as optim
@@ -118,9 +119,9 @@ class CBM_Join(VAE):
 
         losses.update(self.loss_fn(losses, reduce_rec=False,))
 
-        losses.update(prediction=nn.CrossEntropyLoss(reduction='mean')(prediction, y_true1.to(self.device, dtype=torch.long))*self.label_weight )
-        losses[c.TOTAL_VAE] += nn.CrossEntropyLoss(reduction='mean')(prediction, y_true1.to(self.device, dtype=torch.long)* self.label_weight )
-
+        pred_loss = nn.CrossEntropyLoss(reduction='mean')(prediction, y_true1) *self.label_weight  # her efor celebA
+        losses.update(prediction=pred_loss)
+        losses[c.TOTAL_VAE] += pred_loss
 
         if n_passed > 0: # added the presence of only small labelled generative factors
 
@@ -242,13 +243,13 @@ class CBM_Join(VAE):
                     #                    self.dataframe_eval = self.dataframe_eval.append(self.evaluate_results,  ignore_index=True)
                     # test the behaviour on other losses
                     trec, tkld = 0, 0
-                    tlat, tbce, tacc, I, I_tot = self.test(end_of_epoch=False, name=self.dset_name)
+                    tlat, tbce, tacc, I, I_tot, err_latent = self.test(end_of_epoch=False, name=self.dset_name)
                     factors = pd.DataFrame(
                         {'iter': self.iter, 'rec': trec, 'kld': tkld, 'latent': tlat, 'BCE': tbce, 'Acc': tacc,
                          'I': I_tot}, index=[0])
 
-                    for i in range(len(I)):
-                        factors['I_%i' % i] = np.asarray(I)[i]
+                    for i in range(label1.size(1)):
+                        factors['latent%i' % i] = np.asarray(err_latent)[i]
 
                     self.dataframe_eval = self.dataframe_eval.append(factors, ignore_index=True)
                     self.net_mode(train=True)
@@ -313,13 +314,17 @@ class CBM_Join(VAE):
             if self.latent_loss == 'MSE':
                 loss_bin = nn.MSELoss(reduction='mean')(mu_processed[:, :label.size(1)],
                                                         2 * label.to(dtype=torch.float32) - 1)
+                err_latent = []
+                for i in range(label.size(1)):
+                    err_latent.append(nn.MSELoss(reduction='mean')(mu_processed[:, i], 2 * label[:,i] - 1).detach().item() )
+                
             elif self.latent_loss == 'BCE':
                 loss_bin = nn.BCELoss(reduction='mean')((1 + mu_processed[:, :label.size(1)]) / 2,
                                                         label.to(dtype=torch.float32))
-            elif self.latent_loss == 'exact_MSE':
-                mu_proessed = nn.Sigmoid()(mu / torch.sqrt(1 + torch.exp(logvar)))
-                loss_bin = nn.MSELoss(reduction='mean')(mu_proessed[:, :label.size(1)],
-                                                        label.to(dtype=torch.float32))
+                err_latent = []
+                for i in range(label.size(1)):
+                    err_latent.append(nn.BCELoss(reduction='mean')((1+mu_processed[:, i])/2,
+                                                                    label[:, i] ).detach().item())
             else:
                 NotImplementedError('Wrong argument for latent loss.')
 
@@ -346,4 +351,4 @@ class CBM_Join(VAE):
         print('Done testing')
 
         nrm = internal_iter + 1
-        return latent / nrm, BCE / nrm, Acc / nrm, I / nrm, I_tot / nrm
+        return latent / nrm, BCE / nrm, Acc / nrm, I / nrm, I_tot / nrm, [err/nrm for err in err_latent]
