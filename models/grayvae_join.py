@@ -180,12 +180,11 @@ class GrayVAE_Join(VAE):
             out_path = kwargs['output']
             track_changes=True
             self.out_path = out_path #TODO: Not happy with this thing
+            print("## Initializing Train indexes")
+            print("->path chosen::",out_path)
 
         else: track_changes=False;
-
-        if track_changes:
-            print("## Initializing Train indexes")
-            print("->path chosen::",out_path+"/train_runs")
+            
         
         ## SAVE INITIALIZATION ##
         #self.save_checkpoint()
@@ -203,9 +202,11 @@ class GrayVAE_Join(VAE):
                 print("## STARTING CLASSIFICATION ##")
                 start_classification = True
             else: start_classification = False
-            #z = torch.zeros(len(self.data_loader), self.z_dim)
-            #g = torch.zeros(len(self.data_loader), self.z_dim)
-
+            
+            # to evaluate performances on disentanglement
+            z = torch.zeros(self.batch_size*len(self.data_loader), self.z_dim, device=self.device)
+            g = torch.zeros(self.batch_size*len(self.data_loader), self.z_dim, device=self.device)
+            
             for internal_iter, (x_true1, label1, y_true1, examples) in enumerate(self.data_loader):
 
                 losses = {'total_vae':0}
@@ -222,8 +223,8 @@ class GrayVAE_Join(VAE):
                 losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples)
 
                 ## ADD FOR EVALUATION PURPOSES
-                #z[] = params['z']
-                #g[] = 
+                z[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :] = params['z']
+                g[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :label1.size(1)] = label1
 
                 self.optim_G.zero_grad()
                 self.class_G.zero_grad()
@@ -277,7 +278,8 @@ class GrayVAE_Join(VAE):
 
                     #                    self.dataframe_eval = self.dataframe_eval.append(self.evaluate_results,  ignore_index=True)
                     # test the behaviour on other losses
-                    trec, tkld, tlat, tbce, tacc, I, I_tot, err_latent = self.test(end_of_epoch=False, name=self.dset_name)
+                    trec, tkld, tlat, tbce, tacc, I, I_tot, err_latent = self.test(end_of_epoch=False,name=self.dset_name, 
+                                                                        out_path=self.out_path )
                     factors = pd.DataFrame(
                         {'iter': self.iter+1, 'rec': trec, 'kld': tkld, 'latent': tlat, 'BCE': tbce, 'Acc': tacc,
                          'I': I_tot}, index=[0])
@@ -308,7 +310,14 @@ class GrayVAE_Join(VAE):
                     self.log_save(input_image=x_true1, recon_image=params['x_recon'], loss=losses)
 
             # end of epoch
-
+            
+            
+            if out_path is not None: # and validation is None:
+                with open( os.path.join(out_path,'train_runs/latents_obtained.npy'), 'wb') as f:
+                    np.save(f, z.detach().cpu().numpy())
+                    np.save(f, g.detach().cpu().numpy())
+                del z, g
+                
         self.pbar.close()
 
     def test(self, end_of_epoch=True, validation=False, name='dsprites_full', out_path=None):
@@ -413,15 +422,13 @@ class GrayVAE_Join(VAE):
         kld =  np.asarray(self.validation_scores['kld'])
         latent = np.asarray(self.validation_scores['latent'])
         bce =  np.asarray(self.validation_scores['bce'])
-
-        all_loss = rec+kld+latent+bce
         
         if latent[-1] > latent[-2] or bce[-1] > bce[-2]:
             self.wait_counter += 1
             self.save_model = False
         
         elif self.wait_counter > 0:
-            if latent[-1] < np.mean(latent[-2:-5]) or bce[-1] < np.mean(bce[-2:-5]):
+            if latent[-1] < latent[-2] or bce[-1] < bce[-2]:
                 self.save_model = True
                 self.wait_counter = 0
 

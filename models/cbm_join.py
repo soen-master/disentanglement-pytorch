@@ -62,7 +62,6 @@ class CBM_Join(VAE):
                               args.w_recon_scheduler, args.w_recon_scheduler_args)
 
         ## add binary classification layer
-        ## TODO: set choices of how many classes
         
         self.reduce_rec = args.reduce_recon
 
@@ -70,19 +69,23 @@ class CBM_Join(VAE):
         self.label_weight = args.label_weight
         
         ## CHOOSE THE WEIGHT FOR LATENTS
+        self.masking_fact = args.masking_fact
         if args.latent_weight is None:
             self.latent_weight = args.label_weight 
         else:
-            self.latent_weight = args.latent_weight        
-        
-        self.masking_fact = args.masking_fact
+            self.latent_weight = args.latent_weight                
+        self.latent_loss = args.latent_loss
         self.show_loss = args.show_loss
+
+        self.wait_counter = 0
+        self.save_model = True        
         
 
         self.dataframe_dis = pd.DataFrame() #columns=self.evaluation_metric)
         self.dataframe_eval = pd.DataFrame()
+        self.validation_scores = pd.DataFrame()
 
-        self.latent_loss = args.latent_loss
+
 
     def predict(self, **kwargs):
         """
@@ -185,6 +188,8 @@ class CBM_Join(VAE):
             self.net_mode(train=True)
             vae_loss_sum = 0
             # add the classification layer #
+            z = torch.zeros(self.batch_size*len(self.data_loader), self.z_dim, device=self.device)
+            g = torch.zeros(self.batch_size*len(self.data_loader), self.z_dim, device=self.device)
 
             for internal_iter, (x_true1, label1, y_true1, examples) in enumerate(self.data_loader):
 
@@ -204,6 +209,11 @@ class CBM_Join(VAE):
 
                 losses, params = self.cbm_classification(losses, x_true1, label1, y_true1, examples)
 
+                ## ADD FOR EVALUATION PURPOSES
+                z[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :] = params['z']
+                g[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :label1.size(1)] = label1
+
+
                 self.class_G_all.zero_grad()
 
                 if (internal_iter%self.show_loss)==0: print("Losses:", losses)
@@ -215,7 +225,7 @@ class CBM_Join(VAE):
                 losses[c.TOTAL_VAE_EPOCH] = vae_loss_sum /( internal_iter+1)
 
                 ## Insert losses -- only in training set
-                if track_changes and (internal_iter%375)==0:
+                if track_changes and (internal_iter%240)==0:
 
                     Iterations.append(internal_iter + 1)
                     Epochs.append(epoch)
@@ -229,13 +239,22 @@ class CBM_Join(VAE):
 
                     del f1_class
                     
-                    if epoch > 10:
+                    if epoch > 1:
                         sofar = pd.DataFrame(data=np.array([Iterations, Epochs,  True_Values, CE_class, F1_scores]).T,
                                                 columns=['iter', 'epoch', 'latent_error', 'classification_error', 'accuracy'], )
                         for i in range(label1.size(1)):
                             sofar['latent%i'%i] = np.asarray(latent_errors)[:,i]
 
                         sofar.to_csv(os.path.join(out_path+'/train_runs', 'metrics.csv'), index=False)
+                        del sofar
+
+                        # ADD validation step
+                        val_latent, val_bce, val_acc, _, _, _ =self.test(validation=True, name=self.dset_name, 
+                                                                out_path=os.path.join(self.out_path, 'eval_results'))
+                        sofar = pd.DataFrame(np.array([epoch, val_latent, val_bce, val_acc]).reshape(1,-1), 
+                                            columns=['epoch', 'latent', 'bce', 'acc'] )
+                        self.validation_scores = self.validation_scores.append(sofar, ignore_index=True)
+                        self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
 
                 if is_time_for(self.iter, self.test_iter):
@@ -268,13 +287,20 @@ class CBM_Join(VAE):
                                                   index=False)
                         print('Saved dis_metrics')
 
-
-                self.log_save(input_image=x_true1, recon_image=x_true1, loss=losses)
+                if epoch > 10: self.validation_stopping()
+                if self.save_model:
+                    self.log_save(input_image=x_true1, recon_image=x_true1, loss=losses)
+            
+            if out_path is not None:
+                with open( os.path.join(out_path,'latents_obtained.npy'), 'wb') as f:
+                    np.save(f, z.detach().cpu().numpy())
+                    np.save(f, g.detach().cpu().numpy())
+                del z, g
             # end of epoch
 
         self.pbar.close()
 
-    def test(self, end_of_epoch=True, name='dsprites_full', out_path=None):
+    def test(self, end_of_epoch=True, validation=False, name='dsprites_full', out_path=None):
         self.net_mode(train=False)
         rec, kld, latent, BCE, Acc = 0, 0, 0, 0, 0
         I = np.zeros(self.z_dim)
@@ -286,8 +312,11 @@ class CBM_Join(VAE):
 
         z_array = np.zeros(shape=(self.batch_size * len(self.test_loader), l_dim))
         g_array = np.zeros(shape=(self.batch_size * len(self.test_loader), g_dim))
+        
+        if validation: loader = self.val_loader
+        else: loader = self.test_loader
 
-        for internal_iter, (x_true, label, y_true, _) in enumerate(self.test_loader):
+        for internal_iter, (x_true, label, y_true, _) in enumerate(loader):
             x_true = x_true.to(self.device)
             if self.dset_name == 'dsprites_full':
                     label = label[:, 1:].to(self.device)
@@ -352,3 +381,31 @@ class CBM_Join(VAE):
 
         nrm = internal_iter + 1
         return latent / nrm, BCE / nrm, Acc / nrm, I / nrm, I_tot / nrm, [err/nrm for err in err_latent]
+    
+    def validation_stopping(self):
+        val_stop = False
+
+        epochs = np.asarray(self.validation_scores['epoch'])
+        latent = np.asarray(self.validation_scores['latent'])
+        bce =  np.asarray(self.validation_scores['bce'])
+        
+        if latent[-1] > latent[-2] or bce[-1] > bce[-2]:
+            self.wait_counter += 1
+            self.save_model = False
+        
+        elif self.wait_counter > 0:
+            if latent[-1] < latent[-2] or bce[-1] < bce[-2]:
+                self.save_model = True
+                self.wait_counter = 0
+
+        if self.wait_counter > 10:
+            print('Validation stop')
+            val_stop=True
+#        if bce[-1] > bce[-2]:
+ #           print('Blocked by classification error')
+  #          val_stop = True
+        #if all_loss[-1] > all_loss[-2]:
+         #   print('BLocked by overall error')
+          #  val_stop = True
+
+        self.val_stop = val_stop   

@@ -489,8 +489,8 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
     split = int(np.floor(validation_split * dataset_size))
     train_indices, val_indices = indices[split:], indices[:split]
 
-    l = len(indices[split:])
-    val_indices, test_indices = indices[split: int(split+np.floor(l/2))], indices[int(split + np.floor(l/2)):]  
+    l = len(val_indices)
+    val_indices, test_indices = val_indices[:int(np.floor(l/2))], val_indices[int(np.floor(l/2)):]
 
 
     # Creating PT data samplers and loaders:
@@ -518,6 +518,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
                              pin_memory=pin_memory,
                              drop_last=droplast,
                              sampler=test_sampler)
+
 
     if include_labels is not None:
         logging.info('num_classes: {}'.format(dataset.num_classes(False)))
