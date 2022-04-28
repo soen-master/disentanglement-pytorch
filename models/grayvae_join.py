@@ -245,7 +245,7 @@ class GrayVAE_Join(VAE):
                 losses[c.TOTAL_VAE_EPOCH] = vae_loss_sum /( internal_iter+1) ## ADDED +1 HERE IDK WHY NOT BEFORE!!!!!
 
                 ## Insert losses -- only in training set
-                if track_changes and (self.iter%375)==0:
+                if track_changes and is_time_for(self.iter, self.test_iter):
                     #TODO: set the tracking at a given iter_number/epoch
                     print('tracking changes')
                     Iterations.append(self.iter + 1); Epochs.append(epoch)
@@ -271,6 +271,12 @@ class GrayVAE_Join(VAE):
                         self.validation_scores = self.validation_scores.append(sofar, ignore_index=True)
                         self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
+                    # validation check
+                    if epoch > 10: 
+                        print('Validation stop evaluation')
+                        print(self.iter, self.epoch)
+                        print(self.validation_scores)
+                        self.validation_stopping()
 
 
                 # TESTSET LOSSES
@@ -293,7 +299,6 @@ class GrayVAE_Join(VAE):
                     if track_changes and not self.dataframe_eval.empty:
                         self.dataframe_eval.to_csv(os.path.join(out_path, 'eval_results/test_metrics.csv'),
                                                    index=False)
-                        print('Saved test_metrics')
 
                     # include disentanglement metrics
                     dis_metrics = pd.DataFrame(self.evaluate_results, index=[0])
@@ -305,12 +310,20 @@ class GrayVAE_Join(VAE):
                                                   index=False)
                         print('Saved dis_metrics')
 
-                if epoch > 10: self.validation_stopping()
+                    
                 if self.save_model:
                     self.log_save(input_image=x_true1, recon_image=params['x_recon'], loss=losses)
+                else:
+                    self.step()
+                    pass_dict ={'input_image':x_true1, 'recon_image':params['x_recon'], 'loss':losses}
+                    if is_time_for(self.iter, self.schedulers_iter):
+                        self.schedulers_step(pass_dict.get(c.LOSS, dict()).get(c.TOTAL_VAE_EPOCH, 0),
+                                            self.iter // self.schedulers_iter)
+                    del pass_dict
 
             # end of epoch
-            
+            if self.save_model:
+                print('Saved model at epoch', self.epoch)
             
             if out_path is not None: # and validation is None:
                 with open( os.path.join(out_path,'train_runs/latents_obtained.npy'), 'wb') as f:
@@ -402,9 +415,6 @@ class GrayVAE_Join(VAE):
 
             #self.iter += 1
             #self.pbar.update(1)
-
-
-        print('Done testing')
         if out_path is not None: # and validation is None:
             with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
                 np.save(f, z_array)
@@ -426,9 +436,12 @@ class GrayVAE_Join(VAE):
         if latent[-1] > latent[-2] or bce[-1] > bce[-2]:
             self.wait_counter += 1
             self.save_model = False
+            print('Now val counter at:', self.wait_counter)
         
-        elif self.wait_counter > 0:
-            if latent[-1] < latent[-2] or bce[-1] < bce[-2]:
+        if self.wait_counter > 0:
+            print('Latent', latent[-1], ' ', np.mean(latent[-5:-2]) )
+            print('BCE', bce[-1], np.mean( bce[-5:-2]))
+            if (latent[-1] < np.mean(latent[-5:-2])) or (bce[-1] < np.mean( bce[-5:-2])): 
                 self.save_model = True
                 self.wait_counter = 0
 
