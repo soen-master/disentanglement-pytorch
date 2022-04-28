@@ -1,6 +1,11 @@
 name=slurm_script
-Pre-Processing CelebA
-labels (30000, 32)
-All classes percentages: [0.2936666666666667, 0.2319, 0.12203333333333333, 0.18716666666666668, 0.16523333333333334, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+Considered components [1, 2, 3, 4, 5]
+target (737280,)
+Population of 0: 50.0 %.
+Start verification
+Labels in data_loader
+Fitting a LogReg model, loss - CE: tensor(0.0110)
+ACCURACY for logreg:  tensor(0.9907)
+Created the simple conv64 with channels 1
 Initialized GrayVAE_Join model
-Done testing
+Created the simple conv64 with channels 1

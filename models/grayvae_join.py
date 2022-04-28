@@ -325,7 +325,7 @@ class GrayVAE_Join(VAE):
             if self.save_model:
                 print('Saved model at epoch', self.epoch)
             
-            if out_path is not None: # and validation is None:
+            if out_path is not None and self.save_model: # and validation is None:
                 with open( os.path.join(out_path,'train_runs/latents_obtained.npy'), 'wb') as f:
                     np.save(f, z.detach().cpu().numpy())
                     np.save(f, g.detach().cpu().numpy())
@@ -415,7 +415,7 @@ class GrayVAE_Join(VAE):
 
             #self.iter += 1
             #self.pbar.update(1)
-        if out_path is not None: # and validation is None:
+        if out_path is not None and self.save_model: # and validation is None:
             with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
                 np.save(f, z_array)
                 np.save(f, g_array)
@@ -433,7 +433,7 @@ class GrayVAE_Join(VAE):
         latent = np.asarray(self.validation_scores['latent'])
         bce =  np.asarray(self.validation_scores['bce'])
         
-        if latent[-1] > latent[-2] or bce[-1] > bce[-2]:
+        if bce[-1] > bce[-2]:
             self.wait_counter += 1
             self.save_model = False
             print('Now val counter at:', self.wait_counter)
@@ -441,18 +441,12 @@ class GrayVAE_Join(VAE):
         if self.wait_counter > 0:
             print('Latent', latent[-1], ' ', np.mean(latent[-5:-2]) )
             print('BCE', bce[-1], np.mean( bce[-5:-2]))
-            if (latent[-1] < np.mean(latent[-5:-2])) or (bce[-1] < np.mean( bce[-5:-2])): 
+            if (bce[-1] < np.mean( bce[-5:-2])): 
                 self.save_model = True
                 self.wait_counter = 0
 
-        if self.wait_counter > 10:
+        if self.wait_counter > 5:
             print('Validation stop')
             val_stop=True
-#        if bce[-1] > bce[-2]:
- #           print('Blocked by classification error')
-  #          val_stop = True
-        #if all_loss[-1] > all_loss[-2]:
-         #   print('BLocked by overall error')
-          #  val_stop = True
 
         self.val_stop = val_stop    

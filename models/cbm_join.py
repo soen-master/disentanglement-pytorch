@@ -225,7 +225,7 @@ class CBM_Join(VAE):
                 losses[c.TOTAL_VAE_EPOCH] = vae_loss_sum /( internal_iter+1)
 
                 ## Insert losses -- only in training set
-                if track_changes and (internal_iter%240)==0:
+                if track_changes and is_time_for(self.iter, self.test_iter):
 
                     Iterations.append(internal_iter + 1)
                     Epochs.append(epoch)
@@ -290,8 +290,15 @@ class CBM_Join(VAE):
                 if epoch > 10: self.validation_stopping()
                 if self.save_model:
                     self.log_save(input_image=x_true1, recon_image=x_true1, loss=losses)
-            
-            if out_path is not None:
+                else:
+                    self.step()
+                    pass_dict ={'input_image':x_true1, 'recon_image': x_true1, 'loss':losses}
+                    if is_time_for(self.iter, self.schedulers_iter):
+                        self.schedulers_step(pass_dict.get(c.LOSS, dict()).get(c.TOTAL_VAE_EPOCH, 0),
+                                            self.iter // self.schedulers_iter)
+                    del pass_dict
+
+            if out_path is not None and self.save_model:
                 with open( os.path.join(out_path,'latents_obtained.npy'), 'wb') as f:
                     np.save(f, z.detach().cpu().numpy())
                     np.save(f, g.detach().cpu().numpy())
@@ -372,7 +379,7 @@ class CBM_Join(VAE):
         #if name == 'celebA':
          #   I, I_tot = Interpretability(z_array, g_array,all_labels=[],  rel_factors=N)
         
-        if out_path is not None:
+        if out_path is not None and self.save_model:
             with open( os.path.join(out_path,'latents_obtained.npy'), 'wb') as f:
                 np.save(f, z_array)
                 np.save(f, g_array)
@@ -385,27 +392,23 @@ class CBM_Join(VAE):
     def validation_stopping(self):
         val_stop = False
 
-        epochs = np.asarray(self.validation_scores['epoch'])
         latent = np.asarray(self.validation_scores['latent'])
         bce =  np.asarray(self.validation_scores['bce'])
         
-        if latent[-1] > latent[-2] or bce[-1] > bce[-2]:
+        if bce[-1] > bce[-2]:
             self.wait_counter += 1
             self.save_model = False
+            print('Now val counter at:', self.wait_counter)
         
-        elif self.wait_counter > 0:
-            if latent[-1] < latent[-2] or bce[-1] < bce[-2]:
+        if self.wait_counter > 0:
+            print('Latent', latent[-1], ' ', np.mean(latent[-5:-2]) )
+            print('BCE', bce[-1], np.mean( bce[-5:-2]))
+            if (bce[-1] < np.mean( bce[-5:-2])): 
                 self.save_model = True
                 self.wait_counter = 0
 
-        if self.wait_counter > 10:
+        if self.wait_counter > 5:
             print('Validation stop')
             val_stop=True
-#        if bce[-1] > bce[-2]:
- #           print('Blocked by classification error')
-  #          val_stop = True
-        #if all_loss[-1] > all_loss[-2]:
-         #   print('BLocked by overall error')
-          #  val_stop = True
 
-        self.val_stop = val_stop   
+        self.val_stop = val_stop 
