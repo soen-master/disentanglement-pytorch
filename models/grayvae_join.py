@@ -41,32 +41,30 @@ class GrayVAE_Join(VAE):
         image_channels = self.num_channels
         input_channels = image_channels
         decoder_input_channels = self.z_dim
-
+        ## add binary classification layer
+        if args.z_class is not None:
+            self.z_class = args.z_class
+        else:
+            self.z_class = self.z_dim    
+        self.n_classes = args.n_classes
+        #self.classification = nn.Linear(self.z_dim, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
+        self.classification = nn.Linear(args.z_class, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
+        self.classification_epoch = args.classification_epoch
+        self.reduce_rec = args.reduce_recon
+        
         # model and optimizer
         self.model = VAEModel(encoder(self.z_dim, input_channels, self.image_size),
                                decoder(decoder_input_channels, self.num_channels, self.image_size),
                                ).to(self.device)
-        self.optim_G = optim.Adam(self.model.parameters(), lr=self.lr_G, betas=(self.beta1, self.beta2))
-        self.optim_G_mse = optim.Adam(self.model.encoder.parameters(), lr=self.lr_G, betas=(self.beta1, self.beta2))
+        self.optim_G = optim.Adam([*self.model.parameters(), *self.classification.parameters()],
+                                      lr=self.lr_G, betas=(self.beta1, self.beta2))
 
         # update nets
         self.net_dict['G'] = self.model
         self.optim_dict['optim_G'] = self.optim_G
 
         self.setup_schedulers(args.lr_scheduler, args.lr_scheduler_args,
-                              args.w_recon_scheduler, args.w_recon_scheduler_args)
-
-        ## add binary classification layer
-        self.n_classes = args.n_classes
-        self.classification = nn.Linear(self.z_dim, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
-        self.classification_epoch = args.classification_epoch
-        self.reduce_rec = args.reduce_recon
-
-        self.class_G_all = optim.Adam([*self.model.parameters(), *self.classification.parameters()],
-                                      lr=self.lr_G, betas=(self.beta1, self.beta2))
-
-
-        self.class_G = optim.SGD(self.classification.parameters(), lr=0.01, momentum=0.9)
+                              args.w_recon_scheduler, args.w_recon_scheduler_args)        
 
         ## CHOOSE THE WEIGHT FOR CLASSIFICATION
         self.label_weight = args.label_weight
@@ -113,7 +111,7 @@ class GrayVAE_Join(VAE):
         #print('mu processed')
         #print(mu_processed[:10])
 
-        prediction, forecast = self.predict(latent=mu_processed)
+        prediction, forecast = self.predict(latent=mu_processed[:,:self.z_class])
         rn_mask = (examples==1)
         n_passed = len(examples[rn_mask])
 
@@ -193,7 +191,13 @@ class GrayVAE_Join(VAE):
         Iterations, Epochs, Reconstructions, KLDs, True_Values, Accuracies, F1_scores = [], [], [], [], [], [], []  ## JUST HERE FOR NOW
         latent_errors = []
         epoch = 0
+        self.optim_G.param_groups[0]['lr'] = 0
+        lr_log_scale = np.logspace(-7,-4, 20)
         while not self.training_complete():
+            # added annealing
+            if epoch < 10:
+                self.optim_G.param_groups[0]['lr'] = lr_log_scale[epoch] 
+            print('lr:',  self.optim_G.param_groups[0]['lr'])
             epoch += 1
             self.net_mode(train=True)
             vae_loss_sum = 0
@@ -220,6 +224,8 @@ class GrayVAE_Join(VAE):
                 else:
                     label1 = label1.to(self.device)
 
+                
+                
                 losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples)
 
                 ## ADD FOR EVALUATION PURPOSES
@@ -227,19 +233,17 @@ class GrayVAE_Join(VAE):
                 g[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :label1.size(1)] = label1
 
                 self.optim_G.zero_grad()
-                self.class_G.zero_grad()
-                self.class_G_all.zero_grad()
 
                 if (internal_iter%self.show_loss)==0: print("Losses:", losses)
 
                 if not start_classification:
                     losses[c.TOTAL_VAE].backward(retain_graph=False)
                     #losses['true_values'].backward(retain_graph=False)
-                    self.class_G_all.step()
+                    self.optim_G.step()
 
                 if start_classification:   # and (params['n_passed']>0):
                     losses['prediction'].backward(retain_graph=False)
-                    self.class_G.step()
+                    self.optim_G.step()
 
                 vae_loss_sum += losses[c.TOTAL_VAE]
                 losses[c.TOTAL_VAE_EPOCH] = vae_loss_sum /( internal_iter+1) ## ADDED +1 HERE IDK WHY NOT BEFORE!!!!!
@@ -272,7 +276,7 @@ class GrayVAE_Join(VAE):
                         self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
                     # validation check
-                    if epoch > 10: 
+                    if epoch > 20: 
                         print('Validation stop evaluation')
                         print(self.iter, self.epoch)
                         print(self.validation_scores)
@@ -365,7 +369,7 @@ class GrayVAE_Join(VAE):
             z = reparametrize(mu, logvar)
 
             mu_processed = torch.tanh(z / 2)
-            prediction, forecast = self.predict(latent=mu_processed)
+            prediction, forecast = self.predict(latent=mu_processed[:,:self.z_class])
             x_recon = self.model.decode(z=z,)
 
             z = np.asarray(nn.Sigmoid()(z).detach().cpu())
@@ -424,29 +428,4 @@ class GrayVAE_Join(VAE):
         nrm = internal_iter + 1
         return rec/nrm, kld/nrm, latent/nrm, BCE/nrm, Acc/nrm, I/nrm, I_tot/nrm, [err/nrm for err in err_latent]
 
-    def validation_stopping(self):
-        val_stop = False
-
-        epochs = np.asarray(self.validation_scores['epoch'])
-        rec =  np.asarray(self.validation_scores['rec'])
-        kld =  np.asarray(self.validation_scores['kld'])
-        latent = np.asarray(self.validation_scores['latent'])
-        bce =  np.asarray(self.validation_scores['bce'])
-        
-        if bce[-1] > bce[-2]:
-            self.wait_counter += 1
-            self.save_model = False
-            print('Now val counter at:', self.wait_counter)
-        
-        if self.wait_counter > 0:
-            print('Latent', latent[-1], ' ', np.mean(latent[-5:-2]) )
-            print('BCE', bce[-1], np.mean( bce[-5:-2]))
-            if (bce[-1] < np.mean( bce[-5:-2])): 
-                self.save_model = True
-                self.wait_counter = 0
-
-        if self.wait_counter > 5:
-            print('Validation stop')
-            val_stop=True
-
-        self.val_stop = val_stop    
+    

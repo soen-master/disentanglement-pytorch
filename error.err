@@ -1,0 +1,21 @@
+(INFO)[utils.py:341]  $AICROWD_DATASET_NAME=mpi3d_toy
+(INFO)[utils.py:342]  $DATASET_NAME=mpi3d_toy
+(INFO)[utils.py:343]  $DISENTANGLEMENT_LIB_DATA=/home/emanuele.marconato/data
+(INFO)[base_disentangler.py:24]  Device: cuda
+(INFO)[data_loader.py:630]  Datasets root: /home/emanuele.marconato/data
+(INFO)[data_loader.py:631]  Dataset: mpi3d_toy
+(INFO)[data_loader.py:317]  include_labels: None
+(INFO)[base_disentangler.py:86]  Number of samples: 1036800
+(INFO)[base_disentangler.py:87]  Number of batches per epoch: 8294
+(INFO)[base_disentangler.py:88]  Number of channels: 3
+  0%|          | 0/248820 [00:00<?, ?it/s]Traceback (most recent call last):
+  File "main.py", line 77, in <module>
+    main(_args)
+  File "main.py", line 34, in main
+    model = model_cl(_args) #return models.alg
+  File "/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py", line 51, in __init__
+    self.classification = nn.Linear(args.z_class, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
+  File "/home/emanuele.marconato/miniconda3/envs/dis/lib/python3.6/site-packages/torch/nn/modules/linear.py", line 78, in __init__
+    self.weight = Parameter(torch.Tensor(out_features, in_features))
+TypeError: new(): argument 'size' must be tuple of ints, but found element of type NoneType at pos 2
+

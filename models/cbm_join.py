@@ -183,7 +183,14 @@ class CBM_Join(VAE):
         F1_scores = []
         latent_errors = []
         epoch = 0
+        
+        self.class_G_all.param_groups[0]['lr'] = 0
+        lr_log_scale = np.logspace(-7,-4, 10)
         while not self.training_complete():
+            
+            if epoch < 10:
+                self.class_G_all.param_groups[0]['lr'] = lr_log_scale[epoch]
+
             epoch += 1
             self.net_mode(train=True)
             vae_loss_sum = 0
@@ -256,7 +263,8 @@ class CBM_Join(VAE):
                         self.validation_scores = self.validation_scores.append(sofar, ignore_index=True)
                         self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
-
+                    if epoch > 20: self.validation_stopping()
+                    
                 if is_time_for(self.iter, self.test_iter):
 
                     #                    self.dataframe_eval = self.dataframe_eval.append(self.evaluate_results,  ignore_index=True)
@@ -287,7 +295,7 @@ class CBM_Join(VAE):
                                                   index=False)
                         print('Saved dis_metrics')
 
-                if epoch > 10: self.validation_stopping()
+                    
                 if self.save_model:
                     self.log_save(input_image=x_true1, recon_image=x_true1, loss=losses)
                 else:
@@ -298,12 +306,13 @@ class CBM_Join(VAE):
                                             self.iter // self.schedulers_iter)
                     del pass_dict
 
+            
+            # end of epoch
             if out_path is not None and self.save_model:
                 with open( os.path.join(out_path,'latents_obtained.npy'), 'wb') as f:
                     np.save(f, z.detach().cpu().numpy())
                     np.save(f, g.detach().cpu().numpy())
                 del z, g
-            # end of epoch
 
         self.pbar.close()
 
@@ -389,26 +398,4 @@ class CBM_Join(VAE):
         nrm = internal_iter + 1
         return latent / nrm, BCE / nrm, Acc / nrm, I / nrm, I_tot / nrm, [err/nrm for err in err_latent]
     
-    def validation_stopping(self):
-        val_stop = False
-
-        latent = np.asarray(self.validation_scores['latent'])
-        bce =  np.asarray(self.validation_scores['bce'])
-        
-        if bce[-1] > bce[-2]:
-            self.wait_counter += 1
-            self.save_model = False
-            print('Now val counter at:', self.wait_counter)
-        
-        if self.wait_counter > 0:
-            print('Latent', latent[-1], ' ', np.mean(latent[-5:-2]) )
-            print('BCE', bce[-1], np.mean( bce[-5:-2]))
-            if (bce[-1] < np.mean( bce[-5:-2])): 
-                self.save_model = True
-                self.wait_counter = 0
-
-        if self.wait_counter > 5:
-            print('Validation stop')
-            val_stop=True
-
-        self.val_stop = val_stop 
+    

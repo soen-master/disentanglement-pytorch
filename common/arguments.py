@@ -51,6 +51,7 @@ def get_args(sys_args):
 
     # latent encoding
     parser.add_argument('--z_dim', default=16, type=int, help='size of the encoded z space')
+    parser.add_argument('--z_class', default=None, type=int, help='size of the z space for downstream classification')
     parser.add_argument('--include_labels', default=None, type=str, nargs='*',
                         help='Labels (indices or names) to include in latent encoding.')
     parser.add_argument('--l_dim', default=0, type=str, help='size of the encoded w space (for each label)')
@@ -113,8 +114,8 @@ def get_args(sys_args):
     parser.add_argument('--use_wandb', default=False, type=str2bool, help='use wandb for logging')
     parser.add_argument('--wandb_resume_id', default=None, type=str, help='resume previous wandb run with id')
     parser.add_argument('--traverse_spacing', default=0.2, type=float, help='spacing to traverse latents')
-    parser.add_argument('--traverse_min', default=-1, type=float, help='min limit to traverse latents')
-    parser.add_argument('--traverse_max', default=+1, type=float, help='max limit to traverse latents')
+    parser.add_argument('--traverse_min', default=-25, type=float, help='min limit to traverse latents')
+    parser.add_argument('--traverse_max', default=+25, type=float, help='max limit to traverse latents')
     parser.add_argument('--traverse_z', default=False, type=str2bool, help='whether to traverse the z space')
     parser.add_argument('--traverse_l', default=False, type=str2bool, help='whether to traverse the l space')
     parser.add_argument('--traverse_c', default=False, type=str2bool, help='whether to traverse the condition')

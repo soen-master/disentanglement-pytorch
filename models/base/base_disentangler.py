@@ -1,5 +1,6 @@
 import os
 from tqdm import tqdm
+import numpy as np
 import logging
 
 import torch
@@ -66,6 +67,7 @@ class BaseDisentangler(object):
 
         #EMANUELE
         self.out_path = args.out_path
+        self.validation_scores = {}
 
 
         self.data_loader, self.val_loader, self.test_loader  = get_dataloader(args.dset_name, args.dset_dir, args.batch_size, args.seed, args.num_workers,
@@ -532,3 +534,24 @@ class BaseDisentangler(object):
     def setup_schedulers(self, lr_scheduler, lr_scheduler_args, w_recon_scheduler, w_recon_scheduler_args):
         self.lr_scheduler = get_scheduler(self.optim_G, lr_scheduler, lr_scheduler_args)
         self.w_recon_scheduler = get_scheduler(self.w_recon, w_recon_scheduler, w_recon_scheduler_args)
+    
+    def validation_stopping(self):
+
+        latent = np.asarray(self.validation_scores['latent'])
+        bce =  np.asarray(self.validation_scores['bce'])
+        
+        if  bce[-1] > bce[-2] or latent[-1] > latent[-2]:
+            self.wait_counter += 1
+            self.save_model = False
+            print('Now val counter at:', self.wait_counter)
+        
+        if self.wait_counter > 0:
+            print('Latent', latent[-1], ' ', np.mean(latent[-5:-2]) )
+            print('BCE', bce[-1], np.mean( bce[-5:-2]))
+            if (latent[-1] < np.mean(latent[-5:-2])) and (bce[-1] < np.mean( bce[-5:-2])): 
+                self.save_model = True
+                self.wait_counter = 0
+
+        if self.wait_counter > 10:
+            print('Validation stop')
+            self.val_stop=True

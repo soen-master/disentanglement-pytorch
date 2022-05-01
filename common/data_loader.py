@@ -320,7 +320,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
 
     if name.lower() == 'celeba':
         print('Pre-Processing CelebA')
-        root = os.path.join(dset_dir, 'celebA/celebA64.npz')
+        root = os.path.join(dset_dir, 'celebA/celebA64-full.npz')
 
 #        labels_file = os.path.join(root, 'list_attr_celeba.csv')
 
@@ -341,12 +341,12 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
             km = pickle.load(f)
 
 
-        targets = km.predict(labels[:,:29])
+        targets = km.predict(labels)
         targets = np.asarray(targets, dtype=int)
         
         ## CHECK PERCS OF CLASSES
         tot = []
-        for i in range( len(labels[0])):
+        for i in range(10):
             y_mask = (targets==i)
             tot.append( len(targets[y_mask])/len(targets) )
         print('All classes percentages:', tot)
@@ -365,8 +365,76 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
                        'y_target': targets,
                        }
         dset = CustomNpzDataset
+    
+    elif name.lower() == 'mpi3d_toy':
+        print('Pre-Processing mpi3d_toy')
+        root = os.path.join(dset_dir, 'mpi3d_toy/mpi3d_toy_full.npz')
+
+#        labels_file = os.path.join(root, 'list_attr_celeba.csv')
+
+        transform = transforms.Compose([
+                transforms.Resize((image_size, image_size)),
+                transforms.ToTensor(), 
+                ])
+
+        npz = np.load(root)
+
+        labels = npz['Y']
+
+        print('labels', np.shape(labels))
+        
+        # LOAD CLASSIFICATION
+        km_files = os.path.join(dset_dir, 'mpi3d_toy/km.pickle')
+        with open(km_files, 'rb') as f:
+            km = pickle.load(f)
 
 
+        targets = km.predict(labels[:,:-2])
+        targets = np.asarray(targets, dtype=int)
+        
+        ## CHECK PERCS OF CLASSES
+        tot = []
+        for i in range(10):
+            y_mask = (targets==i)
+            tot.append( len(targets[y_mask])/len(targets) )
+        print('All classes percentages:', tot)
+
+        #quit()
+
+        if False:
+            all_attrs , all_targets = torch.as_tensor(labels, dtype=torch.float), torch.as_tensor(targets, dtype=torch.float) 
+            validate_model(all_attrs, all_targets)
+
+        ## create labels for mpi3d
+        a = np.zeros((len(labels),6))
+        b = np.zeros((len(labels),6))
+        c = np.zeros((len(labels),3))
+        d = np.zeros((len(labels),3))
+        a[np.arange(len(labels)), np.asarray(labels[:,0], dtype=np.int) ] = 1
+        b[np.arange(len(labels)), np.asarray(labels[:,1], dtype=np.int) ] = 1
+        #
+        c[np.arange(len(labels)), np.asarray(labels[:,3], dtype=np.int) ] = 1
+        d[np.arange(len(labels)), np.asarray(labels[:,4], dtype=np.int) ] = 1
+        
+        labels[:,5:] /= np.max(labels[:,5]) 
+        
+        new_labels = np.hstack((a,b,labels[:,2].reshape(-1,1),c,d))
+        labels_one_hot = np.hstack((new_labels,  labels[:,5:]))
+        
+        print(np.shape(labels_one_hot))
+                
+        assert np.max(labels_one_hot) == 1, 'Error on max: '+str(np.max(labels_one_hot))
+        assert np.min(labels) == 0, 'Error on min'
+        
+        data_kwargs = {'data_images': npz['X'],
+                       'labels': labels_one_hot,
+                       'label_weights': labels,
+                       'class_values': labels,
+                       'num_channels': 3,
+                       'y_target': targets,
+                       }
+        dset = CustomNpzDataset
+        
         #dset(**data_kwargs)
 
     elif name.lower() == 'dsprites_full':
@@ -555,7 +623,7 @@ def _get_dataloader(name, batch_size, seed, num_workers, pin_memory, shuffle, dr
 
 def get_dataloader(dset_name, dset_dir, batch_size, seed, num_workers, image_size, include_labels, pin_memory,
                    shuffle, droplast, d_version="full", masking_fact=100):
-    locally_supported_datasets = c.DATASETS[0:2]
+    locally_supported_datasets = c.DATASETS
     dset_name = get_dataset_name(dset_name)
     dsets_dir = get_datasets_dir(dset_dir)
 
