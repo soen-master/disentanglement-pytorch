@@ -377,7 +377,12 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
                 transforms.ToTensor(), 
                 ])
 
-        npz = np.load(root)
+        if d_version == "full":
+            root = os.path.join(dset_dir, 'mpi3d_toy/mpi3d_toy_full.npz')
+        elif d_version == "smaller":
+            root = os.path.join(dset_dir, 'mpi3d_toy/mpi3d_toy_small.npz')
+        else:
+            NotImplementedError('wrong choice of d_version')
 
         labels = npz['Y']
 

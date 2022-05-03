@@ -46,6 +46,7 @@ class BaseDisentangler(object):
         self.z_dim = args.z_dim
         self.l_dim = args.l_dim
         self.num_labels = args.num_labels
+        self.masking = args.masking_fact
 
         # Loss weights
         self.w_recon = args.w_recon
@@ -548,10 +549,13 @@ class BaseDisentangler(object):
         if self.wait_counter > 0:
             print('Latent', latent[-1], ' ', np.mean(latent[-5:-2]) )
             print('BCE', bce[-1], np.mean( bce[-5:-2]))
-            if (latent[-1] < np.mean(latent[-5:-2])) and (bce[-1] < np.mean( bce[-5:-2])): 
+            if (latent[-1] < np.mean(latent[-5:-2])) and (bce[-1] < np.mean( bce[-5:-2])) and self.masking != 0: 
                 self.save_model = True
                 self.wait_counter = 0
-
+            elif (bce[-1] < np.mean( bce[-5:-2])) and self.masking == 0: 
+                self.save_model = True
+                self.wait_counter = 0
+            
         if self.wait_counter > 10:
             print('Validation stop')
             self.val_stop=True

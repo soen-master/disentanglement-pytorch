@@ -1,0 +1,159 @@
+(INFO)[utils.py:341]  $AICROWD_DATASET_NAME=celebA
+(INFO)[utils.py:342]  $DATASET_NAME=celebA
+(INFO)[utils.py:343]  $DISENTANGLEMENT_LIB_DATA=/home/emanuele.marconato/data
+(INFO)[base_disentangler.py:24]  Device: cuda
+(INFO)[data_loader.py:635]  Datasets root: /home/emanuele.marconato/data
+(INFO)[data_loader.py:636]  Dataset: celebA
+(INFO)[data_loader.py:317]  include_labels: None
+(INFO)[base_disentangler.py:87]  Number of samples: 202599
+(INFO)[base_disentangler.py:88]  Number of batches per epoch: 1620
+(INFO)[base_disentangler.py:89]  Number of channels: 3
+  0%|          | 0/113400 [00:00<?, ?it/s]  0%|          | 1/113400 [00:04<133:23:53,  4.23s/it]/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [0,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [1,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [2,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [3,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [4,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [5,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [6,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [7,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [8,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [9,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [10,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [11,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [12,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [13,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [14,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [15,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [16,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [17,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [18,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [19,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [20,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [21,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [22,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [23,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [24,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [25,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [26,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [27,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [28,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [29,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [30,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [69,0,0], thread: [31,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [32,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [33,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [34,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [35,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [36,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [37,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [38,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [39,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [40,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [41,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [42,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [43,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [44,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [45,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [46,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [47,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [48,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [49,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [50,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [51,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [52,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [53,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [54,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [55,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [56,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [57,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [58,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [59,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [60,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [61,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [62,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [44,0,0], thread: [63,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [32,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [33,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [34,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [35,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [36,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [37,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [38,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [39,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [40,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [41,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [42,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [43,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [44,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [45,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [46,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [47,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [48,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [49,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [50,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [51,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [52,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [53,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [54,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [55,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [56,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [57,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [58,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [59,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [60,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [61,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [62,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [68,0,0], thread: [63,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [32,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [33,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [34,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [35,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [36,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [37,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [38,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [39,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [40,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [41,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [42,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [43,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [44,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [45,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [46,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [47,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [48,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [49,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [50,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [51,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [52,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [53,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [54,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [55,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [56,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [57,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [58,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [59,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [60,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [61,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [62,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+/opt/conda/conda-bld/pytorch_1603729128610/work/aten/src/ATen/native/cuda/Loss.cu:102: operator(): block: [153,0,0], thread: [63,0,0] Assertion `input_val >= zero && input_val <= one` failed.
+Traceback (most recent call last):
+  File "main.py", line 77, in <module>
+    main(_args)
+  File "main.py", line 55, in main
+    model.train(output=os.path.join(out_path))
+  File "/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py", line 229, in train
+    losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples)
+  File "/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py", line 130, in vae_classification
+    print(losses)
+  File "/home/emanuele.marconato/miniconda3/envs/dis/lib/python3.6/site-packages/torch/tensor.py", line 179, in __repr__
+    return torch._tensor_str._str(self)
+  File "/home/emanuele.marconato/miniconda3/envs/dis/lib/python3.6/site-packages/torch/_tensor_str.py", line 372, in _str
+    return _str_intern(self)
+  File "/home/emanuele.marconato/miniconda3/envs/dis/lib/python3.6/site-packages/torch/_tensor_str.py", line 352, in _str_intern
+    tensor_str = _tensor_str(self, indent)
+  File "/home/emanuele.marconato/miniconda3/envs/dis/lib/python3.6/site-packages/torch/_tensor_str.py", line 241, in _tensor_str
+    formatter = _Formatter(get_summarized_data(self) if summarize else self)
+  File "/home/emanuele.marconato/miniconda3/envs/dis/lib/python3.6/site-packages/torch/_tensor_str.py", line 89, in __init__
+    nonzero_finite_vals = torch.masked_select(tensor_view, torch.isfinite(tensor_view) & tensor_view.ne(0))
+RuntimeError: CUDA error: device-side assert triggered
+

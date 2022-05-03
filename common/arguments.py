@@ -51,7 +51,7 @@ def get_args(sys_args):
 
     # latent encoding
     parser.add_argument('--z_dim', default=16, type=int, help='size of the encoded z space')
-    parser.add_argument('--z_class', default=None, type=int, help='size of the z space for downstream classification')
+    parser.add_argument('--z_class', default=0, type=int, help='size of the z space for downstream classification')
     parser.add_argument('--include_labels', default=None, type=str, nargs='*',
                         help='Labels (indices or names) to include in latent encoding.')
     parser.add_argument('--l_dim', default=0, type=str, help='size of the encoded w space (for each label)')

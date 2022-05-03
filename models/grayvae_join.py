@@ -42,7 +42,7 @@ class GrayVAE_Join(VAE):
         input_channels = image_channels
         decoder_input_channels = self.z_dim
         ## add binary classification layer
-        if args.z_class is not None:
+        if args.z_class != 0:
             self.z_class = args.z_class
         else:
             self.z_class = self.z_dim    
@@ -119,13 +119,15 @@ class GrayVAE_Join(VAE):
         #print(prediction[:10])
 
         
-        loss_fn_args = dict(x_recon=x_recon, x_true=x_true1, mu=mu[label1.size(1):], logvar=logvar[label1.size(1):], z=z)
+        loss_fn_args = dict(x_recon=x_recon, x_true=x_true1, mu=mu, logvar=logvar, z=z)
         loss_dict = self.loss_fn(losses, reduce_rec=False, **loss_fn_args)
         losses.update(loss_dict)
 
         pred_loss = nn.CrossEntropyLoss(reduction='mean')(prediction, y_true1) *self.label_weight  # her efor celebA
         losses.update(prediction=pred_loss)
         losses[c.TOTAL_VAE] += pred_loss
+        
+        print(losses)
 
 #            losses.update({'total_vae': loss_dict['total_vae'].detach(), 'recon': loss_dict['recon'].detach(),
 #                          'kld': loss_dict['kld'].detach()})
@@ -192,10 +194,10 @@ class GrayVAE_Join(VAE):
         latent_errors = []
         epoch = 0
         self.optim_G.param_groups[0]['lr'] = 0
-        lr_log_scale = np.logspace(-7,-4, 20)
+        lr_log_scale = np.logspace(-7,-4, 15)
         while not self.training_complete():
             # added annealing
-            if epoch < 10:
+            if epoch < 15:
                 self.optim_G.param_groups[0]['lr'] = lr_log_scale[epoch] 
             print('lr:',  self.optim_G.param_groups[0]['lr'])
             epoch += 1
@@ -223,9 +225,7 @@ class GrayVAE_Join(VAE):
                     label1 = label1[:, 1:].to(self.device)
                 else:
                     label1 = label1.to(self.device)
-
-                
-                
+ 
                 losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples)
 
                 ## ADD FOR EVALUATION PURPOSES
@@ -276,7 +276,7 @@ class GrayVAE_Join(VAE):
                         self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
                     # validation check
-                    if epoch > 20: 
+                    if epoch > 15: 
                         print('Validation stop evaluation')
                         print(self.iter, self.epoch)
                         print(self.validation_scores)
@@ -331,6 +331,7 @@ class GrayVAE_Join(VAE):
             
             if out_path is not None and self.save_model: # and validation is None:
                 with open( os.path.join(out_path,'train_runs/latents_obtained.npy'), 'wb') as f:
+                    np.save(f, self.epoch)
                     np.save(f, z.detach().cpu().numpy())
                     np.save(f, g.detach().cpu().numpy())
                 del z, g
@@ -353,6 +354,8 @@ class GrayVAE_Join(VAE):
         if validation: loader = self.val_loader
         else: loader = self.test_loader
 
+        y_pred_list = []
+        y_test = []
         for internal_iter, (x_true, label, y_true, _) in enumerate(loader):
             x_true = x_true.to(self.device)
 
@@ -371,6 +374,13 @@ class GrayVAE_Join(VAE):
             mu_processed = torch.tanh(z / 2)
             prediction, forecast = self.predict(latent=mu_processed[:,:self.z_class])
             x_recon = self.model.decode(z=z,)
+            
+            # create the relevant quantities for confusion matrix
+            y_test.append(y_true.detach().cpu().numpy())
+            y_test_pred = prediction
+            _, y_pred_tags = torch.max(y_test_pred, dim = 1)
+            y_pred_list.append(y_pred_tags.cpu().numpy())
+            
 
             z = np.asarray(nn.Sigmoid()(z).detach().cpu())
             g = np.asarray(label.detach().cpu())
@@ -407,7 +417,6 @@ class GrayVAE_Join(VAE):
             BCE+=(nn.CrossEntropyLoss(reduction='mean')(prediction,
                                                         y_true).detach().item())
 
-
             Acc+=(Accuracy_Loss()(forecast,
                                 y_true, dims=self.n_classes).detach().item() )
 
@@ -417,13 +426,17 @@ class GrayVAE_Join(VAE):
                                     spacing=self.traverse_spacing,
                                     data=(x_true, label), test=True)
 
-            #self.iter += 1
-            #self.pbar.update(1)
-        if out_path is not None and self.save_model: # and validation is None:
+        if out_path is not None and self.save_model and not validation:
             with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
+                np.save(f, self.epoch)
                 np.save(f, z_array)
                 np.save(f, g_array)
-        
+            with open(os.path.join(out_path,'eval_results/downstream_obtained.npy'), 'wb') as f:
+                y_test      = np.array([a.squeeze().tolist() for a in y_test])
+                y_pred_list = np.array([a.squeeze().tolist() for a in y_pred_list])
+                np.save(f, self.epoch)
+                np.save(f, y_test)
+                np.save(f, y_pred_list) 
             
         nrm = internal_iter + 1
         return rec/nrm, kld/nrm, latent/nrm, BCE/nrm, Acc/nrm, I/nrm, I_tot/nrm, [err/nrm for err in err_latent]

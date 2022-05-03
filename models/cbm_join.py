@@ -257,20 +257,21 @@ class CBM_Join(VAE):
 
                         # ADD validation step
                         val_latent, val_bce, val_acc, _, _, _ =self.test(validation=True, name=self.dset_name, 
-                                                                out_path=os.path.join(self.out_path, 'eval_results'))
+                                                                out_path=self.out_path)
                         sofar = pd.DataFrame(np.array([epoch, val_latent, val_bce, val_acc]).reshape(1,-1), 
                                             columns=['epoch', 'latent', 'bce', 'acc'] )
                         self.validation_scores = self.validation_scores.append(sofar, ignore_index=True)
                         self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
-                    if epoch > 20: self.validation_stopping()
+                    if epoch > 12: self.validation_stopping()
                     
                 if is_time_for(self.iter, self.test_iter):
 
                     #                    self.dataframe_eval = self.dataframe_eval.append(self.evaluate_results,  ignore_index=True)
                     # test the behaviour on other losses
                     trec, tkld = 0, 0
-                    tlat, tbce, tacc, I, I_tot, err_latent = self.test(end_of_epoch=False, name=self.dset_name)
+                    tlat, tbce, tacc, I, I_tot, err_latent = self.test(end_of_epoch=False, name=self.dset_name,
+                                                                       out_path=self.out_path)
                     factors = pd.DataFrame(
                         {'iter': self.iter, 'rec': trec, 'kld': tkld, 'latent': tlat, 'BCE': tbce, 'Acc': tacc,
                          'I': I_tot}, index=[0])
@@ -309,10 +310,12 @@ class CBM_Join(VAE):
             
             # end of epoch
             if out_path is not None and self.save_model:
-                with open( os.path.join(out_path,'latents_obtained.npy'), 'wb') as f:
+                with open( os.path.join(out_path,'train_runs/latents_obtained.npy'), 'wb') as f:
+                    np.save(f, self.epoch)
                     np.save(f, z.detach().cpu().numpy())
                     np.save(f, g.detach().cpu().numpy())
                 del z, g
+            
 
         self.pbar.close()
 
@@ -332,6 +335,8 @@ class CBM_Join(VAE):
         if validation: loader = self.val_loader
         else: loader = self.test_loader
 
+        y_pred_list = []
+        y_test = []
         for internal_iter, (x_true, label, y_true, _) in enumerate(loader):
             x_true = x_true.to(self.device)
             if self.dset_name == 'dsprites_full':
@@ -346,6 +351,13 @@ class CBM_Join(VAE):
 
             mu_processed = torch.tanh(mu / 2)
             prediction, forecast = self.predict(latent=mu_processed)
+            
+            # create the relevant quantities for confusion matrix
+            y_test.append(y_true.detach().cpu().numpy())
+            y_test_pred = prediction
+            _, y_pred_tags = torch.max(y_test_pred, dim = 1)
+            y_pred_list.append(y_pred_tags.cpu().numpy())
+            
 
             z = np.asarray(nn.Sigmoid()(z).detach().cpu())
             g = np.asarray(label.detach().cpu())
@@ -382,16 +394,19 @@ class CBM_Join(VAE):
             Acc += (Accuracy_Loss()(forecast,
                                     y_true, dims=self.num_classes).detach().item())
 
-        #if name == 'dsprites_full':
-         #   I, I_tot = Interpretability(z_array, g_array,all_labels=[[0,1,2]],  rel_factors=N)
-
-        #if name == 'celebA':
-         #   I, I_tot = Interpretability(z_array, g_array,all_labels=[],  rel_factors=N)
-        
-        if out_path is not None and self.save_model:
-            with open( os.path.join(out_path,'latents_obtained.npy'), 'wb') as f:
+       
+        if out_path is not None and self.save_model and not validation:
+            with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
+                np.save(f, self.epoch)
                 np.save(f, z_array)
                 np.save(f, g_array)
+                
+            with open(os.path.join(out_path,'eval_results/downstream_obtained.npy'), 'wb') as f:
+                    y_test      = np.array([a.squeeze().tolist() for a in y_test])
+                    y_pred_list = np.array([a.squeeze().tolist() for a in y_pred_list])
+                    
+                    np.save(f, y_test)
+                    np.save(f, y_pred_list) 
 
         print('Done testing')
 
