@@ -38,29 +38,27 @@ def main(_args):
         model.load_checkpoint(_args.ckpt_load, load_iternum=_args.ckpt_load_iternum, load_optim=_args.ckpt_load_optim)
 
     # run test or train
-    if _args.out_path is not None:
+    if _args.out_path is None:
         out_path = os.path.join("logs/", f"{dset_name}__{_args.alg}__{nowstr}")
-        if not os.path.exists(os.path.join(out_path, 'train_runs')):
-            os.makedirs(os.path.join(out_path, 'train_runs'))
+    else:
+        out_path = os.path.join("logs/", f"{dset_name}__{_args.alg}/"+_args.out_path)
+    
+    if not os.path.exists(os.path.join(out_path, 'train_runs')):
+        os.makedirs(os.path.join(out_path, 'train_runs'))
 
-        if not os.path.exists(os.path.join(out_path, 'eval_results')):
-            os.makedirs(os.path.join(out_path, 'eval_results'))
-        
-        with open(os.path.join(out_path, 'commandline_args.txt'), 'w') as f:
-            json.dump(_args.__dict__, f, indent=2)
+    if not os.path.exists(os.path.join(out_path, 'eval_results')):
+        os.makedirs(os.path.join(out_path, 'eval_results'))
+    
+    with open(os.path.join(out_path, 'commandline_args.txt'), 'w') as f:
+        json.dump(_args.__dict__, f, indent=2)
 
 
     if not _args.test:
-        if _args.out_path is not None:
-            model.train(output=os.path.join(out_path))
-        else:
-            model.train()
+       model.train(output=os.path.join(out_path))
+       
     else:
-        if _args.out_path is not None:
-            model.test(out_path=out_path)
-        else:
-            model.test()
-
+        model.test(out_path=out_path)
+        
 
     ### REMOVED AIRCROWD ###
 

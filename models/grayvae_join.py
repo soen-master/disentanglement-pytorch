@@ -11,6 +11,7 @@ from common.utils import Accuracy_Loss, Interpretability
 from common import constants as c
 import torch.nn.functional as F
 from common.utils import is_time_for
+import logging
 
 import numpy as np
 import pandas as pd
@@ -95,12 +96,19 @@ class GrayVAE_Join(VAE):
         pred = nn.Softmax(dim=1)(pred_raw)
         return  pred_raw, pred.to(self.device, dtype=torch.float32) #nn.Sigmoid()(self.classification(input_x).resize(len(input_x)))
 
+    def reparametrize_many(self, mu, log_var, how_many=100):
+        
+        zs = []
+        for i in range(how_many):
+            z = reparametrize(mu, log_var)
+            zs.append(z)
+        return zs 
+    
     def vae_classification(self, losses, x_true1, label1, y_true1, examples):
 
         mu, logvar = self.model.encode(x=x_true1,)
 
         z = reparametrize(mu, logvar)
-
         
         mu_processed = torch.tanh(z/2)
         
@@ -127,7 +135,7 @@ class GrayVAE_Join(VAE):
         losses.update(prediction=pred_loss)
         losses[c.TOTAL_VAE] += pred_loss
         
-        print(losses)
+        
 
 #            losses.update({'total_vae': loss_dict['total_vae'].detach(), 'recon': loss_dict['recon'].detach(),
 #                          'kld': loss_dict['kld'].detach()})
@@ -228,13 +236,15 @@ class GrayVAE_Join(VAE):
  
                 losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples)
 
+               
+                
                 ## ADD FOR EVALUATION PURPOSES
                 z[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :] = params['z']
                 g[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :label1.size(1)] = label1
 
                 self.optim_G.zero_grad()
 
-                if (internal_iter%self.show_loss)==0: print("Losses:", losses)
+                if (self.iter%self.show_loss)==0: logging.info("Losses: {losses}")
 
                 if not start_classification:
                     losses[c.TOTAL_VAE].backward(retain_graph=False)
@@ -362,7 +372,7 @@ class GrayVAE_Join(VAE):
             if self.dset_name == 'dsprites_full':
                 label = label[:, 1:].to(self.device)
             else:
-                label = label.to(self.device)
+                label = label.to(self.device, dtype=torch.float)
             
             y_true =  y_true.to(self.device, dtype=torch.long)
 
@@ -370,26 +380,31 @@ class GrayVAE_Join(VAE):
 
             mu, logvar = self.model.encode(x=x_true, )
             z = reparametrize(mu, logvar)
-
+        
             mu_processed = torch.tanh(z / 2)
-            prediction, forecast = self.predict(latent=mu_processed[:,:self.z_class])
-            x_recon = self.model.decode(z=z,)
-            
+            prediction, forecast = self.predict(latent=mu[:,:self.z_class] )
+            x_recon = self.model.decode(z=z,)    
+        
+            zs = self.reparametrize_many(mu, logvar, 100)
+            prediction = torch.zeros(size=prediction.size(), device=self.device)
+            forecast   = torch.zeros(size=forecast.size(), device=self.device)            
+            for z in zs:
+                z_concept = torch.tanh(z / 2).to(self.device)
+                pred, fore = self.predict(latent=z_concept[:,:self.z_class])
+                prediction += pred / len(zs)
+                forecast   += fore / len(zs)
+        
             # create the relevant quantities for confusion matrix
             y_test.append(y_true.detach().cpu().numpy())
             y_test_pred = prediction
             _, y_pred_tags = torch.max(y_test_pred, dim = 1)
             y_pred_list.append(y_pred_tags.cpu().numpy())
             
-
             z = np.asarray(nn.Sigmoid()(z).detach().cpu())
             g = np.asarray(label.detach().cpu())
 
             z_array[self.batch_size*internal_iter:self.batch_size*internal_iter+self.batch_size, :] = z
             g_array[self.batch_size*internal_iter:self.batch_size*internal_iter+self.batch_size, :] = g
-
-#            I_batch , I_TOT = Interpretability(z, g)
- #           I += I_batch; I_tot += I_TOT
 
             rec+=(F.binary_cross_entropy(input=x_recon, target=x_true,reduction='sum').detach().item()/self.batch_size )
             kld+=(self._kld_loss_fn(mu, logvar).detach().item())

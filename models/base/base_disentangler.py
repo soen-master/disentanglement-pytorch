@@ -557,5 +557,8 @@ class BaseDisentangler(object):
                 self.wait_counter = 0
             
         if self.wait_counter > 10:
-            print('Validation stop')
+            print('---Validation stop---')
+            self.val_stop=True
+        if self.wait_counter > 5 and self.masking == 0:
+            print('---Validation stop---')
             self.val_stop=True

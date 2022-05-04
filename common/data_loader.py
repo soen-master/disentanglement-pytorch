@@ -13,7 +13,7 @@ import torch
 import torch.nn as nn
 from PIL import Image
 from torch.utils.data import Dataset, DataLoader
-from torch.utils.data.sampler import SubsetRandomSampler
+from torch.utils.data.sampler import SubsetRandomSampler, WeightedRandomSampler
 from torchvision.datasets import ImageFolder
 from torchvision import transforms
 import matplotlib.pyplot as plt
@@ -188,7 +188,7 @@ class CustomImageFolder(ImageFolder):
 
 
 class CustomNpzDataset(Dataset): ### MODIFIED HERE THE DATABASE TYPE FOR _GET_ITEM
-    def __init__(self, data_images, transform, labels, label_weights, name, class_values, num_channels, seed, examples=None, y_target=None):
+    def __init__(self, data_images, transform, labels, label_weights, name, class_values, num_channels, seed, examples, y_target):
         assert len(examples) == len(y_target), len(examples)+' '+len(y_target)
 
         self.seed = seed
@@ -205,7 +205,7 @@ class CustomNpzDataset(Dataset): ### MODIFIED HERE THE DATABASE TYPE FOR _GET_IT
         self.isGRAY = False
         self.y_data = y_target
         self.examples = examples
-
+        
     @property
     def name(self):
         return self._name
@@ -242,7 +242,7 @@ class CustomNpzDataset(Dataset): ### MODIFIED HERE THE DATABASE TYPE FOR _GET_IT
 
                 return img1, z_values, y, self.examples[index1]
 
-        return img1, label1, 0, 0
+        return img1, label1, 0, 0 # y, self.examples[index1]
 
     def __len__(self):
         return self.data_npz.shape[0]
@@ -351,21 +351,34 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
             tot.append( len(targets[y_mask])/len(targets) )
         print('All classes percentages:', tot)
 
-        #quit()
 
-        if False:
-            all_attrs , all_targets = torch.as_tensor(labels, dtype=torch.float), torch.as_tensor(targets, dtype=torch.float) 
-            validate_model(all_attrs, all_targets)
-
-        data_kwargs = {'data_images': npz['X'],
-                       'labels': labels,
-                       'label_weights': labels,
-                       'class_values': labels,
-                       'num_channels': 3,
-                       'y_target': targets,
-                       }
-        dset = CustomNpzDataset
-    
+        train_data_kwargs = {'data_images': npz['X'][:162770],
+                            'labels': labels[:162770],
+                            'label_weights': labels[:162770],
+                            'class_values': labels[:162770],
+                            'num_channels': 3,
+                            'y_target': targets[:162770],
+                            }
+        val_data_kwargs  = {'data_images': npz['X'][162770:182636],
+                            'labels': labels[162770:182636],
+                            'label_weights': labels[162770:182636],
+                            'class_values': labels[162770:182636],
+                            'num_channels': 3,
+                            'y_target': targets[162770:182636],
+                            }
+        test_data_kwargs  = {'data_images': npz['X'][182636:],
+                            'labels': labels[182636:],
+                            'label_weights': labels[182636:],
+                            'class_values': labels[182636:],
+                            'num_channels': 3,
+                            'y_target': targets[182636:],
+                            }
+        
+        train_dset = CustomNpzDataset
+        val_dset   = CustomNpzDataset
+        test_dset  = CustomNpzDataset
+        
+        
     elif name.lower() == 'mpi3d_toy':
         print('Pre-Processing mpi3d_toy')
         root = os.path.join(dset_dir, 'mpi3d_toy/mpi3d_toy_full.npz')
@@ -384,6 +397,8 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         else:
             NotImplementedError('wrong choice of d_version')
 
+        npz = np.load(root)
+        
         labels = npz['Y']
 
         print('labels', np.shape(labels))
@@ -426,7 +441,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         new_labels = np.hstack((a,b,labels[:,2].reshape(-1,1),c,d))
         labels_one_hot = np.hstack((new_labels,  labels[:,5:]))
         
-        print(np.shape(labels_one_hot))
+        print('Shape of latents for mpi3d:', np.shape(labels_one_hot))
                 
         assert np.max(labels_one_hot) == 1, 'Error on max: '+str(np.max(labels_one_hot))
         assert np.min(labels) == 0, 'Error on min'
@@ -534,64 +549,125 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
     else:
         raise NotImplementedError
 
-    data_kwargs.update({'seed': seed,
-                        'name': name,
-                        'transform': transform})
     ## PUT THE LABELED Z
     random_entries = np.random.uniform(0,1, size=(len(labels), ))
     examples = np.ones(len(labels))
 
     examples[~(random_entries <= (masking_fact/100) )] = 0
+    if name.lower() != 'celeba':
+        data_kwargs.update({'seed': seed,
+                            'name': name,
+                            'transform': transform})
+        
 
-    data_kwargs.update({'examples': examples })
+        data_kwargs.update({'examples': examples })
 
-    dataset = dset(**data_kwargs)
+        dataset = dset(**data_kwargs)
 
-    # Setting the Graybox here
-    dataset.isGRAY = True
+        # Setting the Graybox here
+        dataset.isGRAY = True
 
-    # CREATING DATA LOADER + TEST LOADER
+        # CREATING DATA LOADER + TEST LOADER
 
-    validation_split = .2
+        validation_split = .2
 
-    # Creating data indices for training and validation splits:
-    dataset_size = len(dataset)
-    indices = list(range(dataset_size))
-    np.random.seed(seed)
-    np.random.shuffle(indices)
-    split = int(np.floor(validation_split * dataset_size))
-    train_indices, val_indices = indices[split:], indices[:split]
+        # Creating data indices for training and validation splits:
+        dataset_size = len(dataset)
+        
+        indices = list(range(dataset_size))
+        np.random.seed(seed)
+        np.random.shuffle(indices)
+        split = int(np.floor(validation_split * dataset_size))
+        train_indices, val_indices = indices[split:], indices[:split]
 
-    l = len(val_indices)
-    val_indices, test_indices = val_indices[:int(np.floor(l/2))], val_indices[int(np.floor(l/2)):]
+        l = len(val_indices)
+        val_indices, test_indices = val_indices[:int(np.floor(l/2))], val_indices[int(np.floor(l/2)):]
 
 
-    # Creating PT data samplers and loaders:
-    train_sampler = SubsetRandomSampler(train_indices)
-    val_sampler = SubsetRandomSampler(val_indices)
-    test_sampler = SubsetRandomSampler(test_indices)
+        # Creating PT data samplers and loaders:
+        train_sampler = SubsetRandomSampler(train_indices)
+        val_sampler = SubsetRandomSampler(val_indices)
+        test_sampler = SubsetRandomSampler(test_indices)
 
-    data_loader = DataLoader(dataset,
-                             batch_size=batch_size,
-                             num_workers=num_workers,
-                             pin_memory=pin_memory,
-                             drop_last=droplast,
-                             sampler=train_sampler)
+        data_loader = DataLoader(dataset,
+                                batch_size=batch_size,
+                                num_workers=num_workers,
+                                pin_memory=pin_memory,
+                                drop_last=droplast,
+                                sampler=train_sampler)
 
-    val_loader = DataLoader(dataset,
-                             batch_size=batch_size,
-                             num_workers=num_workers,
-                             pin_memory=pin_memory,
-                             drop_last=droplast,
-                             sampler=val_sampler)
+        val_loader = DataLoader(dataset,
+                                batch_size=batch_size,
+                                num_workers=num_workers,
+                                pin_memory=pin_memory,
+                                drop_last=droplast,
+                                sampler=val_sampler)
 
-    test_loader = DataLoader(dataset,
-                             batch_size=batch_size,
-                             num_workers=num_workers,
-                             pin_memory=pin_memory,
-                             drop_last=droplast,
-                             sampler=test_sampler)
+        test_loader = DataLoader(dataset,
+                                batch_size=batch_size,
+                                num_workers=num_workers,
+                                pin_memory=pin_memory,
+                                drop_last=droplast,
+                                sampler=test_sampler)
+    else:
+        ## CREATE 3 different datasets based on the train/val/test partition
+        train_dset = CustomNpzDataset
+        val_dset   = CustomNpzDataset
+        test_dset  = CustomNpzDataset
+        
+        train_data_kwargs.update({'seed': seed,
+                                'name': name,
+                                'transform': transform,
+                                'examples': examples[:162770]}) 
+        
+        train_dataset = train_dset(**train_data_kwargs)
+        train_dataset.isGRAY =True 
+        
+        val_data_kwargs.update({'seed': seed,
+                                'name': name,
+                                'transform': transform,
+                                'examples': examples[162770:182636]}) 
+        val_dataset = val_dset(**val_data_kwargs)
+        val_dataset.isGRAY =True 
+        
+        test_data_kwargs.update({'seed': seed,
+                                'name': name,
+                                'transform': transform,
+                                'examples': examples[182636:]}) 
+        test_dataset = test_dset(**test_data_kwargs)
+        test_dataset.isGRAY =True 
+        
+        rel_weights = 1. / np.array(tot)
+        weights = rel_weights[targets[:162770]]        
+        
+        #print(weights[:1000])
+        
+        weighted_sampler = WeightedRandomSampler(weights, 
+                                                 len(weights), 
+                                                 replacement=True)
+        
+        data_loader = DataLoader(train_dataset,
+                                batch_size=batch_size,
+                                num_workers=num_workers,
+                                pin_memory=pin_memory,
+                                drop_last=droplast,
+                                sampler=weighted_sampler
+                                )
 
+        val_loader = DataLoader(val_dataset,
+                                batch_size=batch_size,
+                                num_workers=num_workers,
+                                pin_memory=pin_memory,
+                                drop_last=droplast)
+
+        test_loader = DataLoader(test_dataset,
+                                batch_size=batch_size,
+                                num_workers=num_workers,
+                                pin_memory=pin_memory,
+                                drop_last=droplast)
+        
+        #print(len(examples))
+        #print(examples[:100])
 
     if include_labels is not None:
         logging.info('num_classes: {}'.format(dataset.num_classes(False)))

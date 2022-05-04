@@ -128,10 +128,6 @@ class CBM_Join(VAE):
 
         if n_passed > 0: # added the presence of only small labelled generative factors
 
-            ## loss of categorical variables
-
-            ## loss of continuous variables
-
             if self.latent_loss == 'MSE':                
                 loss_bin = nn.MSELoss(reduction='mean')( mu_processed[rn_mask][:, :label1.size(1)], 2*label1[rn_mask]-1  )
                 losses.update(true_values=self.latent_weight * loss_bin)
@@ -327,7 +323,7 @@ class CBM_Join(VAE):
 
         N = 10 ** 4
         l_dim = self.z_dim
-        g_dim = 32
+        g_dim = self.z_dim
 
         z_array = np.zeros(shape=(self.batch_size * len(self.test_loader), l_dim))
         g_array = np.zeros(shape=(self.batch_size * len(self.test_loader), g_dim))
