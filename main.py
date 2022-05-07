@@ -57,7 +57,10 @@ def main(_args):
        model.train(output=os.path.join(out_path))
        
     else:
-        model.test(out_path=out_path)
+        print('Fitted model structure')
+        print(model.model.encoder, model.model.decoder)
+        print(model.classification)
+        model.test(out_path=out_path, name=_args.dset_name)
         
 
     ### REMOVED AIRCROWD ###

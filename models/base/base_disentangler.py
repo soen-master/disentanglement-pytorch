@@ -73,7 +73,7 @@ class BaseDisentangler(object):
 
         self.data_loader, self.val_loader, self.test_loader  = get_dataloader(args.dset_name, args.dset_dir, args.batch_size, args.seed, args.num_workers,
                                                                 args.image_size, args.include_labels, args.pin_memory, not args.test,
-                                                                not args.test, d_version=args.d_version, masking_fact=args.masking_fact) # included dsprite version
+                                                                not args.test, d_version=args.d_version, masking_fact=args.masking_fact, classes=args.n_classes) # included dsprite version
 
         # only used if some supervision was imposed such as in Conditional VAE
         if self.data_loader.dataset.has_labels():
@@ -537,9 +537,19 @@ class BaseDisentangler(object):
         self.w_recon_scheduler = get_scheduler(self.w_recon, w_recon_scheduler, w_recon_scheduler_args)
     
     def validation_stopping(self):
+        tot_loss = 0
+        if self.is_VAE == True:
+            rec = self.validation_scores['rec']
+            kld = self.validation_scores['kld']
+            tot_loss += np.asarray(rec)  + np.asarray(kld)
 
         latent = np.asarray(self.validation_scores['latent'])
         bce =  np.asarray(self.validation_scores['bce'])
+        tot_loss += np.asarray(latent)*self.latent_weight +np.asarray(bce)*self.label_weight
+        
+        # REDUCE LR if PLATEAU
+        if np.abs(tot_loss[-1] - tot_loss[-2])/tot_loss[-2] < 0.001:
+            self.optim_G.param_groups[0]['lr'] /= 1.11
         
         if  bce[-1] > bce[-2] or latent[-1] > latent[-2]:
             self.wait_counter += 1

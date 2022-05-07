@@ -581,3 +581,126 @@ class net(torch.nn.Module):
     def predict(self, x):
         pred = torch.nn.Softmax()(self.forward(x))
         return torch.argmax(pred, dim=1)
+    
+from sklearn.preprocessing import OneHotEncoder
+from sklearn.linear_model  import LinearRegression, LogisticRegression
+
+def DCI_FRAMEWORK(z_array, g_array, linear_regression=[0],all_labels=[[0,1,2,3,5],], rel_factors=10 ** 4, dis_return=False):
+    '''
+    Compute the DCI scores of the latent factors given the generative ones.
+    It can be done on a restricted number of entries. It performs a transformation from one-hot-encoding to multiclass
+    passing all_labels
+    '''
+
+    # We transform first three dimensions into one categorical
+    # pass a list of lists
+    
+    # check this is consistent for CelebA
+    g_all = []
+    z_all = []
+    for i in range(len(g_array)):
+        if np.sum(g_array[i, [0,1,2,3,5]] ) == 1:
+            g_all.append(g_array[i])
+            z_all.append(z_array[i])
+    g = np.asarray(g_all)
+    z = np.asarray(z_all)    
+    
+    dec_z, dec_g = [], []
+
+    l = len(all_labels)
+
+    for labels in all_labels:
+
+        enc = OneHotEncoder()
+        range_labels = [[i] for i in range(len(labels))]
+        encoder = enc.fit(range_labels)
+
+        dec_z.append(encoder.inverse_transform(z[:,labels]))
+        dec_g.append(encoder.inverse_transform(g[:,labels]))
+        
+    all_labels = sum(all_labels, [])
+    
+    if  l==0:
+        pass
+
+    elif l==1: 
+        z = np.delete(z, all_labels, 1) 
+        g = np.delete(g, all_labels, 1)
+
+        dec_z = np.array(dec_z).reshape(-1,1)
+        dec_g = np.array(dec_g).reshape(-1,1)
+
+        z = np.concatenate((dec_z , z ), axis=1 )
+        g = np.concatenate((dec_g , g ), axis=1 )
+
+    else:
+        z = np.delete(z, all_labels, 1) 
+        g = np.delete(z, all_labels, 1)
+
+        dec_z = np.array(dec_z).T
+        dec_g = np.array(dec_g).T
+
+        z = np.concatenate((dec_z, z ), axis=1 )
+        g = np.concatenate((dec_g, g ), axis=1 )
+
+    ### let's see
+
+    D = len(z[0])
+    K = len(g[0])
+
+    coeff = np.zeros(shape=(D,K))
+    MSE = 0
+    score = 0
+    for i in range(K):
+        if i in linear_regression:
+            model = LinearRegression(fit_intercept=False)
+        else:
+            model = LogisticRegression(max_iter=1000, fit_intercept=False)
+            
+        model.fit(z[:rel_factors], g[:rel_factors, i], )
+        score += model.score(z,g[:,i]) / K
+        coeff[:,i] = model.coef_
+        mse = np.mean( (model.predict(z[rel_factors:]) - g[rel_factors:,i])**2 )
+        MSE += mse / K
+    
+    print('# Interpret score -> total accuracy of regressor model:', score )
+    
+    R = np.abs(coeff) + 10**-7
+    
+    ## DISENTANGLEMENT ##
+    
+    R_z = np.sum(R, axis=1)
+    P = np.zeros(np.shape(R))
+    for i in range(D):
+        P[i,:j] = R[i, :] / (R_z[i])
+    H_K = np.zeros(D)
+    for k in range(K):
+        H_K -=  (P[:,k] * np.log(P[:,k]))
+
+    DIS = 1 - H_K / np.log(K)
+
+    rho = np.sum(R, axis=1) / np.sum(R)
+    DIS_tot = np.sum(rho * DIS)
+
+    # COMPLETENESS #
+    R_g = np.sum(R, axis=0)
+    
+    P = np.zeros(np.shape(R))
+    for j in range(K):
+        P[:, j] = R[:, j] / (R_g[j])
+
+    H_D = np.zeros(K)
+    for d in range(D):
+        H_D -=  (P[d, :] * np.log(P[d, :]))
+
+    I = 1 - H_D / np.log(D)
+
+    rho = np.sum(R, axis=0) / np.sum(R)
+    I_tot = np.sum(rho * I)
+    
+    C = I
+    C_tot = I_tot
+    E = 1 - 6* MSE
+    
+    return C, C_tot, DIS, DIS_tot, E
+    

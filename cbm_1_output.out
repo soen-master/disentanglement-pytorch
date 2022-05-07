@@ -5,7 +5,7 @@ All classes percentages: [0.170032, 0.139444, 0.139152, 0.15104, 0.101508, 0.079
 Shape of latents for mpi3d: (250000, 21)
 Initialized CBM_Join model
 ## Initializing Train indexes
-::path chosen -> logs/mpi3d_toy__CBM_Join/1-latents/train_runs
+::path chosen -> logs/mpi3d_toy__CBM_Join/full/1-latents/train_runs
 Losses: {'total_vae': tensor(2.3017, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.3017, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Losses: {'total_vae': tensor(5.8054, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.3016, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(3.5038, device='cuda:0', grad_fn=<MulBackward0>)}
 Losses: {'total_vae': tensor(5.7748, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.3019, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(3.4729, device='cuda:0', grad_fn=<MulBackward0>)}
@@ -26,159 +26,159 @@ Losses: {'total_vae': tensor(2.2931, device='cuda:0', grad_fn=<AddBackward0>), '
 Losses: {'total_vae': tensor(5.5636, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2855, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(3.2781, device='cuda:0', grad_fn=<MulBackward0>)}
 Losses: {'total_vae': tensor(2.2856, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2856, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 [3:7999]  loss_total_vae=2.273  loss_total=0.000  loss_prediction=2.273  loss_true_values=-1.000  loss_total_vae_epoch=4.451  
-Losses: {'total_vae': tensor(5.4437, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2496, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(3.1942, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(5.4438, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2496, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(3.1942, device='cuda:0', grad_fn=<MulBackward0>)}
 Done testing
 Done testing
 Saved test_metrics
 Losses: {'total_vae': tensor(2.2635, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2635, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(5.2504, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2675, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.9829, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(5.0841, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.3085, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7755, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(5.2558, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2671, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.9887, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(5.0859, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.3084, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7774, device='cuda:0', grad_fn=<MulBackward0>)}
 [4:9999]  loss_total_vae=2.243  loss_total=0.000  loss_prediction=2.243  loss_true_values=-1.000  loss_total_vae_epoch=4.074  
-Losses: {'total_vae': tensor(5.1622, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2880, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.8741, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(5.0072, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2503, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7569, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.2074, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2074, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(4.8941, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2678, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6263, device='cuda:0', grad_fn=<MulBackward0>)}
-[5:11999]  loss_total_vae=5.014  loss_total=0.000  loss_prediction=2.272  loss_true_values=2.741  loss_total_vae_epoch=3.986  
+Losses: {'total_vae': tensor(5.1651, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2879, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.8773, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(5.0086, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2501, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7585, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.2072, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2072, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(4.8929, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2678, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6251, device='cuda:0', grad_fn=<MulBackward0>)}
+[5:11999]  loss_total_vae=5.011  loss_total=0.000  loss_prediction=2.272  loss_true_values=2.739  loss_total_vae_epoch=3.985  
 Losses: {'total_vae': tensor(2.2270, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2270, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(5.0046, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2908, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7138, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.2254, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2254, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(5.0377, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2487, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7890, device='cuda:0', grad_fn=<MulBackward0>)}
-[6:13999]  loss_total_vae=4.910  loss_total=0.000  loss_prediction=2.249  loss_true_values=2.661  loss_total_vae_epoch=3.994  
-Losses: {'total_vae': tensor(4.9482, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.3300, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6183, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(4.8584, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2231, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6353, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(4.6020, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.1543, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.4477, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(4.4264, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.1004, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.3260, device='cuda:0', grad_fn=<MulBackward0>)}
-[7:15999]  loss_total_vae=2.058  loss_total=0.000  loss_prediction=2.058  loss_true_values=-1.000  loss_total_vae_epoch=3.776  
-Losses: {'total_vae': tensor(4.6322, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.9620, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6702, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(3.9995, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8964, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.1030, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(5.0062, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2906, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7155, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.2252, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2252, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(5.0391, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2484, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7907, device='cuda:0', grad_fn=<MulBackward0>)}
+[6:13999]  loss_total_vae=4.911  loss_total=0.000  loss_prediction=2.249  loss_true_values=2.662  loss_total_vae_epoch=3.994  
+Losses: {'total_vae': tensor(4.9462, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.3297, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6165, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(4.8330, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2195, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6134, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(4.5821, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.1311, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.4510, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(4.3189, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.0811, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.2378, device='cuda:0', grad_fn=<MulBackward0>)}
+[7:15999]  loss_total_vae=2.052  loss_total=0.000  loss_prediction=2.052  loss_true_values=-1.000  loss_total_vae_epoch=3.755  
+Losses: {'total_vae': tensor(4.5900, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.9547, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6353, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(3.9680, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8839, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.0841, device='cuda:0', grad_fn=<MulBackward0>)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(4.5852, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.9177, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.6675, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.7897, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7897, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[8:17999]  loss_total_vae=4.089  loss_total=0.000  loss_prediction=1.841  loss_true_values=2.248  loss_total_vae_epoch=3.402  
-Losses: {'total_vae': tensor(1.8522, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8522, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.7599, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7599, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(4.2166, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8323, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.3843, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(3.6602, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6237, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.0365, device='cuda:0', grad_fn=<MulBackward0>)}
-[9:19999]  loss_total_vae=1.638  loss_total=0.000  loss_prediction=1.638  loss_true_values=-1.000  loss_total_vae_epoch=3.097  
-Losses: {'total_vae': tensor(1.6801, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6801, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(3.4799, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5844, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.8956, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(3.2894, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5022, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.7872, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(3.4509, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6052, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.8456, device='cuda:0', grad_fn=<MulBackward0>)}
-[10:21999]  loss_total_vae=3.277  loss_total=0.000  loss_prediction=1.375  loss_true_values=1.902  loss_total_vae_epoch=2.840  
-Losses: {'total_vae': tensor(3.2798, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5666, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.7132, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(3.2145, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4940, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.7206, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(3.1189, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5717, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5471, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.4138, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4138, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[11:23999]  loss_total_vae=3.190  loss_total=0.000  loss_prediction=1.497  loss_true_values=1.693  loss_total_vae_epoch=2.651  
-Losses: {'total_vae': tensor(3.0110, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4356, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5754, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(3.0392, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4753, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5638, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(4.6592, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.9034, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.7558, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.7832, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7832, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[8:17999]  loss_total_vae=4.082  loss_total=0.000  loss_prediction=1.832  loss_true_values=2.250  loss_total_vae_epoch=3.390  
+Losses: {'total_vae': tensor(1.8464, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8464, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.7509, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7509, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(4.1796, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8281, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.3515, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(3.6629, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6190, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.0439, device='cuda:0', grad_fn=<MulBackward0>)}
+[9:19999]  loss_total_vae=1.627  loss_total=0.000  loss_prediction=1.627  loss_true_values=-1.000  loss_total_vae_epoch=3.092  
+Losses: {'total_vae': tensor(1.6683, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6683, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(3.4893, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5824, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.9069, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(3.2997, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4981, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.8016, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(3.4083, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6005, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.8078, device='cuda:0', grad_fn=<MulBackward0>)}
+[10:21999]  loss_total_vae=3.262  loss_total=0.000  loss_prediction=1.377  loss_true_values=1.885  loss_total_vae_epoch=2.843  
+Losses: {'total_vae': tensor(3.2354, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5686, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6668, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(3.2394, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5004, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.7390, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(3.1605, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5763, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5841, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.4167, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4167, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[11:23999]  loss_total_vae=3.256  loss_total=0.000  loss_prediction=1.497  loss_true_values=1.759  loss_total_vae_epoch=2.667  
+Losses: {'total_vae': tensor(3.0318, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4396, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5922, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(3.1001, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4834, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6167, device='cuda:0', grad_fn=<MulBackward0>)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(2.5437, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4036, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.1401, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.8403, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1876, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6527, device='cuda:0', grad_fn=<MulBackward0>)}
-[12:25999]  loss_total_vae=1.249  loss_total=0.000  loss_prediction=1.249  loss_true_values=-1.000  loss_total_vae_epoch=2.499  
-Losses: {'total_vae': tensor(1.3936, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3936, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(3.2410, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2278, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.0132, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(3.0816, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2579, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.8237, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.4546, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0820, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.3726, device='cuda:0', grad_fn=<MulBackward0>)}
-[13:27999]  loss_total_vae=2.830  loss_total=0.000  loss_prediction=1.296  loss_true_values=1.534  loss_total_vae_epoch=2.372  
-Losses: {'total_vae': tensor(2.6696, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2608, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4088, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.3353, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3353, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(3.0205, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3530, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6675, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.3013, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3013, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[14:29999]  loss_total_vae=3.047  loss_total=0.000  loss_prediction=1.277  loss_true_values=1.769  loss_total_vae_epoch=2.253  
-Losses: {'total_vae': tensor(2.8942, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2521, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6421, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.2586, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2586, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.9308, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4087, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5220, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.9835, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1777, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.8058, device='cuda:0', grad_fn=<MulBackward0>)}
-[15:31999]  loss_total_vae=2.325  loss_total=0.000  loss_prediction=1.069  loss_true_values=1.257  loss_total_vae_epoch=2.133  
-Losses: {'total_vae': tensor(2.6052, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2289, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.3763, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.1772, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1772, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.5965, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2642, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.3322, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.6071, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4176, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.1895, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.9175, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2106, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.7069, device='cuda:0', grad_fn=<MulBackward0>)}
+[12:25999]  loss_total_vae=1.253  loss_total=0.000  loss_prediction=1.253  loss_true_values=-1.000  loss_total_vae_epoch=2.535  
+Losses: {'total_vae': tensor(1.4192, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4192, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(3.3177, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2557, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.0619, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(3.0907, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2674, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.8233, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.5914, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1009, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4905, device='cuda:0', grad_fn=<MulBackward0>)}
+[13:27999]  loss_total_vae=2.929  loss_total=0.000  loss_prediction=1.327  loss_true_values=1.602  loss_total_vae_epoch=2.431  
+Losses: {'total_vae': tensor(2.7210, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2920, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4290, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.3641, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3641, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(3.0508, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4010, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6498, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.3484, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3484, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[14:29999]  loss_total_vae=3.037  loss_total=0.000  loss_prediction=1.302  loss_true_values=1.735  loss_total_vae_epoch=2.325  
+Losses: {'total_vae': tensor(2.8588, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2773, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5814, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.3198, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3198, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(3.0476, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4541, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5935, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.1652, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2315, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.9337, device='cuda:0', grad_fn=<MulBackward0>)}
+[15:31999]  loss_total_vae=2.116  loss_total=0.000  loss_prediction=1.117  loss_true_values=1.000  loss_total_vae_epoch=2.200  
+Losses: {'total_vae': tensor(2.7837, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2656, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5181, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.2387, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2387, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.5697, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2831, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.2867, device='cuda:0', grad_fn=<MulBackward0>)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.1487, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1487, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[16:33999]  loss_total_vae=2.795  loss_total=0.000  loss_prediction=1.343  loss_true_values=1.452  loss_total_vae_epoch=2.081  
-Losses: {'total_vae': tensor(1.1040, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1040, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.2326, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2326, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(3.1674, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2612, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.9062, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.9128, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2079, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.7049, device='cuda:0', grad_fn=<MulBackward0>)}
-[17:35999]  loss_total_vae=1.624  loss_total=0.000  loss_prediction=1.099  loss_true_values=0.525  loss_total_vae_epoch=2.045  
-Losses: {'total_vae': tensor(2.0636, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1646, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.8991, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.1330, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0232, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.1098, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.7960, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1550, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6410, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.5615, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2057, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.3558, device='cuda:0', grad_fn=<MulBackward0>)}
-[18:37999]  loss_total_vae=2.126  loss_total=0.000  loss_prediction=1.082  loss_true_values=1.044  loss_total_vae_epoch=2.000  
-Losses: {'total_vae': tensor(1.1452, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1452, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.0868, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0868, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.6365, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2872, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.3493, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.7310, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1465, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5846, device='cuda:0', grad_fn=<MulBackward0>)}
-[19:39999]  loss_total_vae=2.609  loss_total=0.000  loss_prediction=1.200  loss_true_values=1.409  loss_total_vae_epoch=1.944  
-Losses: {'total_vae': tensor(1.0238, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0238, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.6410, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1784, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4626, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.2331, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2331, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.1741, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1741, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[16:33999]  loss_total_vae=2.907  loss_total=0.000  loss_prediction=1.411  loss_true_values=1.495  loss_total_vae_epoch=2.141  
+Losses: {'total_vae': tensor(1.1359, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1359, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.2584, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2584, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(3.1276, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2850, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.8426, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.9320, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2416, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6904, device='cuda:0', grad_fn=<MulBackward0>)}
+[17:35999]  loss_total_vae=1.555  loss_total=0.000  loss_prediction=1.126  loss_true_values=0.429  loss_total_vae_epoch=2.100  
+Losses: {'total_vae': tensor(1.9918, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1816, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.8101, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.2093, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0694, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.1399, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.8684, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2072, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6612, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.6661, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2459, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4201, device='cuda:0', grad_fn=<MulBackward0>)}
+[18:37999]  loss_total_vae=2.497  loss_total=0.000  loss_prediction=1.105  loss_true_values=1.392  loss_total_vae_epoch=2.048  
+Losses: {'total_vae': tensor(1.1892, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1892, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.1304, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1304, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.6468, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3197, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.3271, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.7743, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1685, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6058, device='cuda:0', grad_fn=<MulBackward0>)}
+[19:39999]  loss_total_vae=2.705  loss_total=0.000  loss_prediction=1.236  loss_true_values=1.469  loss_total_vae_epoch=1.989  
+Losses: {'total_vae': tensor(1.0577, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0577, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.6324, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2014, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4309, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.2700, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2700, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.1031, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1031, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[20:41999]  loss_total_vae=1.153  loss_total=0.000  loss_prediction=1.153  loss_true_values=-1.000  loss_total_vae_epoch=1.923  
-Losses: {'total_vae': tensor(2.7284, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1071, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6213, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.1386, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1234, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.0152, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.7144, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2044, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5099, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.7159, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1522, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5636, device='cuda:0', grad_fn=<MulBackward0>)}
-[21:43999]  loss_total_vae=2.529  loss_total=0.000  loss_prediction=1.032  loss_true_values=1.497  loss_total_vae_epoch=1.871  
-Losses: {'total_vae': tensor(2.5874, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2004, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.3870, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.2284, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2284, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.4928, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0098, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4830, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.5815, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0116, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5700, device='cuda:0', grad_fn=<MulBackward0>)}
-[22:45999]  loss_total_vae=1.367  loss_total=0.000  loss_prediction=1.016  loss_true_values=0.351  loss_total_vae_epoch=1.846  
-Losses: {'total_vae': tensor(1.1542, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1542, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.3010, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3010, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.2217, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0773, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.1443, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.0725, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0725, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[23:47999]  loss_total_vae=2.057  loss_total=0.000  loss_prediction=1.146  loss_true_values=0.911  loss_total_vae_epoch=1.825  
-Losses: {'total_vae': tensor(1.0800, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0800, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.1419, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1419, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.2611, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2611, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.6445, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1678, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4767, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.1604, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1604, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[20:41999]  loss_total_vae=1.187  loss_total=0.000  loss_prediction=1.187  loss_true_values=-1.000  loss_total_vae_epoch=1.961  
+Losses: {'total_vae': tensor(2.7861, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1147, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6714, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.2049, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1863, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.0186, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.7137, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2310, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4827, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.7136, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1654, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5482, device='cuda:0', grad_fn=<MulBackward0>)}
+[21:43999]  loss_total_vae=2.459  loss_total=0.000  loss_prediction=1.063  loss_true_values=1.396  loss_total_vae_epoch=1.906  
+Losses: {'total_vae': tensor(2.6803, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2070, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4732, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.2622, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2622, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.4531, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9999, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4532, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.5416, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0428, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4987, device='cuda:0', grad_fn=<MulBackward0>)}
+[22:45999]  loss_total_vae=1.562  loss_total=0.000  loss_prediction=1.032  loss_true_values=0.531  loss_total_vae_epoch=1.880  
+Losses: {'total_vae': tensor(1.1978, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1978, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.3243, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3243, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.2173, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1149, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.1024, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.0621, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0621, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[23:47999]  loss_total_vae=2.217  loss_total=0.000  loss_prediction=1.156  loss_true_values=1.062  loss_total_vae_epoch=1.857  
+Losses: {'total_vae': tensor(1.1086, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1086, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.1877, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1877, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.2730, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2730, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.6364, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2100, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4263, device='cuda:0', grad_fn=<MulBackward0>)}
 Done testing
 Done testing
 Saved test_metrics
-[24:49999]  loss_total_vae=2.506  loss_total=0.000  loss_prediction=1.037  loss_true_values=1.469  loss_total_vae_epoch=1.793  
-Losses: {'total_vae': tensor(2.1013, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9955, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.1057, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.0258, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0258, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.1483, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9859, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.1624, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.1579, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1579, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[25:51999]  loss_total_vae=1.573  loss_total=0.000  loss_prediction=1.059  loss_true_values=0.514  loss_total_vae_epoch=1.796  
-Losses: {'total_vae': tensor(1.1229, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1229, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.9563, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1675, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.7888, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.0358, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0358, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.1644, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1644, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[26:53999]  loss_total_vae=2.033  loss_total=0.000  loss_prediction=1.082  loss_true_values=0.951  loss_total_vae_epoch=1.782  
-Losses: {'total_vae': tensor(2.0550, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0603, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.9947, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.7983, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1064, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6919, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.0133, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0133, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.8637, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0330, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.8308, device='cuda:0', grad_fn=<MulBackward0>)}
-[27:55999]  loss_total_vae=2.637  loss_total=0.000  loss_prediction=1.089  loss_true_values=1.548  loss_total_vae_epoch=1.767  
-Losses: {'total_vae': tensor(2.5949, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0464, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5485, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.3469, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9750, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.3719, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.1393, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1393, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.1123, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1123, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[28:57999]  loss_total_vae=2.252  loss_total=0.000  loss_prediction=0.982  loss_true_values=1.270  loss_total_vae_epoch=1.741  
-Losses: {'total_vae': tensor(1.5973, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0950, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.5024, device='cuda:0', grad_fn=<MulBackward0>)}
+[24:49999]  loss_total_vae=2.580  loss_total=0.000  loss_prediction=1.060  loss_true_values=1.520  loss_total_vae_epoch=1.823  
+Losses: {'total_vae': tensor(2.1758, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0593, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.1165, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.0603, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0603, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.2281, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0079, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.2202, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.1958, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1958, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[25:51999]  loss_total_vae=1.659  loss_total=0.000  loss_prediction=1.097  loss_true_values=0.562  loss_total_vae_epoch=1.824  
+Losses: {'total_vae': tensor(1.1631, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1631, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.9697, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1794, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.7903, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.0482, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0482, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.1941, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1941, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[26:53999]  loss_total_vae=1.964  loss_total=0.000  loss_prediction=1.090  loss_true_values=0.874  loss_total_vae_epoch=1.808  
+Losses: {'total_vae': tensor(2.1789, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0799, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.0990, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.7077, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1062, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.6015, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.0548, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0548, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.7596, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0367, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.7229, device='cuda:0', grad_fn=<MulBackward0>)}
+[27:55999]  loss_total_vae=2.496  loss_total=0.000  loss_prediction=1.105  loss_true_values=1.391  loss_total_vae_epoch=1.790  
+Losses: {'total_vae': tensor(2.6462, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0854, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5609, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.3998, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9711, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4287, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.1664, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1664, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.1382, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1382, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[28:57999]  loss_total_vae=2.216  loss_total=0.000  loss_prediction=1.026  loss_true_values=1.190  loss_total_vae_epoch=1.762  
+Losses: {'total_vae': tensor(1.6027, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0957, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.5070, device='cuda:0', grad_fn=<MulBackward0>)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(2.5570, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9652, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5919, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(1.8868, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9981, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.8887, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.0343, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9443, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.0899, device='cuda:0', grad_fn=<MulBackward0>)}
-[29:59999]  loss_total_vae=2.303  loss_total=0.000  loss_prediction=0.968  loss_true_values=1.335  loss_total_vae_epoch=1.732  
-Losses: {'total_vae': tensor(1.1100, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1100, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.9074, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0311, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.8763, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.2803, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0451, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.2352, device='cuda:0', grad_fn=<MulBackward0>)}
-Losses: {'total_vae': tensor(2.5765, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0596, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.5169, device='cuda:0', grad_fn=<MulBackward0>)}
-[30:61999]  loss_total_vae=1.532  loss_total=0.000  loss_prediction=0.964  loss_true_values=0.568  loss_total_vae_epoch=1.707  
+Losses: {'total_vae': tensor(2.6697, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9591, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.7106, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.9095, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9860, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.9235, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(1.9846, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9605, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.0241, device='cuda:0', grad_fn=<MulBackward0>)}
+[29:59999]  loss_total_vae=2.331  loss_total=0.000  loss_prediction=0.994  loss_true_values=1.338  loss_total_vae_epoch=1.753  
+Losses: {'total_vae': tensor(1.1444, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1444, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.9933, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0628, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(0.9305, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.1834, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0854, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.0980, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(2.5389, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0856, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(1.4533, device='cuda:0', grad_fn=<MulBackward0>)}
+[30:61999]  loss_total_vae=1.503  loss_total=0.000  loss_prediction=0.989  loss_true_values=0.515  loss_total_vae_epoch=1.726  

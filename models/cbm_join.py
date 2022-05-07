@@ -78,7 +78,8 @@ class CBM_Join(VAE):
         self.show_loss = args.show_loss
 
         self.wait_counter = 0
-        self.save_model = True        
+        self.save_model = True      
+        self.is_VAE = False  
         
 
         self.dataframe_dis = pd.DataFrame() #columns=self.evaluation_metric)
@@ -334,6 +335,7 @@ class CBM_Join(VAE):
         y_pred_list = []
         y_test = []
         for internal_iter, (x_true, label, y_true, _) in enumerate(loader):
+            
             x_true = x_true.to(self.device)
             if self.dset_name == 'dsprites_full':
                     label = label[:, 1:].to(self.device)
@@ -357,9 +359,9 @@ class CBM_Join(VAE):
 
             z = np.asarray(nn.Sigmoid()(z).detach().cpu())
             g = np.asarray(label.detach().cpu())
-
-            z_array[self.batch_size * internal_iter:self.batch_size * internal_iter + self.batch_size, :] = z
-            g_array[self.batch_size * internal_iter:self.batch_size * internal_iter + self.batch_size, :] = g
+            bs = len(label)
+            z_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :] = z
+            g_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :] = g
 
             #            I_batch , I_TOT = Interpretability(z, g)
             #           I += I_batch; I_tot += I_TOT

@@ -82,6 +82,7 @@ class GrayVAE_Join(VAE):
         self.show_loss = args.show_loss
         self.wait_counter = 0
         self.save_model = True
+        self.is_VAE = True
 
         self.dataframe_dis = pd.DataFrame() #columns=self.evaluation_metric)
         self.dataframe_eval = pd.DataFrame()
@@ -201,11 +202,13 @@ class GrayVAE_Join(VAE):
         Iterations, Epochs, Reconstructions, KLDs, True_Values, Accuracies, F1_scores = [], [], [], [], [], [], []  ## JUST HERE FOR NOW
         latent_errors = []
         epoch = 0
-        self.optim_G.param_groups[0]['lr'] = 0
-        lr_log_scale = np.logspace(-7,-4, 15)
+        max_lr = np.log10(self.optim_G.param_groups[0]['lr']) 
+        lr_log_scale = np.logspace(-7, max_lr, 5)
+        
+        
         while not self.training_complete():
             # added annealing
-            if epoch < 15:
+            if epoch < 5:
                 self.optim_G.param_groups[0]['lr'] = lr_log_scale[epoch] 
             print('lr:',  self.optim_G.param_groups[0]['lr'])
             epoch += 1
@@ -218,8 +221,8 @@ class GrayVAE_Join(VAE):
             else: start_classification = False
             
             # to evaluate performances on disentanglement
-            z = torch.zeros(self.batch_size*len(self.data_loader), self.z_dim, device=self.device)
-            g = torch.zeros(self.batch_size*len(self.data_loader), self.z_dim, device=self.device)
+            z = torch.zeros(len(self.data_loader.dataset), self.z_dim, device=self.device)
+            g = torch.zeros(len(self.data_loader.dataset), self.z_dim, device=self.device)
             
             for internal_iter, (x_true1, label1, y_true1, examples) in enumerate(self.data_loader):
 
@@ -244,7 +247,7 @@ class GrayVAE_Join(VAE):
 
                 self.optim_G.zero_grad()
 
-                if (self.iter%self.show_loss)==0: logging.info("Losses: {losses}")
+                if (self.iter%self.show_loss)==0: print(f"Losses: {losses}")
 
                 if not start_classification:
                     losses[c.TOTAL_VAE].backward(retain_graph=False)
@@ -286,7 +289,7 @@ class GrayVAE_Join(VAE):
                         self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
                     # validation check
-                    if epoch > 15: 
+                    if epoch > 10: 
                         print('Validation stop evaluation')
                         print(self.iter, self.epoch)
                         print(self.validation_scores)
@@ -358,11 +361,12 @@ class GrayVAE_Join(VAE):
         l_dim = self.z_dim
         g_dim = self.z_dim
 
-        z_array = np.zeros( shape=(self.batch_size*len(self.test_loader), l_dim))
-        g_array = np.zeros( shape=(self.batch_size*len(self.test_loader), g_dim))
 
         if validation: loader = self.val_loader
         else: loader = self.test_loader
+        
+        z_array = np.zeros( shape=(len(loader.dataset), l_dim))
+        g_array = np.zeros( shape=(len(loader.dataset), g_dim))
 
         y_pred_list = []
         y_test = []
@@ -388,8 +392,8 @@ class GrayVAE_Join(VAE):
             zs = self.reparametrize_many(mu, logvar, 100)
             prediction = torch.zeros(size=prediction.size(), device=self.device)
             forecast   = torch.zeros(size=forecast.size(), device=self.device)            
-            for z in zs:
-                z_concept = torch.tanh(z / 2).to(self.device)
+            for z_prov in zs:
+                z_concept = torch.tanh(z_prov / 2).to(self.device)
                 pred, fore = self.predict(latent=z_concept[:,:self.z_class])
                 prediction += pred / len(zs)
                 forecast   += fore / len(zs)
@@ -402,9 +406,10 @@ class GrayVAE_Join(VAE):
             
             z = np.asarray(nn.Sigmoid()(z).detach().cpu())
             g = np.asarray(label.detach().cpu())
-
-            z_array[self.batch_size*internal_iter:self.batch_size*internal_iter+self.batch_size, :] = z
-            g_array[self.batch_size*internal_iter:self.batch_size*internal_iter+self.batch_size, :] = g
+            
+            bs = len(z)
+            z_array[self.batch_size*internal_iter:self.batch_size*internal_iter+bs, :] = z
+            g_array[self.batch_size*internal_iter:self.batch_size*internal_iter+bs, :] = g
 
             rec+=(F.binary_cross_entropy(input=x_recon, target=x_true,reduction='sum').detach().item()/self.batch_size )
             kld+=(self._kld_loss_fn(mu, logvar).detach().item())
@@ -443,9 +448,11 @@ class GrayVAE_Join(VAE):
 
         if out_path is not None and self.save_model and not validation:
             with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
+                print(np.shape(z_array[:20000]))
+                print(np.shape(g_array[:20000]))
                 np.save(f, self.epoch)
-                np.save(f, z_array)
-                np.save(f, g_array)
+                np.save(f, z_array[:20000])
+                np.save(f, g_array[:20000])
             with open(os.path.join(out_path,'eval_results/downstream_obtained.npy'), 'wb') as f:
                 y_test      = np.array([a.squeeze().tolist() for a in y_test])
                 y_pred_list = np.array([a.squeeze().tolist() for a in y_pred_list])

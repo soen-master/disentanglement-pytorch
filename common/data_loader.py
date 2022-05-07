@@ -189,7 +189,7 @@ class CustomImageFolder(ImageFolder):
 
 class CustomNpzDataset(Dataset): ### MODIFIED HERE THE DATABASE TYPE FOR _GET_ITEM
     def __init__(self, data_images, transform, labels, label_weights, name, class_values, num_channels, seed, examples, y_target):
-        assert len(examples) == len(y_target), len(examples)+' '+len(y_target)
+        assert len(examples) == len(y_target), str(len(examples))+' '+str(len(y_target))
 
         self.seed = seed
         self.data_npz = data_images
@@ -297,7 +297,7 @@ class DisentanglementLibDataset(Dataset):
 
 
 def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, image_size, include_labels, pin_memory,
-                                shuffle, droplast, masking_fact=100, d_version="full", noise_class=0):
+                                shuffle, droplast, masking_fact=100, d_version="full", n_classes=10, noise_class=0):
     transform = transforms.Compose([
         transforms.Resize((image_size, image_size)),
         transforms.ToTensor(), ])
@@ -320,7 +320,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
 
     if name.lower() == 'celeba':
         print('Pre-Processing CelebA')
-        root = os.path.join(dset_dir, 'celebA/celebA64-full.npz')
+        root = os.path.join(dset_dir, 'celebA/celebA64-full-10.npz')
 
 #        labels_file = os.path.join(root, 'list_attr_celeba.csv')
 
@@ -336,49 +336,47 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         print('labels', np.shape(labels))
         
         # LOAD CLASSIFICATION
-        km_files = os.path.join(dset_dir, 'celebA/new_km.pickle')
+        if n_classes == 4: km_files = os.path.join(dset_dir, 'celebA/try_km.pickle')
+        else: km_files = os.path.join(dset_dir, 'celebA/new_km.pickle')
         with open(km_files, 'rb') as f:
             km = pickle.load(f)
-
 
         targets = km.predict(labels)
         targets = np.asarray(targets, dtype=int)
         
         ## CHECK PERCS OF CLASSES
         tot = []
-        for i in range(10):
+        for i in range(n_classes):
             y_mask = (targets==i)
             tot.append( len(targets[y_mask])/len(targets) )
         print('All classes percentages:', tot)
 
-
-        train_data_kwargs = {'data_images': npz['X'][:162770],
-                            'labels': labels[:162770],
-                            'label_weights': labels[:162770],
-                            'class_values': labels[:162770],
+        train_data_kwargs = {'data_images': npz['X'][:102635],
+                            'labels': labels[:102635],
+                            'label_weights': labels[:102635],
+                            'class_values': labels[:102635],
                             'num_channels': 3,
-                            'y_target': targets[:162770],
+                            'y_target': targets[:102635],
                             }
-        val_data_kwargs  = {'data_images': npz['X'][162770:182636],
-                            'labels': labels[162770:182636],
-                            'label_weights': labels[162770:182636],
-                            'class_values': labels[162770:182636],
+        val_data_kwargs  = {'data_images': npz['X'][102635:115013],
+                            'labels': labels[102635:115013],
+                            'label_weights': labels[102635:115013],
+                            'class_values': labels[102635:115013],
                             'num_channels': 3,
-                            'y_target': targets[162770:182636],
+                            'y_target': targets[102635:115013],
                             }
-        test_data_kwargs  = {'data_images': npz['X'][182636:],
-                            'labels': labels[182636:],
-                            'label_weights': labels[182636:],
-                            'class_values': labels[182636:],
+        test_data_kwargs  = {'data_images': npz['X'][115013:],
+                            'labels': labels[115013:],
+                            'label_weights': labels[115013:],
+                            'class_values': labels[115013:],
                             'num_channels': 3,
-                            'y_target': targets[182636:],
+                            'y_target': targets[115013:],
                             }
         
         train_dset = CustomNpzDataset
         val_dset   = CustomNpzDataset
         test_dset  = CustomNpzDataset
-        
-        
+              
     elif name.lower() == 'mpi3d_toy':
         print('Pre-Processing mpi3d_toy')
         root = os.path.join(dset_dir, 'mpi3d_toy/mpi3d_toy_full.npz')
@@ -414,7 +412,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         
         ## CHECK PERCS OF CLASSES
         tot = []
-        for i in range(10):
+        for i in range(n_classes):
             y_mask = (targets==i)
             tot.append( len(targets[y_mask])/len(targets) )
         print('All classes percentages:', tot)
@@ -583,7 +581,8 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         l = len(val_indices)
         val_indices, test_indices = val_indices[:int(np.floor(l/2))], val_indices[int(np.floor(l/2)):]
 
-
+        print('Dataset dimensions')
+        print(len(train_indices), len(val_indices), len(test_indices) )
         # Creating PT data samplers and loaders:
         train_sampler = SubsetRandomSampler(train_indices)
         val_sampler = SubsetRandomSampler(val_indices)
@@ -618,7 +617,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         train_data_kwargs.update({'seed': seed,
                                 'name': name,
                                 'transform': transform,
-                                'examples': examples[:162770]}) 
+                                'examples': examples[:102635]}) 
         
         train_dataset = train_dset(**train_data_kwargs)
         train_dataset.isGRAY =True 
@@ -626,19 +625,19 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         val_data_kwargs.update({'seed': seed,
                                 'name': name,
                                 'transform': transform,
-                                'examples': examples[162770:182636]}) 
+                                'examples': examples[102635:115013]}) 
         val_dataset = val_dset(**val_data_kwargs)
         val_dataset.isGRAY =True 
         
         test_data_kwargs.update({'seed': seed,
                                 'name': name,
                                 'transform': transform,
-                                'examples': examples[182636:]}) 
+                                'examples': examples[115013:]}) 
         test_dataset = test_dset(**test_data_kwargs)
         test_dataset.isGRAY =True 
         
         rel_weights = 1. / np.array(tot)
-        weights = rel_weights[targets[:162770]]        
+        weights = rel_weights[targets[:102635]]        
         
         #print(weights[:1000])
         
@@ -703,7 +702,7 @@ def _get_dataloader(name, batch_size, seed, num_workers, pin_memory, shuffle, dr
 
 
 def get_dataloader(dset_name, dset_dir, batch_size, seed, num_workers, image_size, include_labels, pin_memory,
-                   shuffle, droplast, d_version="full", masking_fact=100):
+                   shuffle, droplast, d_version="full", masking_fact=100,classes=10):
     locally_supported_datasets = c.DATASETS
     dset_name = get_dataset_name(dset_name)
     dsets_dir = get_datasets_dir(dset_dir)
@@ -713,7 +712,8 @@ def get_dataloader(dset_name, dset_dir, batch_size, seed, num_workers, image_siz
 
     if dset_name in locally_supported_datasets:
         return _get_dataloader_with_labels(dset_name, dsets_dir, batch_size, seed, num_workers, image_size,
-                                           include_labels, pin_memory, shuffle, droplast, d_version=d_version, masking_fact=masking_fact, noise_class=0)
+                                           include_labels, pin_memory, shuffle, droplast, d_version=d_version, masking_fact=masking_fact, 
+                                           n_classes=classes)
     else:
         # use the dataloader of Google's disentanglement_lib
         return _get_dataloader(dset_name, batch_size, seed, num_workers, pin_memory, shuffle, droplast)

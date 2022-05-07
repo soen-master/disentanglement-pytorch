@@ -21,7 +21,7 @@ def betatcvae_loss_fn(w_tc, **kwargs):
 def total_correlation(z, z_mean, z_logvar):
     """Estimate of total correlation on a batch.
     Borrowed from https://github.com/google-research/disentanglement_lib/
-    Args:
+    Args:w_t
       z: [batch_size, num_latents]-tensor with sampled representation.
       z_mean: [batch_size, num_latents]-tensor with mean of the encoder.
       z_logvar: [batch_size, num_latents]-tensor with log variance of the encoder.
