@@ -16,7 +16,9 @@
 (INFO)[base_disentangler.py:84]  Number of samples: 737280
 (INFO)[base_disentangler.py:85]  Number of batches per epoch: 9216
 (INFO)[base_disentangler.py:86]  Number of channels: 1
-0it [00:00, ?it/s]0it [00:01, ?it/s](INFO)[base_disentangler.py:463]  Model Loaded: /data/emarcona/dsprites/debug_join_unsup/slurm_script/last @ iter:0, lr:0.000400
+
+0it [00:00, ?it/s]
+0it [00:01, ?it/s](INFO)[base_disentangler.py:463]  Model Loaded: /data/emarcona/dsprites/debug_join_unsup/slurm_script/last @ iter:0, lr:0.000400
 /bin/sh: 1: convert: not found
 /bin/sh: 1: convert: not found
 /bin/sh: 1: convert: not found

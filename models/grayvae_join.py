@@ -337,8 +337,8 @@ class GrayVAE_Join(VAE):
             if out_path is not None and self.save_model: # and validation is None:
                 with open( os.path.join(out_path,'train_runs/latents_obtained.npy'), 'wb') as f:
                     np.save(f, self.epoch)
-                    np.save(f, z.detach().cpu().numpy())
-                    np.save(f, g.detach().cpu().numpy())
+                    np.save(f, z.detach().cpu().numpy()[:10000] )
+                    np.save(f, g.detach().cpu().numpy()[:10000])
                 del z, g
                 
         self.pbar.close()
