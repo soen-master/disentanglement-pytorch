@@ -8,9 +8,9 @@
 (INFO)[base_disentangler.py:87]  Number of samples: 1036800
 (INFO)[base_disentangler.py:88]  Number of batches per epoch: 8295
 (INFO)[base_disentangler.py:89]  Number of channels: 3
-0it [00:00, ?it/s]0it [00:02, ?it/s](INFO)[base_disentangler.py:466]  Model Loaded: checkpoints/full_mpi3d/betaVAE_join_sup_100/last @ iter:0, lr:0.000019
-/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py:455: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+0it [00:00, ?it/s]0it [00:01, ?it/s](INFO)[base_disentangler.py:466]  Model Loaded: checkpoints/full_mpi3d/betaVAE_beta05/last @ iter:0, lr:0.000276
+/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py:457: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
   y_test      = np.array([a.squeeze().tolist() for a in y_test])
-/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py:456: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
+/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py:458: VisibleDeprecationWarning: Creating an ndarray from ragged nested sequences (which is a list-or-tuple of lists-or-tuples-or ndarrays with different lengths or shapes) is deprecated. If you meant to do this, you must specify 'dtype=object' when creating the ndarray
   y_pred_list = np.array([a.squeeze().tolist() for a in y_pred_list])
 

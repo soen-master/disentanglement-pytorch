@@ -149,7 +149,7 @@ class VAE(BaseDisentangler):
 
         if c.INFOVAE in self.loss_terms:
             from models.infovae import infovae_loss_fn
-            output_losses['vae_mmd'] = 10*infovae_loss_fn(self.w_infovae, self.z_dim, self.device, **kwargs)
+            output_losses['vae_mmd'] = infovae_loss_fn(self.w_infovae, self.z_dim, self.device, **kwargs)
             output_losses[c.TOTAL_VAE] += output_losses['vae_mmd']
 
         if c.SENN in self.loss_terms:
