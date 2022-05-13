@@ -6,415 +6,1694 @@ Initialized GrayVAE_Join model
 ## Initializing Train indexes
 ->path chosen:: logs/celebA__GrayVAE_Join/only_10_latents/betaVAE/1-latents
 lr: 1e-07
-[0:1025]  loss_total_vae=10012.381  loss_recon=8521.402  loss_kld=99.161  loss_prediction=1391.818  loss_true_values=-1.000  loss_total_vae_epoch=13972.213  
+Pre-Processing CelebA
+labels (127817, 10)
+All classes percentages: [0.24165017172989509, 0.2910723925612399, 0.21396214900991262, 0.2533152866989524]
+Initialized GrayVAE_Join model
+## Initializing Train indexes
+->path chosen:: logs/celebA__GrayVAE_Join/only_10_latents/betaVAE/0-latents
+lr: 1e-07
+Losses: {'total_vae': tensor(9936.7266, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8522.5625, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(25.1992, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1388.9648, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(9841.1816, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8516.1914, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(26.0246, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1298.9662, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(9660.0293, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8522.9600, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(27.9908, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1109.0786, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[0:1025]  loss_total_vae=9757.558  loss_recon=8521.396  loss_kld=26.777  loss_prediction=1209.385  loss_true_values=-1.000  loss_total_vae_epoch=9846.349  
 Saved model at epoch 1
-lr: 1.6378937069540646e-07
+lr: 2.1544346900318822e-07
+Losses: {'total_vae': tensor(9668.3887, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8512.6777, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(30.4352, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1125.2750, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
-[1:2051]  loss_total_vae=16598.332  loss_recon=8511.245  loss_kld=100.247  loss_prediction=1379.843  loss_true_values=6606.997  loss_total_vae_epoch=13715.875  
+Losses: {'total_vae': tensor(16837.2637, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8522.5625, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(25.1992, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1388.9648, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(6900.5371, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(15216.3691, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8516.1924, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(25.5123, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1402.9050, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(5271.7588, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(9906.1357, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8522.9688, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(25.7002, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1357.4672, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[0:1025]  loss_total_vae=9938.129  loss_recon=8521.400  loss_kld=25.024  loss_prediction=1391.704  loss_true_values=-1.000  loss_total_vae_epoch=13896.600  
+Saved model at epoch 1
+lr: 2.1544346900318822e-07
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(9640.9150, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8510.4971, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(31.7484, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1098.6697, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[1:2051]  loss_total_vae=9548.995  loss_recon=8509.724  loss_kld=32.204  loss_prediction=1007.067  loss_true_values=-1.000  loss_total_vae_epoch=9659.514  
 Saved model at epoch 2
-lr: 2.6826957952797275e-07
-[2:3077]  loss_total_vae=9955.259  loss_recon=8515.485  loss_kld=94.753  loss_prediction=1345.019  loss_true_values=-1.000  loss_total_vae_epoch=13371.049  
+lr: 4.641588833612782e-07
+Losses: {'total_vae': tensor(9918.4111, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8512.7178, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(26.0802, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1379.6134, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Losses: {'total_vae': tensor(9532.5547, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8513.5615, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(35.0647, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(983.9282, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(9391.5010, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8501.9287, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(40.5493, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(849.0228, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[2:3077]  loss_total_vae=9458.340  loss_recon=8496.551  loss_kld=38.962  loss_prediction=922.827  loss_true_values=-1.000  loss_total_vae_epoch=9487.019  
 Saved model at epoch 3
-lr: 4.393970560760786e-07
+lr: 1e-06
 tracking changes
-[3:4103]  loss_total_vae=14651.987  loss_recon=8476.001  loss_kld=93.543  loss_prediction=1272.963  loss_true_values=4809.480  loss_total_vae_epoch=13106.390  
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(9928.2607, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8510.6240, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(24.7639, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1392.8730, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[1:2051]  loss_total_vae=16358.592  loss_recon=8509.863  loss_kld=25.653  loss_prediction=1373.960  loss_true_values=6449.115  loss_total_vae_epoch=13610.252  
+Saved model at epoch 2
+lr: 4.641588833612782e-07
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(9273.4297, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8391.1826, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(43.9024, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(838.3444, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(8984.8145, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8283.9102, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(46.9147, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(653.9890, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[3:4103]  loss_total_vae=9042.436  loss_recon=8319.116  loss_kld=49.613  loss_prediction=673.707  loss_true_values=-1.000  loss_total_vae_epoch=9219.617  
 Saved model at epoch 4
-lr: 7.196856730011514e-07
+lr: 2.1544346900318822e-06
+Losses: {'total_vae': tensor(8776.6650, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8059.9937, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(60.1586, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(656.5123, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
-[4:5129]  loss_total_vae=13407.846  loss_recon=8368.413  loss_kld=91.556  loss_prediction=1306.603  loss_true_values=3641.273  loss_total_vae_epoch=12566.881  
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(8402., device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7772.1016, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(67.8182, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(562.0797, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[4:5129]  loss_total_vae=8706.686  loss_recon=7964.847  loss_kld=66.147  loss_prediction=675.691  loss_true_values=-1.000  loss_total_vae_epoch=8775.508  
 Saved model at epoch 5
-lr: 1.1787686347935866e-06
-[5:6155]  loss_total_vae=12138.074  loss_recon=8271.356  loss_kld=98.519  loss_prediction=1159.993  loss_true_values=2608.207  loss_total_vae_epoch=11986.281  
+lr: 4.641588833612773e-06
+Losses: {'total_vae': tensor(14293.2910, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8514.1318, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(24.4796, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1360.6305, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(4394.0493, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(9874.7676, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8505.4463, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(24.9681, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1344.3531, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[2:3077]  loss_total_vae=9851.162  loss_recon=8500.409  loss_kld=24.787  loss_prediction=1325.965  loss_true_values=-1.000  loss_total_vae_epoch=13147.382  
+Saved model at epoch 3
+lr: 1e-06
+tracking changes
+Losses: {'total_vae': tensor(8395.9160, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7847.7974, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(75.1939, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(472.9245, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(7804.2427, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7285.2822, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(83.2278, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(435.7330, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[5:6155]  loss_total_vae=7881.092  loss_recon=7352.565  loss_kld=88.992  loss_prediction=439.536  loss_true_values=-1.000  loss_total_vae_epoch=8229.464  
 Saved model at epoch 6
-lr: 1.9306977288832498e-06
+lr: 1e-05
+Losses: {'total_vae': tensor(7620.9736, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7060.1738, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(92.2474, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(468.5522, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
-[6:7181]  loss_total_vae=13013.531  loss_recon=7993.662  loss_kld=113.409  loss_prediction=1078.816  loss_true_values=3827.644  loss_total_vae_epoch=11219.446  
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(14369.3574, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8401.6475, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(25.4520, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1320.9172, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(4621.3408, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(9624.1836, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8329.0020, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(24.5008, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1270.6804, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[3:4103]  loss_total_vae=13692.856  loss_recon=8372.789  loss_kld=25.614  loss_prediction=1209.863  loss_true_values=4084.591  loss_total_vae_epoch=12581.201  
+Saved model at epoch 4
+lr: 2.1544346900318822e-06
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(7417.0498, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6892.2212, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(102.6216, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(422.2068, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[6:7181]  loss_total_vae=7413.483  loss_recon=6869.309  loss_kld=102.735  loss_prediction=441.439  loss_true_values=-1.000  loss_total_vae_epoch=7596.950  
 Saved model at epoch 7
-lr: 3.162277660168379e-06
+lr: 2.1544346900318823e-05
+Losses: {'total_vae': tensor(7169.4258, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6711.0547, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(101.7086, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(356.6626, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(7321.7026, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6816.9448, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(103.3934, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(401.3643, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
-[7:8207]  loss_total_vae=10065.506  loss_recon=7874.767  loss_kld=137.213  loss_prediction=930.619  loss_true_values=1122.907  loss_total_vae_epoch=10364.987  
+Losses: {'total_vae': tensor(12698.7793, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(8266.8828, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(27.2835, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1173.8303, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(3230.7827, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+(12804, 64)
+(12804, 10)
+[7:8207]  loss_total_vae=7274.773  loss_recon=6860.499  loss_kld=107.224  loss_prediction=307.051  loss_true_values=-1.000  loss_total_vae_epoch=7317.292  
 Saved model at epoch 8
-lr: 5.179474679231212e-06
-[8:9233]  loss_total_vae=8784.008  loss_recon=7286.993  loss_kld=185.686  loss_prediction=811.580  loss_true_values=499.749  loss_total_vae_epoch=9498.078  
+lr: 4.641588833612772e-05
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(11812.7119, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7938.1074, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(29.6506, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1054.9904, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2789.9639, device='cuda:0', grad_fn=<MulBackward0>)}
+[4:5129]  loss_total_vae=11651.290  loss_recon=8067.252  loss_kld=29.014  loss_prediction=1180.565  loss_true_values=2374.458  loss_total_vae_epoch=11609.769  
+Saved model at epoch 5
+lr: 4.641588833612773e-06
+Losses: {'total_vae': tensor(7179.1860, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6758.8579, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(105.7090, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(314.6189, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(7219.3193, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6747.1099, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(102.3278, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(369.8816, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[8:9233]  loss_total_vae=6966.162  loss_recon=6570.879  loss_kld=105.650  loss_prediction=289.632  loss_true_values=-1.000  loss_total_vae_epoch=7144.846  
 Saved model at epoch 9
-lr: 8.483428982440726e-06
-tracking changes
-[9:10259]  loss_total_vae=9070.129  loss_recon=7175.920  loss_kld=236.075  loss_prediction=813.620  loss_true_values=844.514  loss_total_vae_epoch=8769.844  
-Saved model at epoch 10
-lr: 1.3894954943731361e-05
-[10:11285]  loss_total_vae=8152.256  loss_recon=7046.003  loss_kld=269.582  loss_prediction=636.089  loss_true_values=200.582  loss_total_vae_epoch=8393.646  
-Saved model at epoch 11
-lr: 2.275845926074791e-05
-tracking changes
-[11:12311]  loss_total_vae=7890.818  loss_recon=6973.591  loss_kld=297.719  loss_prediction=577.641  loss_true_values=41.866  loss_total_vae_epoch=8115.958  
-Saved model at epoch 12
-lr: 3.727593720314938e-05
-tracking changes
-[12:13337]  loss_total_vae=7717.297  loss_recon=6837.481  loss_kld=332.479  loss_prediction=460.897  loss_true_values=86.440  loss_total_vae_epoch=8092.369  
-Saved model at epoch 13
-lr: 6.105402296585326e-05
-[13:14363]  loss_total_vae=7821.769  loss_recon=6876.980  loss_kld=343.665  loss_prediction=601.124  loss_true_values=-1.000  loss_total_vae_epoch=8160.992  
-Saved model at epoch 14
 lr: 0.0001
+Losses: {'total_vae': tensor(7285.2036, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6867.3491, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(94.4146, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(323.4399, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
-[14:15389]  loss_total_vae=7785.082  loss_recon=6897.415  loss_kld=331.496  loss_prediction=442.421  loss_true_values=113.750  loss_total_vae_epoch=8159.096  
-Saved model at epoch 15
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6881.3135, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6520.3306, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(91.9328, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(269.0504, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[9:10259]  loss_total_vae=6965.468  loss_recon=6644.482  loss_kld=91.881  loss_prediction=229.105  loss_true_values=-1.000  loss_total_vae_epoch=7038.389  
+Saved model at epoch 10
 lr: 9e-05
+Losses: {'total_vae': tensor(9023.8223, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7978.3809, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(34.3449, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1011.0966, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(8479.1133, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7511.4912, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(39.1120, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(928.5099, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[5:6155]  loss_total_vae=9587.896  loss_recon=7592.650  loss_kld=43.579  loss_prediction=923.814  loss_true_values=1027.851  loss_total_vae_epoch=10322.873  
+Saved model at epoch 6
+lr: 1e-05
+Losses: {'total_vae': tensor(6753.8027, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6427.9297, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(92.9749, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(232.8978, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6813.0801, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6523.2646, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(88.8085, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(201.0070, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[10:11285]  loss_total_vae=6812.621  loss_recon=6594.696  loss_kld=88.793  loss_prediction=129.132  loss_true_values=-1.000  loss_total_vae_epoch=6885.089  
+Saved model at epoch 11
+lr: 8.1e-05
+Losses: {'total_vae': tensor(12956.0742, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7275.3936, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(53.5426, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(942.0270, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(4685.1118, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+tracking changes
+Validation stop evaluation
+11388 11
+   epoch          rec         kld    latent       bce       acc
+0    2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1    4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2    5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3    7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4    8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5   10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6   12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6750.1157, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6504.3740, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(88.0858, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(157.6557, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6814.4170, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6515.1460, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(87.0072, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(212.2637, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[11:12311]  loss_total_vae=6912.953  loss_recon=6597.083  loss_kld=86.757  loss_prediction=229.113  loss_true_values=-1.000  loss_total_vae_epoch=6793.111  
+Saved model at epoch 12
+lr: 7.290000000000001e-05
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(8007.4175, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7093.5737, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(66.5899, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(847.2540, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[6:7181]  loss_total_vae=9033.846  loss_recon=7062.703  loss_kld=70.095  loss_prediction=783.982  loss_true_values=1117.066  loss_total_vae_epoch=9038.024  
+Saved model at epoch 7
+lr: 2.1544346900318823e-05
+Losses: {'total_vae': tensor(6806.8750, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6585.8174, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(88.2743, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(132.7834, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6771.7295, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6511.8711, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(86.5971, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(173.2611, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+13015 12
+   epoch          rec         kld    latent       bce       acc
+0    2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1    4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2    5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3    7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4    8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5   10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6   12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7   13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+Now val counter at: 1
+Latent 0.9475122433367783   1.0309100616268996
+BCE 0.42100687906509493 0.4303334037947461
+(12804, 64)
+(12804, 10)
+[12:13337]  loss_total_vae=6631.693  loss_recon=6478.478  loss_kld=87.096  loss_prediction=66.120  loss_true_values=-1.000  loss_total_vae_epoch=6705.283  
+Saved model at epoch 13
+lr: 6.561000000000002e-05
+Losses: {'total_vae': tensor(8258.9541, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6933.5024, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(82.9650, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(696.5112, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(545.9760, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(8114.7930, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6992.7988, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(95.6179, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(642.8559, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(383.5203, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+Losses: {'total_vae': tensor(6535.3311, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6370.7075, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(87.2163, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(77.4073, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6629.8379, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6473.2334, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(85.0216, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(71.5832, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[13:14363]  loss_total_vae=6693.011  loss_recon=6537.289  loss_kld=83.853  loss_prediction=71.869  loss_true_values=-1.000  loss_total_vae_epoch=6640.072  
+Saved model at epoch 14
+lr: 5.904900000000002e-05
+(12804, 64)
+(12804, 10)
+[7:8207]  loss_total_vae=8062.667  loss_recon=7061.986  loss_kld=104.597  loss_prediction=573.115  loss_true_values=322.969  loss_total_vae_epoch=8357.030  
+Saved model at epoch 8
+lr: 4.641588833612772e-05
+Losses: {'total_vae': tensor(6546.9551, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6433.1831, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(83.9465, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(29.8253, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+14642 14
+   epoch          rec         kld    latent       bce       acc
+0    2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1    4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2    5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3    7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4    8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5   10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6   12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7   13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8   15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+Now val counter at: 1
+Latent 0.9247423861084915   0.9999636620040832
+BCE 0.43452520595818034 0.39893727913135435
+Losses: {'total_vae': tensor(6502.3193, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6370.4126, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(85.7213, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(46.1857, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 5.314410000000002e-05
+Losses: {'total_vae': tensor(7665.5469, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6957.8125, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(105.6267, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(602.1077, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(7781.8252, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6938.0225, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(118.5767, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(612.5962, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(112.6298, device='cuda:0', grad_fn=<MulBackward0>)}
+[8:9233]  loss_total_vae=7541.195  loss_recon=6762.459  loss_kld=126.479  loss_prediction=448.768  loss_true_values=203.489  loss_total_vae_epoch=8031.566  
+Saved model at epoch 9
+lr: 0.0001
+Losses: {'total_vae': tensor(6558.7163, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6443.5103, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(84.9040, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(30.3020, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6692.5781, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6583.4946, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(82.7394, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(26.3441, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 16269 15
    epoch          rec         kld    latent       bce       acc
-0    2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1    4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2    5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3    7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4    8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5   10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6   12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7   13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8   15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9   16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-[15:16415]  loss_total_vae=7380.879  loss_recon=6617.732  loss_kld=305.152  loss_prediction=352.501  loss_true_values=105.495  loss_total_vae_epoch=7665.402  
-Saved model at epoch 16
-lr: 8.1e-05
-[16:17441]  loss_total_vae=8059.178  loss_recon=6710.055  loss_kld=301.190  loss_prediction=276.047  loss_true_values=771.886  loss_total_vae_epoch=7482.513  
-Saved model at epoch 17
-lr: 7.290000000000001e-05
+0    2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1    4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2    5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3    7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4    8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5   10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6   12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7   13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8   15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9   16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+Now val counter at: 2
+Latent 0.9043455434039356   0.9718113800051413
+BCE 0.45784605336867695 0.40365251765503146
+lr: 4.782969000000002e-05
+Losses: {'total_vae': tensor(7710.1904, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(7010.0659, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(134.1496, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(565.9750, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Losses: {'total_vae': tensor(6704.2036, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6606.8872, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(83.0735, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(14.2426, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6587.3433, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6477.6899, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(82.4610, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(27.1924, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 4.304672100000002e-05
+Losses: {'total_vae': tensor(6407.2720, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6316.0659, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(80.7320, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(10.4741, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 17896 17
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-Now val counter at: 1
-Latent 0.22708498123215465   0.28033570012425985
-BCE 0.38601197399259585 0.5521842983518512
-[17:18467]  loss_total_vae=7159.127  loss_recon=6571.547  loss_kld=291.120  loss_prediction=296.460  loss_true_values=-1.000  loss_total_vae_epoch=7336.812  
-Saved model at epoch 18
-lr: 6.561000000000002e-05
-[18:19493]  loss_total_vae=7083.125  loss_recon=6566.115  loss_kld=285.986  loss_prediction=231.024  loss_true_values=-1.000  loss_total_vae_epoch=7414.107  
-Saved model at epoch 19
-lr: 5.904900000000002e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+Now val counter at: 3
+Latent 0.9087052679643398   0.9452351968139814
+BCE 0.4804669874228113 0.4152735541991102
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(7477.2397, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6697.9175, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(130.9398, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(528.2368, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(120.1454, device='cuda:0', grad_fn=<MulBackward0>)}
+[9:10259]  loss_total_vae=12351.542  loss_recon=6807.056  loss_kld=139.792  loss_prediction=486.395  loss_true_values=4918.300  loss_total_vae_epoch=8257.939  
+Saved model at epoch 10
+lr: 9e-05
+Losses: {'total_vae': tensor(6449.9248, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6334.5659, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(81.0118, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(34.3470, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 3.874204890000002e-05
+Losses: {'total_vae': tensor(6581.0205, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6489.0034, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(79.7942, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(12.2227, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6588.5952, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6494.9150, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(79.0329, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(14.6474, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 3.4867844010000016e-05
+Losses: {'total_vae': tensor(6464.6523, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6364.0122, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(79.4021, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(21.2380, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 19523 19
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-Now val counter at: 1
-Latent 0.23819202741956322   0.26340514146861665
-BCE 0.41741016870591696 0.46959930282782736
-[19:20519]  loss_total_vae=7356.031  loss_recon=6638.599  loss_kld=268.748  loss_prediction=161.033  loss_true_values=287.652  loss_total_vae_epoch=7193.502  
-Saved model at epoch 20
-lr: 5.314410000000002e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+Latent 0.8900096959214869   0.9255333909497351
+BCE 0.47019396286185194 0.4377927127973174
+Losses: {'total_vae': tensor(7163.0220, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6582.7280, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(140.9017, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(439.3919, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(7182.3516, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6712.4722, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(141.2551, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(328.6246, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[10:11285]  loss_total_vae=7290.108  loss_recon=6744.095  loss_kld=138.821  loss_prediction=365.672  loss_true_values=41.520  loss_total_vae_epoch=7745.813  
+Saved model at epoch 11
+lr: 8.1e-05
+tracking changes
+Validation stop evaluation
+11388 11
+   epoch          rec         kld    latent       bce       acc
+0    2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1    4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2    5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3    7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4    8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5   10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6   12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+Losses: {'total_vae': tensor(6514.4663, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6422.1812, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(78.4531, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(13.8319, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6376.4395, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6284.9243, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(78.5133, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(13.0021, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 3.138105960900002e-05
+Losses: {'total_vae': tensor(6380.0684, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6297.0518, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(77.0974, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(5.9195, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 21150 20
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-Now val counter at: 1
-Latent 0.24807629825138464   0.24711050448540428
-BCE 0.39604908046199055 0.4276420357750683
-lr: 4.782969000000002e-05
-lr: 4.304672100000002e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+Latent 0.8801567670775623   0.9125977324922556
+BCE 0.46929872035980225 0.45761274891655623
+Losses: {'total_vae': tensor(6452.1904, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6359.6284, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(75.3635, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(17.1980, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 2.8242953648100018e-05
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(7127.4282, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6681.5024, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(135.0865, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(293.0154, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(17.8242, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(7754.0015, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6659.8511, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(141.4748, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(482.9971, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(469.6786, device='cuda:0', grad_fn=<MulBackward0>)}
+[11:12311]  loss_total_vae=7248.107  loss_recon=6721.990  loss_kld=137.623  loss_prediction=382.325  loss_true_values=6.170  loss_total_vae_epoch=7384.258  
+Saved model at epoch 12
+lr: 7.290000000000001e-05
+Losses: {'total_vae': tensor(6374.5747, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6288.2388, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(76.4663, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(9.8698, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6475.7344, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6395.9878, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(75.0433, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.7032, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 2.5418658283290016e-05
 tracking changes
 Validation stop evaluation
 22777 22
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-Now val counter at: 2
-Latent 0.2892562101284663   0.2286319517023195
-BCE 0.4155631857674296 0.39720023970616863
-lr: 3.874204890000002e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+Now val counter at: 4
+Latent 0.8703329180314289   0.9010201690965873
+BCE 0.4840622819293805 0.4695023345511134
+Losses: {'total_vae': tensor(7294.3774, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6700.7036, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(140.2187, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(362.2478, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(91.2078, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(7151.3486, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6608.9229, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(139.1778, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(290.0265, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(113.2217, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+Validation stop evaluation
+13015 12
+   epoch          rec         kld    latent       bce       acc
+0    2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1    4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2    5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3    7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4    8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5   10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6   12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7   13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+Losses: {'total_vae': tensor(6318.1899, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6236.5435, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(76.3851, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(5.2610, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6468.4648, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6387.4819, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(74.7986, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(6.1842, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 2.2876792454961016e-05
+(12804, 64)
+(12804, 10)
+[12:13337]  loss_total_vae=7047.162  loss_recon=6589.326  loss_kld=138.003  loss_prediction=269.110  loss_true_values=50.723  loss_total_vae_epoch=7221.244  
+Saved model at epoch 13
+lr: 6.561000000000002e-05
+Losses: {'total_vae': tensor(6615.4336, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6536.0288, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(74.3774, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(5.0273, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 24404 23
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-Now val counter at: 3
-Latent 0.34638720968874487   0.2377844356343675
-BCE 0.43744797774446686 0.3998237410535011
-lr: 3.4867844010000016e-05
-lr: 3.138105960900002e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+Now val counter at: 5
+Latent 0.8763100500029277   0.8929572436544629
+BCE 0.49248867645496275 0.47331989021482185
+Losses: {'total_vae': tensor(6435.4214, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6354.3604, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(77.0141, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.0467, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 2.0589113209464913e-05
+Losses: {'total_vae': tensor(7139.5859, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6484.1650, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(135.2537, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(371.9815, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(148.1856, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(7209.3394, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6586.2598, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(135.6992, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(282.5282, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(204.8522, device='cuda:0', grad_fn=<MulBackward0>)}
+[13:14363]  loss_total_vae=7258.234  loss_recon=6685.415  loss_kld=135.259  loss_prediction=437.560  loss_true_values=-1.000  loss_total_vae_epoch=7153.299  
+Saved model at epoch 14
+lr: 5.904900000000002e-05
+Losses: {'total_vae': tensor(6573.1353, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6493.0972, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(75.7662, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.2721, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6444.7261, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6366.5586, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(73.8057, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.3619, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.8530201888518422e-05
+Losses: {'total_vae': tensor(6398.5308, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6320.3682, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(73.2660, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.8966, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Losses: {'total_vae': tensor(7093.4038, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6526.5830, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(136.9278, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(250.2399, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(179.6531, device='cuda:0', grad_fn=<MulBackward0>)}
 tracking changes
 Validation stop evaluation
 26031 25
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-15   26.0  6525.184649  201.818885  0.409430  0.451269  0.905269
-Now val counter at: 4
-Latent 0.4094303790631333   0.25850817859980474
-BCE 0.4512687519313843 0.40967414497844573
-lr: 2.8242953648100018e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+Latent 0.863467924963168   0.8801664603434927
+BCE 0.48586277179117127 0.4745183217170115
+Validation stop evaluation
+14642 14
+   epoch          rec         kld    latent       bce       acc
+0    2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1    4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2    5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3    7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4    8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5   10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6   12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7   13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8   15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+Now val counter at: 1
+Latent 0.22690400360076407   0.27066418722393065
+BCE 0.37170557859467296 0.5229162825801508
+Losses: {'total_vae': tensor(6602.4448, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6523.8672, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(75.1880, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.3896, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.667718169966658e-05
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6880.0869, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6465.8315, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(135.0149, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(262.2907, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(16.9495, device='cuda:0', grad_fn=<MulBackward0>)}
+[14:15389]  loss_total_vae=7189.336  loss_recon=6693.019  loss_kld=136.745  loss_prediction=319.454  loss_true_values=40.118  loss_total_vae_epoch=7074.646  
+Saved model at epoch 15
+lr: 5.314410000000002e-05
+Losses: {'total_vae': tensor(6266.9097, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6186.9648, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(75.4090, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.5358, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6652.5278, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6575.2534, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(74.2326, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.0420, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 27658 26
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-15   26.0  6525.184649  201.818885  0.409430  0.451269  0.905269
-16   27.0  6508.290218  191.725432  0.430614  0.455916  0.904861
-Now val counter at: 5
-Latent 0.43061351097696193   0.2945732393561986
-BCE 0.45591599136833255 0.41635341465796233
-lr: 2.5418658283290016e-05
-lr: 2.2876792454961016e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+Latent 0.8567744716396176   0.875599911703973
+BCE 0.4764092220523493 0.4819498929147152
+(12804, 64)
+(12804, 10)
+[26:27701]  loss_total_vae=6437.196  loss_recon=6360.402  loss_kld=72.962  loss_prediction=3.832  loss_true_values=-1.000  loss_total_vae_epoch=6421.122  
+Saved model at epoch 27
+lr: 1.5009463529699922e-05
+Losses: {'total_vae': tensor(6394.2432, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6318.0991, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(73.5991, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.5447, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6340.2476, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6262.2432, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(73.5245, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.4802, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[27:28727]  loss_total_vae=6442.850  loss_recon=6365.978  loss_kld=73.138  loss_prediction=3.735  loss_true_values=-1.000  loss_total_vae_epoch=6416.944  
+Saved model at epoch 28
+lr: 1.350851717672993e-05
+Losses: {'total_vae': tensor(6929.2949, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6545.7759, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(136.9109, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(194.6242, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(51.9839, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(7038.4614, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6671.6924, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(132.8967, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(220.8671, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(13.0055, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+Validation stop evaluation
+16269 15
+   epoch          rec         kld    latent       bce       acc
+0    2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1    4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2    5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3    7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4    8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5   10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6   12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7   13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8   15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9   16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+Now val counter at: 1
+Latent 0.2127770972930319   0.2515863366727907
+BCE 0.3857372559425307 0.4392005290361601
+Losses: {'total_vae': tensor(6533.5854, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6457.3926, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(73.9554, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.2372, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 29285 28
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-15   26.0  6525.184649  201.818885  0.409430  0.451269  0.905269
-16   27.0  6508.290218  191.725432  0.430614  0.455916  0.904861
-17   29.0  6494.283999  179.822992  0.486219  0.467532  0.903815
-Now val counter at: 6
-Latent 0.4862189503704629   0.3483579329601148
-BCE 0.4675315370162328 0.4347599718144269
-lr: 2.0589113209464913e-05
-lr: 1.8530201888518422e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+Now val counter at: 1
+Latent 0.8607050471189546   0.8700369643325082
+BCE 0.47728548907652135 0.48747124339183817
+(12804, 64)
+(12804, 10)
+[15:16415]  loss_total_vae=6839.418  loss_recon=6456.713  loss_kld=131.267  loss_prediction=233.312  loss_true_values=18.125  loss_total_vae_epoch=6927.479  
+Saved model at epoch 16
+lr: 4.782969000000002e-05
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6463.2949, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6386.4834, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(74.0522, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.7594, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[28:29753]  loss_total_vae=6509.675  loss_recon=6431.257  loss_kld=73.187  loss_prediction=5.232  loss_true_values=-1.000  loss_total_vae_epoch=6405.508  
+Saved model at epoch 29
+lr: 1.2157665459056937e-05
+Losses: {'total_vae': tensor(6481.2090, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6405.0859, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(73.1992, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.9239, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6271.1738, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6192.5879, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(73.8680, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.7178, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[29:30779]  loss_total_vae=6481.934  loss_recon=6406.505  loss_kld=72.655  loss_prediction=2.773  loss_true_values=-1.000  loss_total_vae_epoch=6415.850  
+Saved model at epoch 30
+lr: 1.0941898913151244e-05
 tracking changes
 Validation stop evaluation
 30912 30
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-15   26.0  6525.184649  201.818885  0.409430  0.451269  0.905269
-16   27.0  6508.290218  191.725432  0.430614  0.455916  0.904861
-17   29.0  6494.283999  179.822992  0.486219  0.467532  0.903815
-18   31.0  6485.703069  170.141262  0.537283  0.458639  0.904098
-Now val counter at: 7
-Latent 0.5372825538724418   0.3954770332429467
-BCE 0.45863931183892537 0.44821090701472793
-lr: 1.667718169966658e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+Now val counter at: 1
+Latent 0.8591829649801177   0.8655174822019044
+BCE 0.4786136544089976 0.48492022343282776
+Losses: {'total_vae': tensor(7050.3350, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6702.3047, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(132.1274, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(190.2650, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(25.6375, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(6818.1216, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6548.0522, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(131.2616, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(116.3844, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(22.4236, device='cuda:0', grad_fn=<MulBackward0>)}
+[16:17441]  loss_total_vae=6801.379  loss_recon=6542.893  loss_kld=125.670  loss_prediction=110.161  loss_true_values=22.655  loss_total_vae_epoch=6821.522  
+Saved model at epoch 17
+lr: 4.304672100000002e-05
+Losses: {'total_vae': tensor(6668.5737, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6368.6963, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(130.0666, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(125.0746, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(44.7363, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6491.9277, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6413.6851, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(74.9498, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.2928, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6422.6313, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6347.7422, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.1375, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.7513, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[30:31805]  loss_total_vae=6522.153  loss_recon=6447.018  loss_kld=72.220  loss_prediction=2.916  loss_true_values=-1.000  loss_total_vae_epoch=6414.431  
+Saved model at epoch 31
+lr: 8.871809929582088e-06
+Validation stop evaluation
+17896 17
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+Now val counter at: 1
+Latent 0.21181774321125774   0.22140111602580323
+BCE 0.42678817125355323 0.3820273746562198
+Losses: {'total_vae': tensor(6467.0205, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6391.1011, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.7341, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.1854, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6378.7646, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6304.0376, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.1824, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.5444, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 32539 31
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-15   26.0  6525.184649  201.818885  0.409430  0.451269  0.905269
-16   27.0  6508.290218  191.725432  0.430614  0.455916  0.904861
-17   29.0  6494.283999  179.822992  0.486219  0.467532  0.903815
-18   31.0  6485.703069  170.141262  0.537283  0.458639  0.904098
-19   32.0  6479.509090  165.009317  0.550147  0.466462  0.905285
-Now val counter at: 8
-Latent 0.5501472545348531   0.4420876134701861
-BCE 0.4664618815106105 0.45823876010531656
-lr: 1.5009463529699922e-05
-lr: 1.350851717672993e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+Now val counter at: 1
+Latent 0.8509035808284108   0.8603158145739135
+BCE 0.4857174593016384 0.47985249430668064
+Losses: {'total_vae': tensor(6701.8262, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6416.0288, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(125.0474, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(160.7500, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 3.490274675675677e-05
+lr: 7.98462893662388e-06
+Losses: {'total_vae': tensor(6315.5435, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6240.5029, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.3476, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.6929, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6434.6777, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6360.9644, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.2586, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.4545, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 7.186166042961492e-06
+Losses: {'total_vae': tensor(6465.5942, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6391.1143, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.6227, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.8574, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 34166 33
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-15   26.0  6525.184649  201.818885  0.409430  0.451269  0.905269
-16   27.0  6508.290218  191.725432  0.430614  0.455916  0.904861
-17   29.0  6494.283999  179.822992  0.486219  0.467532  0.903815
-18   31.0  6485.703069  170.141262  0.537283  0.458639  0.904098
-19   32.0  6479.509090  165.009317  0.550147  0.466462  0.905285
-20   34.0  6471.201992  165.075205  0.561347  0.477426  0.904091
-Now val counter at: 9
-Latent 0.5613468073732485   0.48470500507328884
-BCE 0.4774255328546695 0.4606956134078302
-lr: 1.2157665459056937e-05
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+Now val counter at: 2
+Latent 0.8543897741209201   0.8588874945795633
+BCE 0.497186343480901 0.47743612184595613
+Losses: {'total_vae': tensor(6823.3022, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6570.7510, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(126.6838, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(107.3721, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(18.4957, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(6782.0708, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6543.0986, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(122.4934, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(99.3372, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(17.1413, device='cuda:0', grad_fn=<MulBackward0>)}
+lr: 3.14124720810811e-05
+Losses: {'total_vae': tensor(6650.4438, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6431.8672, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(121.6051, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(53.3506, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(43.6210, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+Validation stop evaluation
+19523 19
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+Now val counter at: 2
+Latent 0.2098655036794461   0.21759357361935663
+BCE 0.4332494474038845 0.375648497565975
+Losses: {'total_vae': tensor(6376.9111, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6301.3579, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.0143, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.5389, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 6.467549438665343e-06
+Losses: {'total_vae': tensor(6385.8203, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6312.8662, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(69.9941, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.9597, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6318.9170, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6243.5479, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.9530, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.4161, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 35793 34
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-15   26.0  6525.184649  201.818885  0.409430  0.451269  0.905269
-16   27.0  6508.290218  191.725432  0.430614  0.455916  0.904861
-17   29.0  6494.283999  179.822992  0.486219  0.467532  0.903815
-18   31.0  6485.703069  170.141262  0.537283  0.458639  0.904098
-19   32.0  6479.509090  165.009317  0.550147  0.466462  0.905285
-20   34.0  6471.201992  165.075205  0.561347  0.477426  0.904091
-21   35.0  6469.307734  161.961275  0.572491  0.474411  0.904716
-Now val counter at: 10
-Latent 0.572490768703988   0.5245495862592526
-BCE 0.47441113225328246 0.4642109101219229
-lr: 1.0941898913151244e-05
-lr: 9.84770902183612e-06
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+Latent 0.8416951749382949   0.8569305309758276
+BCE 0.4920135119823906 0.4805388675957191
+lr: 5.820794494798809e-06
+Losses: {'total_vae': tensor(6672.2407, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6487.5898, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(120.3129, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(46.6412, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(17.6967, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(6560.1143, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6344.8931, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(117.5781, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(39.3050, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(58.3377, device='cuda:0', grad_fn=<MulBackward0>)}
+lr: 2.827122487297299e-05
+Losses: {'total_vae': tensor(6286.6201, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6214.7363, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(69.6581, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.2254, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6372.6714, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6298.8770, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.1193, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.6753, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 5.238715045318928e-06
+Losses: {'total_vae': tensor(6392.5767, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6317.3687, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.7382, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.4697, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 tracking changes
 Validation stop evaluation
 37420 36
     epoch          rec         kld    latent       bce       acc
-0     2.0  8519.843516   98.571920  0.837443  1.368041  0.628820
-1     4.0  8509.234014   94.443030  0.774391  1.329515  0.633959
-2     5.0  8395.961855   90.882079  0.696064  1.256379  0.645089
-3     7.0  8198.562907   99.807437  0.582723  1.135608  0.666916
-4     8.0  7757.975859  131.020563  0.446363  0.993093  0.697760
-5    10.0  7193.415894  213.995465  0.321946  0.809943  0.742406
-6    12.0  7023.057876  279.489395  0.271411  0.635934  0.792237
-7    13.0  6900.638994  331.419671  0.275969  0.511884  0.835241
-8    15.0  6847.758557  319.209713  0.293628  0.508736  0.842740
-9    16.0  6697.183511  328.786334  0.220619  0.388179  0.883304
-10   18.0  6627.474893  295.497047  0.227085  0.386012  0.890225
-11   20.0  6610.659294  290.017767  0.238192  0.417410  0.890182
-12   21.0  6574.285396  254.478813  0.248076  0.396049  0.899804
-13   23.0  6563.087104  235.196434  0.289256  0.415563  0.904286
-14   24.0  6532.394736  212.935405  0.346387  0.437448  0.901780
-15   26.0  6525.184649  201.818885  0.409430  0.451269  0.905269
-16   27.0  6508.290218  191.725432  0.430614  0.455916  0.904861
-17   29.0  6494.283999  179.822992  0.486219  0.467532  0.903815
-18   31.0  6485.703069  170.141262  0.537283  0.458639  0.904098
-19   32.0  6479.509090  165.009317  0.550147  0.466462  0.905285
-20   34.0  6471.201992  165.075205  0.561347  0.477426  0.904091
-21   35.0  6469.307734  161.961275  0.572491  0.474411  0.904716
-22   37.0  6462.434380  158.989007  0.590793  0.474043  0.903954
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+Now val counter at: 3
+Latent 0.8497876461928453   0.8548254399764829
+BCE 0.4938100336528406 0.48717248573051236
+Losses: {'total_vae': tensor(6507.1138, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6364.4004, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(114.6168, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(23.4297, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(4.6670, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+Validation stop evaluation
+21150 20
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+Now val counter at: 3
+Latent 0.21463499842135886   0.21716628136835125
+BCE 0.45565141676887266 0.394743668596919
+Losses: {'total_vae': tensor(6352.2568, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6277.3306, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.6043, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.3217, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 4.714843540787035e-06
+Losses: {'total_vae': tensor(6610.9424, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6420.5181, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(115.6134, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(58.0484, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(16.7627, device='cuda:0', grad_fn=<MulBackward0>)}
+lr: 2.544410238567569e-05
+Losses: {'total_vae': tensor(6314.6030, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6241.3145, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.1904, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.0983, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6417.9697, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6343.4238, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.0712, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.4748, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 4.243359186708332e-06
+Losses: {'total_vae': tensor(6352.7817, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6279.2124, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.3319, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.2371, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+39047 38
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+Latent 0.8481096567177191   0.8489961766292087
+BCE 0.4934520663284674 0.4916391049216433
+Losses: {'total_vae': tensor(6353.1333, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6280.0288, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.3509, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.7532, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6461.0464, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6385.1885, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.3145, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.5436, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 3.819023268037499e-06
+Losses: {'total_vae': tensor(6541.2422, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6352.5757, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(113.7588, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(52.0593, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(22.8484, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(6592.1040, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6443.6196, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(109.4851, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(14.4812, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(24.5181, device='cuda:0', grad_fn=<MulBackward0>)}
+lr: 2.2899692147108124e-05
+tracking changes
+Losses: {'total_vae': tensor(6246.1216, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6171.9287, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.7331, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.4602, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+22777 22
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+13   23.0  6472.725457  107.456673  0.224898  0.470308  0.910279
+Now val counter at: 4
+Latent 0.2248976652215167   0.21148678139457858
+BCE 0.470308151308114 0.4152582915333228
+Validation stop evaluation
+40674 39
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+Latent 0.840311959022429   0.8486241984173534
+BCE 0.4914632420229718 0.49433662970537745
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6302.2773, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6229.5649, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.3245, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.3875, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[39:41039]  loss_total_vae=6234.252  loss_recon=6159.741  loss_kld=72.422  loss_prediction=2.090  loss_true_values=-1.000  loss_total_vae_epoch=6392.565  
+Saved model at epoch 40
+lr: 3.4371209412337495e-06
+Losses: {'total_vae': tensor(6277.6689, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6205.0444, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.0918, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.5325, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6326.6152, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6251.8330, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.1685, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.6138, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[40:42065]  loss_total_vae=6383.809  loss_recon=6310.071  loss_kld=70.960  loss_prediction=2.777  loss_true_values=-1.000  loss_total_vae_epoch=6385.548  
+Saved model at epoch 41
+lr: 3.0934088471103747e-06
+Losses: {'total_vae': tensor(6424.0693, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6297.7373, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(107.9446, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(18.3874, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6565.0947, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6441.1348, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(105.6561, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(18.3038, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 2.060972293239731e-05
+tracking changes
+Validation stop evaluation
+42301 41
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6325.5947, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6252.0757, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.4645, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.0548, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6311.3960, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6237.8037, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.8447, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.7474, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[41:43091]  loss_total_vae=6365.309  loss_recon=6292.769  loss_kld=70.840  loss_prediction=1.700  loss_true_values=-1.000  loss_total_vae_epoch=6390.256  
+Saved model at epoch 42
+lr: 2.5081693354948983e-06
+Losses: {'total_vae': tensor(6719.1055, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6588.8398, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(105.7984, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(11.9889, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(12.4783, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+Validation stop evaluation
+24404 23
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+13   23.0  6472.725457  107.456673  0.224898  0.470308  0.910279
+14   24.0  6432.205203  101.091008  0.242743  0.486520  0.908854
+Now val counter at: 5
+Latent 0.24274294817350744   0.21210608177068754
+BCE 0.48652039892305204 0.43856301180877005
+Losses: {'total_vae': tensor(6523.6797, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6449.6323, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.7561, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.2915, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+43928 42
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+Now val counter at: 1
+Latent 0.8445146636265081   0.8460697539776644
+BCE 0.4877069877172873 0.49290844733475997
+Losses: {'total_vae': tensor(6547.7100, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6412.7324, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(105.1044, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(24.1782, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(5.6950, device='cuda:0', grad_fn=<MulBackward0>)}
+lr: 1.854875063915758e-05
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6302.3682, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6228.3979, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.9608, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.0093, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[42:44117]  loss_total_vae=6487.505  loss_recon=6414.779  loss_kld=69.903  loss_prediction=2.824  loss_true_values=-1.000  loss_total_vae_epoch=6394.450  
+Saved model at epoch 43
+lr: 2.2573524019454084e-06
+Losses: {'total_vae': tensor(6435.3501, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6361.1235, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.0780, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.1485, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6472.5762, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6399.2773, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(69.9682, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.3305, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[43:45143]  loss_total_vae=6344.800  loss_recon=6271.330  loss_kld=71.608  loss_prediction=1.862  loss_true_values=-1.000  loss_total_vae_epoch=6392.800  
+Saved model at epoch 44
+lr: 2.0316171617508677e-06
+Losses: {'total_vae': tensor(6427.4448, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6352.8916, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(73.1298, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.4235, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+45555 44
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+Now val counter at: 1
+Latent 0.8358747241942863   0.8427226824489066
+BCE 0.4879936844837375 0.48991091282871685
+Losses: {'total_vae': tensor(6661.7329, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6543.8823, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(102.5005, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(15.3500, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6531.3770, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6421.4819, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(97.6993, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(12.1960, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.6693875575241824e-05
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6550.9482, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6478.4722, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.1579, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.3185, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[44:46169]  loss_total_vae=6412.033  loss_recon=6338.720  loss_kld=71.351  loss_prediction=1.962  loss_true_values=-1.000  loss_total_vae_epoch=6399.632  
+Saved model at epoch 45
+lr: 1.828455445575781e-06
+Losses: {'total_vae': tensor(6474.2979, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6361.2744, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(96.7423, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(16.2814, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+26031 25
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+13   23.0  6472.725457  107.456673  0.224898  0.470308  0.910279
+14   24.0  6432.205203  101.091008  0.242743  0.486520  0.908854
+15   26.0  6422.517236   95.856242  0.260922  0.487259  0.910069
+Now val counter at: 6
+Latent 0.2609223151594643   0.21646605577410719
+BCE 0.48725888581295324 0.45306967182695707
+Losses: {'total_vae': tensor(6196.0762, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6121.4424, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.6180, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.0155, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6268.8091, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6192.2144, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.8975, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.6971, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+47182 45
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+Now val counter at: 1
+Latent 0.8425670934886467   0.8415243514185029
+BCE 0.4963186477742544 0.4879958866249901
+lr: 1.645609901018203e-06
+Losses: {'total_vae': tensor(6687.1411, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6562.8091, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(98.6998, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(13.1138, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(12.5184, device='cuda:0', grad_fn=<MulBackward0>)}
+lr: 1.5024488017717643e-05
+Losses: {'total_vae': tensor(6475.3789, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6401.2476, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.9998, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.1312, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6426.1050, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6352.7036, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.4181, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.9834, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.4810489109163828e-06
+Losses: {'total_vae': tensor(6368.2710, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6294.0273, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.6570, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.5866, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+48809 47
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+Now val counter at: 2
+Latent 0.8453548492454901   0.8400452731424554
+BCE 0.49320603180222394 0.4868393674452453
+Losses: {'total_vae': tensor(6379.3843, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6255.3696, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(98.8521, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(18.9208, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(6.2415, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(6730.3809, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6618.3125, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(96.4507, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(8.6115, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(7.0066, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+Validation stop evaluation
+27658 26
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+13   23.0  6472.725457  107.456673  0.224898  0.470308  0.910279
+14   24.0  6432.205203  101.091008  0.242743  0.486520  0.908854
+15   26.0  6422.517236   95.856242  0.260922  0.487259  0.910069
+16   27.0  6415.359644   92.905011  0.282759  0.483942  0.911173
+Now val counter at: 7
+Latent 0.2827586315996279   0.22742520393879437
+BCE 0.4839418939943236 0.4708266556666796
+Losses: {'total_vae': tensor(6338.1963, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6265.1055, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.1198, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.9713, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.3329440198247444e-06
+lr: 1.3522039215945878e-05
+Losses: {'total_vae': tensor(6456.3833, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6381.8530, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.8922, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.6381, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6351.9990, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6279.5537, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.6018, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.8431, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.19964961784227e-06
+tracking changes
+Validation stop evaluation
+50436 49
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+30   50.0  6348.336926   69.903020  0.845686  0.507203  0.915421
+Now val counter at: 3
+Latent 0.8456861817739844   0.8409854937698137
+BCE 0.5072032205942201 0.4906731066584264
+Losses: {'total_vae': tensor(6458.1475, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6358.7437, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(94.6914, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.7122, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6407.2598, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6304.6685, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(90.8026, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(11.7887, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.216983529435129e-05
+Losses: {'total_vae': tensor(6514.6426, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6441.6768, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.4641, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.5017, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6238.5537, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6165.0425, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.1407, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.3708, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.0796846560580432e-06
+Losses: {'total_vae': tensor(6298.4888, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6224.1938, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.9923, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.3026, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6299.4136, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6224.1748, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.7723, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.4662, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Losses: {'total_vae': tensor(6593.6504, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6494.4565, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(92.5010, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(6.6929, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+52063 50
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+30   50.0  6348.336926   69.903020  0.845686  0.507203  0.915421
+31   51.0  6347.800066   69.693663  0.846303  0.500919  0.915851
+Now val counter at: 4
+Latent 0.8463027642025212   0.8412655556428077
+BCE 0.5009189875629859 0.49250612135340527
+Validation stop evaluation
+29285 28
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+13   23.0  6472.725457  107.456673  0.224898  0.470308  0.910279
+14   24.0  6432.205203  101.091008  0.242743  0.486520  0.908854
+15   26.0  6422.517236   95.856242  0.260922  0.487259  0.910069
+16   27.0  6415.359644   92.905011  0.282759  0.483942  0.911173
+17   29.0  6418.649019   89.408133  0.303874  0.488140  0.910562
+Now val counter at: 8
+Latent 0.3038742576188188   0.2428543095181628
+BCE 0.48814028041149543 0.48136247868137305
+lr: 8.754199913984134e-07
+Losses: {'total_vae': tensor(6531.8818, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6431.6250, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(90.9333, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(9.3232, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 1.0952851764916162e-05
+Losses: {'total_vae': tensor(6350.7212, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6277.1240, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.0450, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.5523, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6270.6650, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6199.8594, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(69.1072, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.6982, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 7.878779922585721e-07
+Losses: {'total_vae': tensor(6334.8584, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6262.0391, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.7911, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.0282, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+53690 52
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+30   50.0  6348.336926   69.903020  0.845686  0.507203  0.915421
+31   51.0  6347.800066   69.693663  0.846303  0.500919  0.915851
+32   53.0  6348.220335   69.547137  0.840836  0.497815  0.916391
+Latent 0.8408360670252544   0.8445360415027071
+BCE 0.49781471539319044 0.49890930005689943
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6590.5693, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6517.9360, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.3423, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.2910, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[52:54377]  loss_total_vae=6394.762  loss_recon=6320.885  loss_kld=72.034  loss_prediction=1.844  loss_true_values=-1.000  loss_total_vae_epoch=6380.969  
+Saved model at epoch 53
+lr: 7.090901930327149e-07
+Losses: {'total_vae': tensor(6555.7925, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6445.7446, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(89.8660, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(5.6742, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(14.5075, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(6340.8140, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6239.6455, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(89.8397, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(11.3287, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 9.857566588424546e-06
+tracking changes
+Validation stop evaluation
+30912 30
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+13   23.0  6472.725457  107.456673  0.224898  0.470308  0.910279
+14   24.0  6432.205203  101.091008  0.242743  0.486520  0.908854
+15   26.0  6422.517236   95.856242  0.260922  0.487259  0.910069
+16   27.0  6415.359644   92.905011  0.282759  0.483942  0.911173
+17   29.0  6418.649019   89.408133  0.303874  0.488140  0.910562
+18   31.0  6404.876662   86.185819  0.323610  0.488767  0.910159
+Now val counter at: 9
+Latent 0.3236101419945073   0.2621412983108665
+BCE 0.48876687242248196 0.48590705957677627
+Losses: {'total_vae': tensor(6265.2095, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6192.3350, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.2319, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.6425, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6128.3320, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6055.0713, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.7276, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.5334, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+55317 53
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+30   50.0  6348.336926   69.903020  0.845686  0.507203  0.915421
+31   51.0  6347.800066   69.693663  0.846303  0.500919  0.915851
+32   53.0  6348.220335   69.547137  0.840836  0.497815  0.916391
+33   54.0  6348.098613   69.730816  0.833195  0.492400  0.916280
+(12804, 64)
+(12804, 10)
+[53:55403]  loss_total_vae=6586.545  loss_recon=6511.974  loss_kld=72.564  loss_prediction=2.008  loss_true_values=-1.000  loss_total_vae_epoch=6386.908  
+Saved model at epoch 54
+lr: 6.381811737294434e-07
+Losses: {'total_vae': tensor(6447.4976, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6373.7041, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.2702, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.5234, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6391.4751, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6317.7212, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.8767, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.8770, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[54:56429]  loss_total_vae=6525.315  loss_recon=6451.354  loss_kld=71.441  loss_prediction=2.520  loss_true_values=-1.000  loss_total_vae_epoch=6388.732  
+Saved model at epoch 55
+lr: 5.74363056356499e-07
+Losses: {'total_vae': tensor(6569.8228, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6467.1543, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(90.5401, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(8.0455, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(4.0829, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(6491.6294, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6383.4067, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(86.0694, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(6.6844, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(15.4687, device='cuda:0', grad_fn=<MulBackward0>)}
+lr: 8.871809929582091e-06
+Losses: {'total_vae': tensor(6403.3037, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6329.4844, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.2285, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.5911, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+56944 55
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+30   50.0  6348.336926   69.903020  0.845686  0.507203  0.915421
+31   51.0  6347.800066   69.693663  0.846303  0.500919  0.915851
+32   53.0  6348.220335   69.547137  0.840836  0.497815  0.916391
+33   54.0  6348.098613   69.730816  0.833195  0.492400  0.916280
+34   56.0  6347.796113   69.468345  0.837215  0.492357  0.916153
+Now val counter at: 1
+Latent 0.8372147025131598   0.8442750043339199
+BCE 0.4923566531359665 0.5019789745167987
+(12804, 64)
+(12804, 10)
+Losses: {'total_vae': tensor(6362.6699, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6288.9556, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.4283, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.2862, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[55:57455]  loss_total_vae=6374.260  loss_recon=6300.544  loss_kld=71.498  loss_prediction=2.218  loss_true_values=-1.000  loss_total_vae_epoch=6387.559  
+Saved model at epoch 56
+lr: 5.169267507208491e-07
+Losses: {'total_vae': tensor(6533.4351, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6434.0425, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(86.9288, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(7.9725, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(4.4912, device='cuda:0', grad_fn=<MulBackward0>)}
+Losses: {'total_vae': tensor(6445.3862, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6342.8438, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(87.0326, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(5.4038, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(10.1058, device='cuda:0', grad_fn=<MulBackward0>)}
+tracking changes
+Validation stop evaluation
+32539 31
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+13   23.0  6472.725457  107.456673  0.224898  0.470308  0.910279
+14   24.0  6432.205203  101.091008  0.242743  0.486520  0.908854
+15   26.0  6422.517236   95.856242  0.260922  0.487259  0.910069
+16   27.0  6415.359644   92.905011  0.282759  0.483942  0.911173
+17   29.0  6418.649019   89.408133  0.303874  0.488140  0.910562
+18   31.0  6404.876662   86.185819  0.323610  0.488767  0.910159
+19   32.0  6402.212790   83.287244  0.350374  0.499396  0.909881
+Now val counter at: 10
+Latent 0.35037444955934355   0.2825184014593037
+BCE 0.4993964743808033 0.48644702007292406
+Losses: {'total_vae': tensor(6459.8423, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6386.9609, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.1632, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(1.7182, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6373.7603, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6300.3774, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.2381, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.1447, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[56:58481]  loss_total_vae=6442.269  loss_recon=6368.586  loss_kld=71.903  loss_prediction=1.780  loss_true_values=-1.000  loss_total_vae_epoch=6391.249  
+Saved model at epoch 57
+lr: 4.652340756487642e-07
+Losses: {'total_vae': tensor(6415.5439, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6341.3999, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.2546, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.8895, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+lr: 7.984628936623883e-06
+Validation stop evaluation
+58571 57
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+30   50.0  6348.336926   69.903020  0.845686  0.507203  0.915421
+31   51.0  6347.800066   69.693663  0.846303  0.500919  0.915851
+32   53.0  6348.220335   69.547137  0.840836  0.497815  0.916391
+33   54.0  6348.098613   69.730816  0.833195  0.492400  0.916280
+34   56.0  6347.796113   69.468345  0.837215  0.492357  0.916153
+35   58.0  6347.973460   69.579439  0.846002  0.500061  0.916102
+Now val counter at: 1
+Latent 0.8460021915474558   0.8401113864852161
+BCE 0.5000605277898835 0.4970446827450419
+Losses: {'total_vae': tensor(6206.3652, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6134.3188, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(69.9461, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.1002, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6267.1655, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6193.0605, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.2433, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.8618, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 4.1871066808388777e-07
+Losses: {'total_vae': tensor(6444.2773, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6370.6973, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.4140, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.1659, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Losses: {'total_vae': tensor(6366.7109, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6275.5234, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(86.3384, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.8490, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6482.0342, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6391.6523, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(83.3498, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(7.0323, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 7.186166042961494e-06
+Validation stop evaluation
+60198 58
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+30   50.0  6348.336926   69.903020  0.845686  0.507203  0.915421
+31   51.0  6347.800066   69.693663  0.846303  0.500919  0.915851
+32   53.0  6348.220335   69.547137  0.840836  0.497815  0.916391
+33   54.0  6348.098613   69.730816  0.833195  0.492400  0.916280
+34   56.0  6347.796113   69.468345  0.837215  0.492357  0.916153
+35   58.0  6347.973460   69.579439  0.846002  0.500061  0.916102
+36   59.0  6347.601631   69.462496  0.839258  0.495053  0.916206
+Latent 0.8392575160274661   0.8370820325887623
+BCE 0.49505293066424083 0.4941905712693688
+Losses: {'total_vae': tensor(6356.5630, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6281.7588, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(71.8261, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.9782, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 3.76839601275499e-07
+Losses: {'total_vae': tensor(6529.0112, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6441.0098, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(83.0512, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(4.9501, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+tracking changes
+Validation stop evaluation
+34166 33
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.221250   25.050905  0.832101  1.364715  0.629251
+1     4.0  8463.706402   24.883373  0.738293  1.299510  0.638272
+2     5.0  8142.535894   27.692535  0.597993  1.136671  0.667119
+3     7.0  7316.806082   53.194656  0.401227  0.891013  0.724436
+4     8.0  6981.016723  101.456965  0.270333  0.620650  0.801323
+5    10.0  6840.236809  157.677331  0.317460  0.543225  0.841809
+6    12.0  6692.603908  141.403157  0.224200  0.404874  0.880583
+7    13.0  6610.647276  141.934538  0.213100  0.369503  0.894698
+8    15.0  6576.837378  135.314216  0.226904  0.371706  0.896210
+9    16.0  6527.010285  132.465672  0.212777  0.385737  0.903409
+10   18.0  6494.267434  127.107373  0.211818  0.426788  0.904016
+11   20.0  6479.294604  118.390759  0.209866  0.433249  0.909356
+12   21.0  6457.947393  113.762279  0.214635  0.455651  0.909819
+13   23.0  6472.725457  107.456673  0.224898  0.470308  0.910279
+14   24.0  6432.205203  101.091008  0.242743  0.486520  0.908854
+15   26.0  6422.517236   95.856242  0.260922  0.487259  0.910069
+16   27.0  6415.359644   92.905011  0.282759  0.483942  0.911173
+17   29.0  6418.649019   89.408133  0.303874  0.488140  0.910562
+18   31.0  6404.876662   86.185819  0.323610  0.488767  0.910159
+19   32.0  6402.212790   83.287244  0.350374  0.499396  0.909881
+20   34.0  6398.155005   83.016216  0.362172  0.508789  0.909422
 Now val counter at: 11
-Latent 0.590793397853045   0.5495922052601813
-BCE 0.47404321252815124 0.4675089087347351
+Latent 0.3621717582388622   0.30341434373765136
+BCE 0.5087887953694273 0.4869496822761003
 ---Validation stop---
+Losses: {'total_vae': tensor(6483.7578, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6408.2754, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(72.1671, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(3.3155, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(6218.0488, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6145.1450, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(70.8854, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(2.0187, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+lr: 3.391556411479491e-07
+tracking changes
+Validation stop evaluation
+61825 60
+    epoch          rec         kld    latent       bce       acc
+0     2.0  8519.161296   30.118779  0.898716  1.080643  0.681495
+1     4.0  8453.877505   40.354509  0.913805  0.828679  0.739905
+2     5.0  7990.645376   63.873079  0.962880  0.626321  0.795472
+3     7.0  7082.469807   98.948726  1.056290  0.484477  0.841076
+4     8.0  6795.520722  104.147264  1.031969  0.406861  0.873131
+5    10.0  6641.858140   92.451853  1.004471  0.399662  0.889751
+6    12.0  6546.231016   86.758974  0.963451  0.390289  0.903269
+7    13.0  6549.963882   82.345462  0.947512  0.421007  0.907525
+8    15.0  6488.849924   80.634283  0.924742  0.434525  0.911518
+9    16.0  6452.682708   79.387065  0.904346  0.457846  0.914431
+10   18.0  6420.393953   78.358838  0.908705  0.480467  0.914749
+11   20.0  6410.151626   75.320224  0.890010  0.470194  0.916125
+12   21.0  6398.212896   74.606763  0.880157  0.469299  0.916976
+13   23.0  6403.299370   74.733926  0.870333  0.484062  0.916805
+14   24.0  6380.723918   73.294505  0.876310  0.492489  0.916151
+15   26.0  6374.313252   71.794278  0.863468  0.485863  0.916614
+16   27.0  6377.528349   71.618379  0.856774  0.476409  0.917269
+17   29.0  6364.642353   70.927734  0.860705  0.477285  0.916896
+18   31.0  6361.788089   70.760871  0.859183  0.478614  0.917277
+19   32.0  6359.902231   69.638707  0.850904  0.485717  0.917230
+20   34.0  6356.996611   70.399299  0.854390  0.497186  0.916494
+21   35.0  6355.109533   69.979813  0.841695  0.492014  0.916321
+22   37.0  6353.993745   69.922096  0.849788  0.493810  0.916272
+23   39.0  6351.813059   69.863311  0.848110  0.493452  0.916464
+24   40.0  6351.795442   69.872733  0.840312  0.491463  0.916443
+25   42.0  6350.366997   69.622304  0.839746  0.484817  0.917040
+26   43.0  6350.051946   69.528121  0.844515  0.487707  0.916534
+27   45.0  6349.487149   69.328590  0.835875  0.487994  0.916475
+28   46.0  6348.448542   69.890119  0.842567  0.496319  0.916075
+29   48.0  6348.922449   69.703234  0.845355  0.493206  0.916284
+30   50.0  6348.336926   69.903020  0.845686  0.507203  0.915421
+31   51.0  6347.800066   69.693663  0.846303  0.500919  0.915851
+32   53.0  6348.220335   69.547137  0.840836  0.497815  0.916391
+33   54.0  6348.098613   69.730816  0.833195  0.492400  0.916280
+34   56.0  6347.796113   69.468345  0.837215  0.492357  0.916153
+35   58.0  6347.973460   69.579439  0.846002  0.500061  0.916102
+36   59.0  6347.601631   69.462496  0.839258  0.495053  0.916206
+37   61.0  6347.436641   69.461705  0.837721  0.494324  0.916209
+Latent 0.8377211030905809   0.8388040740961628
+BCE 0.4943235013785401 0.49493917540159976
+Losses: {'total_vae': tensor(6433.6685, device='cuda:0', grad_fn=<AddBackward0>), 'recon': tensor(6337.8525, device='cuda:0', grad_fn=<MulBackward0>), 'kld': tensor(85.5681, device='cuda:0', grad_fn=<MulBackward0>), 'prediction': tensor(7.3654, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(2.8822, device='cuda:0', grad_fn=<MulBackward0>)}

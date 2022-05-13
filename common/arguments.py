@@ -86,7 +86,7 @@ def get_args(sys_args):
     parser.add_argument('--w_dipvae', default=1.0, type=float,
                         help='covariance regularizer loss weight (e.g. in DIPVAE I and II)')
 
-    # Loss weights and parameters for [IFCVAE]
+    # Loss weights and parameters for [DIPIFCVAE]
     parser.add_argument('--w_le', default=1.0, type=float, help='label encoding loss weight (e.g. in IFCVAE)')
     parser.add_argument('--w_aux', default=1.0, type=float, help='auxiliary discriminator loss weight (e.g. in IFCVAE)')
 
@@ -109,13 +109,13 @@ def get_args(sys_args):
     # Logging and visualization
     parser.add_argument('--train_output_dir', default='train_outputs', type=str, help='output directory')
     parser.add_argument('--test_output_dir', default='test_outputs', type=str, help='test output directory')
-    parser.add_argument('--file_save', default=True, type=str2bool, help='whether to save generated images to file')
-    parser.add_argument('--gif_save', default=True, type=str2bool, help='whether to save generated GIFs to file')
+    parser.add_argument('--file_save', default=False, type=str2bool, help='whether to save generated images to file')
+    parser.add_argument('--gif_save', default=False, type=str2bool, help='whether to save generated GIFs to file')
     parser.add_argument('--use_wandb', default=False, type=str2bool, help='use wandb for logging')
     parser.add_argument('--wandb_resume_id', default=None, type=str, help='resume previous wandb run with id')
-    parser.add_argument('--traverse_spacing', default=0.5, type=float, help='spacing to traverse latents')
-    parser.add_argument('--traverse_min', default=-3, type=float, help='min limit to traverse latents')
-    parser.add_argument('--traverse_max', default=+3, type=float, help='max limit to traverse latents')
+    parser.add_argument('--traverse_spacing', default=1, type=float, help='spacing to traverse latents')
+    parser.add_argument('--traverse_min', default=-5, type=float, help='min limit to traverse latents')
+    parser.add_argument('--traverse_max', default=+5, type=float, help='max limit to traverse latents')
     parser.add_argument('--traverse_z', default=False, type=str2bool, help='whether to traverse the z space')
     parser.add_argument('--traverse_l', default=False, type=str2bool, help='whether to traverse the l space')
     parser.add_argument('--traverse_c', default=False, type=str2bool, help='whether to traverse the condition')

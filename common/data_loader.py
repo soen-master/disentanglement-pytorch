@@ -581,6 +581,8 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         l = len(val_indices)
         val_indices, test_indices = val_indices[:int(np.floor(l/2))], val_indices[int(np.floor(l/2)):]
 
+      
+                
         print('Dataset dimensions')
         print(len(train_indices), len(val_indices), len(test_indices) )
         # Creating PT data samplers and loaders:

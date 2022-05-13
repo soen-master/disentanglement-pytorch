@@ -182,10 +182,10 @@ class CBM_Join(VAE):
         epoch = 0
         
         self.class_G_all.param_groups[0]['lr'] = 0
-        lr_log_scale = np.logspace(-7,-4, 10)
+        lr_log_scale = np.logspace(-7,-3, 5)
         while not self.training_complete():
             
-            if epoch < 10:
+            if epoch < 5:
                 self.class_G_all.param_groups[0]['lr'] = lr_log_scale[epoch]
 
             epoch += 1
@@ -260,7 +260,7 @@ class CBM_Join(VAE):
                         self.validation_scores = self.validation_scores.append(sofar, ignore_index=True)
                         self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
-                    if epoch > 12: self.validation_stopping()
+                    if epoch > 5: self.validation_stopping()
                     
                 if is_time_for(self.iter, self.test_iter):
 
@@ -309,8 +309,8 @@ class CBM_Join(VAE):
             if out_path is not None and self.save_model:
                 with open( os.path.join(out_path,'train_runs/latents_obtained.npy'), 'wb') as f:
                     np.save(f, self.epoch)
-                    np.save(f, z.detach().cpu().numpy())
-                    np.save(f, g.detach().cpu().numpy())
+                    np.save(f, z.detach().cpu().numpy()[:20000])
+                    np.save(f, g.detach().cpu().numpy()[:20000])
                 del z, g
             
 
@@ -356,15 +356,11 @@ class CBM_Join(VAE):
             _, y_pred_tags = torch.max(y_test_pred, dim = 1)
             y_pred_list.append(y_pred_tags.cpu().numpy())
             
-
-            z = np.asarray(nn.Sigmoid()(z).detach().cpu())
-            g = np.asarray(label.detach().cpu())
+            z_enc = np.asarray(nn.Sigmoid()(z).detach().cpu())
+            g_enc = np.asarray(label.detach().cpu())
             bs = len(label)
-            z_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :] = z
-            g_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :] = g
-
-            #            I_batch , I_TOT = Interpretability(z, g)
-            #           I += I_batch; I_tot += I_TOT
+            z_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :] = z_enc
+            g_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :] = g_enc
 
             if self.latent_loss == 'MSE':
                 loss_bin = nn.MSELoss(reduction='mean')(mu_processed[:, :label.size(1)],
@@ -396,8 +392,8 @@ class CBM_Join(VAE):
         if out_path is not None and self.save_model and not validation:
             with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
                 np.save(f, self.epoch)
-                np.save(f, z_array)
-                np.save(f, g_array)
+                np.save(f, z_array[:20000])
+                np.save(f, g_array[:20000])
                 
             with open(os.path.join(out_path,'eval_results/downstream_obtained.npy'), 'wb') as f:
                     y_test      = np.array([a.squeeze().tolist() for a in y_test])

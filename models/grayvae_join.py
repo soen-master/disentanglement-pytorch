@@ -444,7 +444,7 @@ class GrayVAE_Join(VAE):
             self.visualize_recon(x_true, x_recon, test=True)
             self.visualize_traverse(limit=(self.traverse_min, self.traverse_max),
                                     spacing=self.traverse_spacing,
-                                    data=(x_true, label), test=True)
+                                    test=True)
 
         if out_path is not None and self.save_model and not validation:
             with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:

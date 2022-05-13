@@ -232,7 +232,7 @@ class C_OSR_VAE(VAE):
     def forward(self, x, y=None):
 
         if y is None:
-            y = torch.randint(num_classes) #TODO: must extrct from a given distribution THIS IS THE  
+            y = torch.randint(self.num_classes) #TODO: must extrct from a given distribution THIS IS THE  
                                            # p(4) = 0.5 and p(5) = 0.5
         mu, log_var = self.encoder(x.view(-1, 784), y)
         z = self.sampling(mu, log_var)

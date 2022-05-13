@@ -136,14 +136,15 @@ def get_data_for_visualization(dataset, device):
                       '{}_{}'.format(c.FIXED, c.HEART): fixed_idx[2]
                       }
 
-    elif dset_name == c.DATASETS[0]:  # celebA
-        fixed_idx = [11281, 114307, 10535, 59434]
+    elif dset_name == 'prova'+c.DATASETS[0]:  # celebA
+        fixed_idx = [118, 666, 1312, 11281, 114307, 10535, 59434]
+        print(fixed_idx)
         sample_idx = {}
         for i in range(len(fixed_idx)):
             sample_idx.update({c.FIXED + '_' + str(i): fixed_idx[i]})
 
     else:
-        for i in range(3):
+        for i in range(10):
             sample_idx.update({'rand' + str(i): random_idx()})
 
     # add a random sample to all

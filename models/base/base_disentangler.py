@@ -282,6 +282,10 @@ class BaseDisentangler(object):
             sample_images_dict, sample_labels_dict = prepare_data_for_visualization(data)
 
         encodings = dict()
+        
+        print('samples_images_dict')
+        print(sample_images_dict.keys())
+        
         for key in sample_images_dict.keys():
             encodings[key] = self.encode_deterministic(images=sample_images_dict[key], labels=sample_labels_dict[key])
 
@@ -309,16 +313,24 @@ class BaseDisentangler(object):
                             gifs.append(sample)
 
             if self.traverse_z:
-                for zid in range(self.z_dim):
+                for zid in range(min(10, self.z_dim)):
+                    correlated = [0,1,2,3,5]
+                    latent_passed = latent_orig.clone()
+                    if zid in correlated:
+                        correlated.remove(zid)
+                        for j in correlated:
+                            latent_passed[:, j] = -5
+                        
                     for val in interp_values:
-                        latent = latent_orig.clone()
+                        latent = latent_passed.clone()
                         latent[:, zid] = val
                         self.set_z(latent, zid, val)
                         sample = self.decode(latent=latent, labels=label_orig)
 
                         samples.append(sample)
                         gifs.append(sample)
-
+                
+                
             if self.traverse_c:
                 num_classes = self.data_loader.dataset.num_classes(False)
                 for lid in range(self.num_labels):
@@ -337,7 +349,7 @@ class BaseDisentangler(object):
                         sample = self.decode(latent=latent, labels=label).detach()
 
                         samples.append(sample)
-                        gifs.append(sample)
+                        #gifs.append(sample)
 
             samples = torch.cat(samples, dim=0).cpu()
             samples = torchvision.utils.make_grid(samples, nrow=num_cols)
@@ -357,6 +369,7 @@ class BaseDisentangler(object):
                           step=self.iter)
 
         if self.gif_save and len(gifs) > 0:
+            print('Saving gif')
             total_rows = self.num_labels * self.l_dim + \
                          self.z_dim * int(self.traverse_z) + \
                          self.num_labels * int(self.traverse_c)
@@ -368,7 +381,7 @@ class BaseDisentangler(object):
                     file_name = \
                         os.path.join(self.train_output_dir, '{}_{}_{}.{}'.format(c.TEMP, key, str(j).zfill(2), c.JPG))
                     torchvision.utils.save_image(tensor=gifs[i][j].cpu(),
-                                                 filename=file_name,
+                                                 fp=file_name,
                                                  nrow=total_rows, pad_value=1)
                 if test:
                     file_name = os.path.join(self.test_output_dir, '{}_{}_{}.{}'.format(c.GIF, self.iter, key, c.GIF))
@@ -493,6 +506,7 @@ class BaseDisentangler(object):
     @staticmethod
     def set_z(z, latent_id, val):
         z[:, latent_id] = val
+        
 
     def set_l(self, l, label_id, latent_id, val):
         l[:, label_id * self.l_dim + latent_id] = val
