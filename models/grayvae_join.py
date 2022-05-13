@@ -42,22 +42,31 @@ class GrayVAE_Join(VAE):
         image_channels = self.num_channels
         input_channels = image_channels
         decoder_input_channels = self.z_dim
-        ## add binary classification layer
+
+        ## add classification layer
         if args.z_class != 0:
             self.z_class = args.z_class
         else:
             self.z_class = self.z_dim    
         self.n_classes = args.n_classes
-        #self.classification = nn.Linear(self.z_dim, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
-        self.classification = nn.Linear(args.z_class, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
-        self.classification_epoch = args.classification_epoch
-        self.reduce_rec = args.reduce_recon
-        
+        self.classification_epoch = args.classification_epoch #TODO REMOVE THIS SHIT
+        self.reduce_rec = args.reduce_recon                   #TODO REMOVE THIS SHIT
+
         # model and optimizer
         self.model = VAEModel(encoder(self.z_dim, input_channels, self.image_size),
                                decoder(decoder_input_channels, self.num_channels, self.image_size),
                                ).to(self.device)
-        self.optim_G = optim.Adam([*self.model.parameters(), *self.classification.parameters()],
+                               
+        self.classification = nn.Linear(args.z_class, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
+        if args.conditional_prior:
+            self.push_cluster = True
+            self.enc_z_from_y = nn.Linear(args.n_classes, args.z_dim, bias=True).to(self.device)
+            self.optim_G = optim.Adam([*self.model.parameters(), 
+                                       *self.classification.parameters(), 
+                                       *self.enc_z_from_y.parameters()],
+                                      lr=self.lr_G, betas=(self.beta1, self.beta2))
+        else:    
+            self.optim_G = optim.Adam([*self.model.parameters(), *self.classification.parameters()],
                                       lr=self.lr_G, betas=(self.beta1, self.beta2))
 
         # update nets
@@ -113,22 +122,27 @@ class GrayVAE_Join(VAE):
         
         mu_processed = torch.tanh(z/2)
         
-        #mu_processed = torch.tanh(mu/2)
- 
         x_recon = self.model.decode(z=z,)
-
-        #print('mu processed')
-        #print(mu_processed[:10])
 
         prediction, forecast = self.predict(latent=mu_processed[:,:self.z_class])
         rn_mask = (examples==1)
         n_passed = len(examples[rn_mask])
 
-        #print('Prediction:')
-        #print(prediction[:10])
-
-        
         loss_fn_args = dict(x_recon=x_recon, x_true=x_true1, mu=mu, logvar=logvar, z=z)
+        if self.conditional_prior:
+            y_onehot = F.one_hot(y_true1, self.n_classes).to(dtype=torch.float, device=self.device)
+            mu_cluster = self.enc_z_from_y(y_onehot)        
+            loss_fn_args.update(mu_target=mu_cluster)
+            # PUSH THE CLUSTER CLOSER TO THE 
+            concepts = torch.tanh(mu_cluster / 2)
+            if self.push_cluster and self.latent_loss=='MSE':
+                loss_bin =  nn.MSELoss(reduction='mean')( concepts[rn_mask][:, :label1.size(1)], 2*label1[rn_mask]-1  )
+            if self.push_cluster and self.latent_loss=='BCE':
+                loss_bin = nn.BCELoss(reduction='mean')((1+concepts[rn_mask][:, :label1.size(1)])/2, label1[rn_mask] )
+            else:
+                loss_bin = torch.tensor(0, device=self.device)
+
+
         loss_dict = self.loss_fn(losses, reduce_rec=False, **loss_fn_args)
         losses.update(loss_dict)
 
@@ -136,22 +150,11 @@ class GrayVAE_Join(VAE):
         losses.update(prediction=pred_loss)
         losses[c.TOTAL_VAE] += pred_loss
         
-        
-
-#            losses.update({'total_vae': loss_dict['total_vae'].detach(), 'recon': loss_dict['recon'].detach(),
-#                          'kld': loss_dict['kld'].detach()})
         del loss_dict, pred_loss
 
         if n_passed > 0: # added the presence of only small labelled generative factors
-
-            ## loss of categorical variables
-
-            ## loss of continuous variables
-
-            if self.latent_loss == 'MSE':
-                #TODO: PLACE ONEHOT ENCODING
-                
-                loss_bin = nn.MSELoss(reduction='mean')( mu_processed[rn_mask][:, :label1.size(1)], 2*label1[rn_mask]-1  )
+            if self.latent_loss == 'MSE':                
+                loss_bin += nn.MSELoss(reduction='mean')( mu_processed[rn_mask][:, :label1.size(1)], 2*label1[rn_mask]-1  )
                 ## track losses
                 err_latent = []
                 for i in range(label1.size(1)):
@@ -160,9 +163,8 @@ class GrayVAE_Join(VAE):
                 losses[c.TOTAL_VAE] += self.latent_weight * loss_bin
 
             elif self.latent_loss == 'BCE':
-                loss_bin = nn.BCELoss(reduction='mean')((1+mu_processed[rn_mask][:, :label1.size(1)])/2,
+                loss_bin += nn.BCELoss(reduction='mean')((1+mu_processed[rn_mask][:, :label1.size(1)])/2,
                                                             label1[rn_mask] )
-
                 ## track losses
                 err_latent = []
                 for i in range(label1.size(1)):
@@ -177,8 +179,6 @@ class GrayVAE_Join(VAE):
         else:
             losses.update(true_values=torch.tensor(-1))
             err_latent =[-1]*label1.size(1)
-    #            losses[c.TOTAL_VAE] += nn.MSELoss(reduction='mean')(mu[:, :label1.size(1)], label1).detach()
-
 
         return losses, {'x_recon': x_recon, 'mu': mu, 'z': z, 'logvar': logvar, "prediction": prediction,
                         'forecast': forecast, 'latents': err_latent, 'n_passed': n_passed}
@@ -194,17 +194,14 @@ class GrayVAE_Join(VAE):
 
         else: track_changes=False;
             
-        
         ## SAVE INITIALIZATION ##
         #self.save_checkpoint()
-
 
         Iterations, Epochs, Reconstructions, KLDs, True_Values, Accuracies, F1_scores = [], [], [], [], [], [], []  ## JUST HERE FOR NOW
         latent_errors = []
         epoch = 0
         max_lr = np.log10(self.optim_G.param_groups[0]['lr']) 
         lr_log_scale = np.logspace(-7, max_lr, 5)
-        
         
         while not self.training_complete():
             # added annealing
@@ -231,16 +228,13 @@ class GrayVAE_Join(VAE):
                 x_true1 = x_true1.to(self.device)
                 y_true1 = y_true1.to(self.device, dtype=torch.long)
 
-                #label1 = label1[:, 1:].to(self.device) #TODO CHANGE THE 1 with SOMETHING CHOSEN
                 if self.dset_name == 'dsprites_full':
                     label1 = label1[:, 1:].to(self.device)
                 else:
                     label1 = label1.to(self.device)
  
                 losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples)
-
-               
-                
+   
                 ## ADD FOR EVALUATION PURPOSES
                 z[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :] = params['z']
                 g[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :label1.size(1)] = label1
@@ -279,8 +273,6 @@ class GrayVAE_Join(VAE):
                         sofar.to_csv(os.path.join(out_path+'/train_runs', 'metrics.csv'), index=False)
                         del sofar
 
-#                        if not self.dataframe_eval.empty:
- #                           self.dataframe_eval.to_csv(os.path.join(out_path, 'dis_metrics.csv'), index=False)
                         # ADD validation step
                         val_rec, val_kld, val_latent, val_bce, val_acc, _, _, _ =self.test(validation=True, name=self.dset_name)
                         sofar = pd.DataFrame(np.array([epoch, val_rec, val_kld, val_latent, val_bce, val_acc]).reshape(1,-1), 
@@ -361,7 +353,6 @@ class GrayVAE_Join(VAE):
         l_dim = self.z_dim
         g_dim = self.z_dim
 
-
         if validation: loader = self.val_loader
         else: loader = self.test_loader
         
@@ -412,18 +403,21 @@ class GrayVAE_Join(VAE):
             g_array[self.batch_size*internal_iter:self.batch_size*internal_iter+bs, :] = g
 
             rec+=(F.binary_cross_entropy(input=x_recon, target=x_true,reduction='sum').detach().item()/self.batch_size )
-            kld+=(self._kld_loss_fn(mu, logvar).detach().item())
+            if self.conditional_prior: 
+                y_onehot = F.one_hot(y_true, self.n_classes).to(dtype=torch.float, device=self.device)
+                mu_target = self.enc_z_from_y(y_onehot)
+                kld += self._kld_loss_fn(mu, logvar, mu_target).detach().item()
+                
+            else: kld+=(self._kld_loss_fn(mu, logvar).detach().item())
 
             if self.latent_loss == 'MSE':
                 loss_bin = nn.MSELoss(reduction='mean')(mu_processed[:, :label.size(1)], 2 * label.to(dtype=torch.float32) - 1)
-                
                 err_latent = []
                 for i in range(label.size(1)):
                     err_latent.append(nn.MSELoss(reduction='mean')(mu_processed[:, i],
                                                                     2*label[:, i].to(dtype=torch.float32)-1 ).detach().item())
             elif self.latent_loss == 'BCE':
                 loss_bin = nn.BCELoss(reduction='mean')((1+mu_processed[:, :label.size(1)])/2, label.to(dtype=torch.float32) )
-                
                 err_latent = []
                 for i in range(label.size(1)):
                     err_latent.append(nn.BCELoss(reduction='mean')((1+mu_processed[:, i])/2,

@@ -5,7 +5,7 @@ import torch.nn.functional as F
 
 from models.base.base_disentangler import BaseDisentangler
 from architectures import encoders, decoders
-from common.ops import kl_divergence_mu0_var1, reparametrize
+from common.ops import kl_divergence_mu0_var1, kl_divergence_mu_var1, reparametrize
 from common import constants as c
 
 
@@ -53,6 +53,8 @@ class VAE(BaseDisentangler):
         encoder = getattr(encoders, encoder_name)
         decoder = getattr(decoders, decoder_name)
 
+        self.conditional_prior = args.conditional_prior            
+
         # model and optimizer
         self.model = VAEModel(encoder(self.z_dim, self.num_channels, self.image_size),
                               decoder(self.z_dim, self.num_channels, self.image_size)).to(self.device)
@@ -92,16 +94,20 @@ class VAE(BaseDisentangler):
         mu, logvar = self.model.encode(x=images)
         return reparametrize(mu, logvar)
 
-    def _kld_loss_fn(self, mu, logvar):
-        if not self.controlled_capacity_increase:
-            kld_loss = kl_divergence_mu0_var1(mu, logvar) * self.w_kld
-        else:
-            """
-            Based on: Understanding disentangling in β-VAE
-            https://arxiv.org/pdf/1804.03599.pdf
-            """
-            capacity = torch.min(self.max_c, self.max_c * torch.tensor(self.iter) / self.iterations_c)
-            kld_loss = (kl_divergence_mu0_var1(mu, logvar) - capacity).abs() * self.w_kld
+    def _kld_loss_fn(self, mu, logvar, mu_th=None):
+        if mu_th is None: # PRIOR ON 0
+            if not self.controlled_capacity_increase:
+                kld_loss = kl_divergence_mu0_var1(mu, logvar) * self.w_kld
+            else:
+                capacity = torch.min(self.max_c, self.max_c * torch.tensor(self.iter) / self.iterations_c)
+                kld_loss = (kl_divergence_mu0_var1(mu, logvar) - capacity).abs() * self.w_kld
+        else: # PRIOR on mu_th
+            if not self.controlled_capacity_increase:
+                kld_loss = kl_divergence_mu_var1(mu, logvar, mu_th) * self.w_kld
+            else:
+                capacity = torch.min(self.max_c, self.max_c * torch.tensor(self.iter) / self.iterations_c)
+                kld_loss = (kl_divergence_mu_var1(mu, logvar, mu_th) - capacity).abs() * self.w_kld
+
         return kld_loss
 
     def loss_fn(self, input_losses, reduce_rec=False, **kwargs):
@@ -114,16 +120,16 @@ class VAE(BaseDisentangler):
         bs = self.batch_size
         output_losses = dict()
         output_losses[c.TOTAL_VAE] = input_losses.get(c.TOTAL_VAE, 0)
-        if reduce_rec:
-            output_losses[c.RECON] = F.binary_cross_entropy(input=x_recon, target=x_true,reduction='sum')/bs * self.w_recon * self.reduce_rec
-                                        #reduction='mean')
-
-        else:
-            output_losses[c.RECON] = F.binary_cross_entropy(input=x_recon, target=x_true,reduction='sum') / bs * self.w_recon
+        
+        output_losses[c.RECON] = F.binary_cross_entropy(input=x_recon, target=x_true,reduction='sum') / bs * self.w_recon
 
         output_losses[c.TOTAL_VAE] += output_losses[c.RECON]
 
-        output_losses['kld'] = self._kld_loss_fn(mu, logvar)
+        if self.conditional_prior:
+            mu_cluster = kwargs['mu_target'] 
+            output_losses['kld'] = self._kld_loss_fn(mu,logvar, mu_cluster) 
+        else:
+            output_losses['kld'] = self._kld_loss_fn(mu, logvar)
         output_losses[c.TOTAL_VAE] += output_losses['kld']
 
         if c.FACTORVAE in self.loss_terms:

@@ -164,6 +164,7 @@ def get_args(sys_args):
     # Methodology on labels
     parser.add_argument('--label_weight', default=5, type=float, help='Constant increasing the importance of downstream prediction.')
     parser.add_argument('--n_classes', default=2, type=int, help='' )
+    parser.add_argument('--conditional_prior', default=False, type=str2bool, help='to include a clustering prior.')
 
 
     # Hyper-parameters
