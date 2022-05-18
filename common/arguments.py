@@ -157,15 +157,16 @@ def get_args(sys_args):
     parser.add_argument('--show_loss', default=500, type=float, help='Choose iter when to show behaviour of the model')
 
     # Methodology on Latents
-    parser.add_argument('--latent_loss', default='MSE', type=str, choices=['BCE', 'MSE', '1st_BCE', '1st_MSE', 'exact_MSE', 'exact_BCE', 'Hybrid'], help='Select the error function on the latent variables')
+    parser.add_argument('--latent_loss', default='MSE', type=str, choices=['BCE', 'MSE', '1st_BCE', '1st_MSE', 'exact_MSE', 'exact_BCE', 'Hybrid', 'None'], help='Select the error function on the latent variables')
     parser.add_argument('--latent_weight', default=None, type=float, help='Constant increasing the importance of latent matching.')
     parser.add_argument('--masking_fact', default=100, type=float, help='Percent of generative factors seen.')
 
     # Methodology on labels
     parser.add_argument('--label_weight', default=5, type=float, help='Constant increasing the importance of downstream prediction.')
-    parser.add_argument('--n_classes', default=2, type=int, help='' )
-    parser.add_argument('--conditional_prior', default=False, type=str2bool, help='to include a clustering prior.')
+    parser.add_argument('--n_classes', default=2, type=int, help='NUMBER OF CLASSES FOR CLASSIFICATION' )
 
+    parser.add_argument('--conditional_prior', default=False, type=str2bool, help='to itensonclude a clustering prior.')
+    parser.add_argument('--cluster_dim', default=0, type=int, help='Set to which latents fit the conditional clusters' )
 
     # Hyper-parameters
     parser.add_argument('--classification_epoch', default=1, type=int, help='Epoch for starting the classification.')

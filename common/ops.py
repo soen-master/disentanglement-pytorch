@@ -19,8 +19,14 @@ def kl_divergence_mu0_var1(mu, logvar):
     return kld
 
 
-def kl_divergence_mu_var1(mu, logvar, target_mu):
-    kld = -0.5 * (1 + logvar - (mu - target_mu) ** 2 - logvar.exp()).sum(1).mean()
+def kl_divergence_mu_var1(mu, logvar, target_mu, dims=0):
+    if dims == 0:
+        kld = -0.5 * (1 + logvar - (mu - target_mu) ** 2 - logvar.exp()).sum(1).mean()
+    else:
+        mu_centered = mu
+        mu_centered[:,:dims] = mu[:,:dims] - target_mu[:,:dims]
+        mu_centered[:,dims:] = torch.zeros(size=mu[:,dims:].size(),device=mu.device)
+        kld = -0.5 * (1 + logvar - (mu_centered) ** 2   - logvar.exp()).sum(1).mean()
     return kld
 
 

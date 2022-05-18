@@ -318,6 +318,10 @@ class OSR_VAE(nn.Module):
 
         BCE = F.binary_cross_entropy(recon_x, x.view(-1, 784), reduction='sum')
         KLD = -0.5 * torch.sum(1 + log_var - (mu-mu_y).pow(2) - log_var.exp()) * self.beta
+        
+        ## parametric KLD:
+        log_vary = torch.tensor(-2)
+        KLD = 0.5*torch.sum(  (log_vary - log_var) + (log_var.exp() + (mu-mu_y).pow(2) )/ log_vary.exp() - 1  )
 
         ## ADD 4/5 test for parity prediction
 
@@ -325,8 +329,8 @@ class OSR_VAE(nn.Module):
         if y is not None:
             PRED = pred_loss(pred, y)
 
-            LAT = latent_error(z, y) * 100  
-            POST = latent_error(mu_y, y) * 100
+            LAT = latent_error(z, y) * 100 
+            POST = latent_error(mu_y, y) * 2000
 
         if only_class:
             BCE, KLD, LAT = torch.tensor(0), torch.tensor(0), torch.tensor(0)

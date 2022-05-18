@@ -57,7 +57,7 @@ def vae_test(vae, test_loader):
             data = data[mask].cuda()
             y = y[mask].cuda()
             recon, mu, log_var, z = vae(data)
-            pred = vae.predict(z[:,:2])
+            pred, _ = vae.predict(z[:,:2])
 
             # sum up batch loss
             p_loss, l_dict = vae.loss_function(recon, data, mu, log_var, z, pred, y)
@@ -121,7 +121,7 @@ def cbm_test(cbm, test_loader):
             data = data[mask].cuda()
             y = y[mask].cuda()
             mu = cbm(data)
-            pred = cbm.predict(mu)
+            pred, _ = cbm.predict(mu)
 
             # sum up batch loss
             p_loss, l_dict = cbm.loss_function(data, mu, pred, y)
@@ -170,6 +170,8 @@ def osr_vae_train(osr_vae, optimizer, train_loader, test_loader):
         print('====> Epoch: {} Average loss: {:.4f}'.format(epoch, train_loss / len(train_loader.dataset)))
         writer.flush()
         osr_vae_test(osr_vae, test_loader)
+        if epoch > 6:
+            lr_scheduler = optim.lr_scheduler.ExponentialLR(optimizer, 0.5)
         lr_scheduler.step()
     writer.close()
     return osr_vae

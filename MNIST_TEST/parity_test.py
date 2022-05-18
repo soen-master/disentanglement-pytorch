@@ -31,7 +31,7 @@ def information_leakage():
     test_loader = torch.utils.data.DataLoader(dataset=test_dataset, batch_size=bs, shuffle=False)
 
 
-    path = '/home/emanuele.marconato/disentanglement-pytorch/mnist_data/'
+    path = '/home/emarconato/disentanglement-pytorch/mnist_data/'
 
 
     ### BUILD VAE
@@ -134,7 +134,7 @@ def information_leakage():
             sample = osr_vae.decoder(z).cuda()
             save_image(sample.view(64, 1, 28, 28), path+'samples/osr_sample_MNIST' + '.png')
     else:
-        osr_vae = OSR_VAE(x_dim=784,h_dim1=128, h_dim2=128, z_dim=10, beta=5)
+        osr_vae = OSR_VAE(x_dim=784,h_dim1=128, h_dim2=128, z_dim=10, beta=100)
         if torch.cuda.is_available(): osr_vae.cuda()
         optimizer = optim.Adam(osr_vae.parameters())
 
@@ -163,4 +163,5 @@ def information_leakage():
         torch.save(osr_vae, path+'osr_vae.pt')
 
 if __name__=='__main__':
+    os.environ['CUDA_VISIBLE_DEVICES'] = '7'
     information_leakage()
