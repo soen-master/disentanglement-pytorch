@@ -36,7 +36,8 @@ ALGS = ('AE', 'VAE', 'BetaVAE', 'CVAE', 'IFCVAE', "GRAYVAE", 'GrayVAE_Standard',
 LOSS_TERMS = (FACTORVAE, DIPVAEI, DIPVAEII, BetaTCVAE, INFOVAE, GRAYVAE, GRAYVAE_STANDARD, GRAYVAE_JOIN, CBM_SEQ, CBM_JOIN) #uncertain here
 
 # Datasets
-DATASETS = ('celebA', 'dsprites_full', 'dsprites_noshape', 'color_dsprites', 'noisy_dsprites', 'scream_dsprites',
+DATASETS = ('celebA', 
+            'dsprites_full', 'dsprites_noshape', 'color_dsprites', 'noisy_dsprites', 'scream_dsprites', 'dsprites_leakage',
             'smallnorb', 'cars3d', 'shapes3d', 
             'mpi3d', 'mpi3d_toy', 'mpi3d_realistic', 'mpi3d_real')
 DEFAULT_DATASET = DATASETS[-2]  # mpi3d_realistic

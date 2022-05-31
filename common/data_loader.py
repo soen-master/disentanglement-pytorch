@@ -453,8 +453,6 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
                        }
         dset = CustomNpzDataset
         
-        #dset(**data_kwargs)
-
     elif name.lower() == 'dsprites_full':
         #print(name)
         if d_version == "full":
@@ -544,6 +542,80 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
             accuracy = Accuracy_Loss()((torch.tensor(y_pred, dtype=torch.float)), torch.tensor(y_target1, dtype=torch.float))
             print("ACCURACY for logreg: ", accuracy)
 
+    elif name.lower() == 'dsprites_leakage':
+        print('Pre-Processing dsprites_leakage')
+
+        root = os.path.join(dset_dir, 'dsprites_leakage_train.npz')
+        npz_train = np.load(root)
+        
+        labels = npz_train['G']
+        targets = np.array(npz_train['Y']-1, dtype=int)
+
+        print('labels', np.shape(labels))
+                
+        ## create labels for dsprites
+        a = np.zeros((len(labels),3))
+        a[np.arange(len(labels)), np.asarray(labels[:,0]-1, dtype=np.int) ] = 1
+        
+        for i in range(1,len(labels[0])):
+            labels[:,i] = (labels[:,i] - np.min(labels[:,i])) / (np.max(labels[:,i]) - np.min(labels[:,i]) )
+        
+        labels_one_hot = np.hstack((a,  labels[:,1:]))
+        
+        print('Shape of latents for dsprites leakage:', np.shape(labels_one_hot))
+                
+        assert np.max(labels_one_hot) == 1, 'Error on max: '+str(np.max(labels_one_hot))
+        assert np.min(labels) == 0, 'Error on min'
+        
+        # create a perm for train / val
+        perm = np.random.permutation(len(labels_one_hot))
+
+        validation_split = 0.2
+        split = int(np.floor(validation_split * len(labels_one_hot) ))
+        
+        train_data_kwargs = {'data_images': npz_train['X'][perm][split:]*255 ,
+                       'labels': labels_one_hot[perm][split:],
+                       'label_weights': labels_one_hot[perm][split:],
+                       'class_values': labels_one_hot[perm][split:],
+                       'num_channels': 1,
+                       'y_target': targets[perm][split:],
+                       }
+        
+        val_data_kwargs  = {'data_images': npz_train['X'][perm][:split]*255,
+                       'labels': labels_one_hot[perm][:split],
+                       'label_weights': labels_one_hot[perm][:split],
+                       'class_values': labels_one_hot[perm][:split],
+                       'num_channels': 1,
+                       'y_target': targets[perm][:split],
+                       }
+        
+        root = os.path.join(dset_dir, 'dsprites_leakage_test.npz')
+        npz_test = np.load(root)
+        
+        ## create labels for dsprites
+        labels = npz_test['G']
+
+        a = (labels[:,0] - 1).reshape(-1,1)
+        
+        for i in range(1,len(labels[0])):
+            labels[:,i] = (labels[:,i] - np.min(labels[:,i])) / (np.max(labels[:,i]) - np.min(labels[:,i]) )
+        
+        labels_one_hot = np.hstack((a,  labels[:,1:]))
+        
+        test_data_kwargs  = {'data_images': npz_test['X']*255,
+                            'labels': labels_one_hot,
+                            'label_weights':labels_one_hot,
+                            'class_values': labels_one_hot,
+                            'num_channels': 1,
+                            'y_target': npz_test['Y'],
+                            }
+        
+        train_dset = CustomNpzDataset
+        val_dset = CustomNpzDataset
+        test_dset = CustomNpzDataset
+
+        tot = [1/3, 1/3, 1/3]
+    
     else:
         raise NotImplementedError
 
@@ -552,7 +624,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
     examples = np.ones(len(labels))
 
     examples[~(random_entries <= (masking_fact/100) )] = 0
-    if name.lower() != 'celeba':
+    if name.lower() not in ['celeba', 'dsprites_leakage']:
         data_kwargs.update({'seed': seed,
                             'name': name,
                             'transform': transform})
@@ -614,10 +686,22 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         val_dset   = CustomNpzDataset
         test_dset  = CustomNpzDataset
         
+        if name.lower() == 'celeba':
+            train_examples = examples[:102635]
+            val_examples   = examples[102635:115013]
+            test_examples  = examples[115013:]
+            
+        elif name.lower() == 'dsprites_leakage':
+            train_examples = np.ones(len(npz_train['Y'] ) - split  )
+            val_examples   = np.ones(split)
+            test_examples  = np.ones(len(npz_test['Y'])) 
+        else:
+            NotImplementedError('wrong dataset')
+            
         train_data_kwargs.update({'seed': seed,
                                 'name': name,
                                 'transform': transform,
-                                'examples': examples[:102635]}) 
+                                'examples': train_examples}) 
         
         train_dataset = train_dset(**train_data_kwargs)
         train_dataset.isGRAY =True 
@@ -625,17 +709,17 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         val_data_kwargs.update({'seed': seed,
                                 'name': name,
                                 'transform': transform,
-                                'examples': examples[102635:115013]}) 
+                                'examples': val_examples}) 
         val_dataset = val_dset(**val_data_kwargs)
         val_dataset.isGRAY =True 
         
         test_data_kwargs.update({'seed': seed,
                                 'name': name,
                                 'transform': transform,
-                                'examples': examples[115013:]}) 
+                                'examples': test_examples}) 
         test_dataset = test_dset(**test_data_kwargs)
         test_dataset.isGRAY =True 
-        
+                
         rel_weights = 1. / np.array(tot)
         weights = rel_weights[targets[:102635]]        
         
@@ -644,14 +728,23 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         weighted_sampler = WeightedRandomSampler(weights, 
                                                  len(weights), 
                                                  replacement=True)
-        
-        data_loader = DataLoader(train_dataset,
-                                batch_size=batch_size,
-                                num_workers=num_workers,
-                                pin_memory=pin_memory,
-                                drop_last=droplast,
-                                sampler=weighted_sampler
-                                )
+        if name.lower() == 'celeba':
+            data_loader = DataLoader(train_dataset,
+                                    batch_size=batch_size,
+                                    num_workers=num_workers,
+                                    pin_memory=pin_memory,
+                                    drop_last=droplast,
+                                    sampler=weighted_sampler
+                                    )
+            
+        else:
+            data_loader = DataLoader(train_dataset,
+                                    batch_size=batch_size,
+                                    num_workers=num_workers,
+                                    pin_memory=pin_memory,
+                                    drop_last=droplast,
+                                    )
+            
 
         val_loader = DataLoader(val_dataset,
                                 batch_size=batch_size,
@@ -667,6 +760,7 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         
         #print(len(examples))
         #print(examples[:100])
+      
 
     if include_labels is not None:
         logging.info('num_classes: {}'.format(dataset.num_classes(False)))

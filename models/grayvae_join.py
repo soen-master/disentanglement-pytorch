@@ -131,16 +131,22 @@ class GrayVAE_Join(VAE):
         loss_fn_args = dict(x_recon=x_recon, x_true=x_true1, mu=mu, logvar=logvar, z=z)
         if self.conditional_prior:
             y_onehot = F.one_hot(y_true1, self.n_classes).to(dtype=torch.float, device=self.device)
-            mu_cluster = self.enc_z_from_y(y_onehot)        
+            mu_cluster = self.enc_z_from_y(y_onehot)     
+               
             loss_fn_args.update(mu_target=mu_cluster)
             # PUSH THE CLUSTER CLOSER TO THE 
             concepts = torch.tanh(mu_cluster / 2)
-            if self.push_cluster and self.latent_loss=='MSE':
-                loss_bin =  nn.MSELoss(reduction='mean')( concepts[rn_mask][:, :label1.size(1)], 2*label1[rn_mask]-1  )
-            if self.push_cluster and self.latent_loss=='BCE':
-                loss_bin = nn.BCELoss(reduction='mean')((1+concepts[rn_mask][:, :label1.size(1)])/2, label1[rn_mask] )
+            if self.cluster_dim == 0:
+                cluster_dims = self.z_dim
             else:
-                loss_bin = torch.tensor(0, device=self.device)
+                cluster_dims = self.cluster_dim
+            
+            if self.push_cluster and self.latent_loss=='MSE':
+                loss_bin =  nn.MSELoss(reduction='mean')( concepts[rn_mask][:, :cluster_dims ], 2*label1[:,:cluster_dims][rn_mask]-1  ) * 100
+            if self.push_cluster and self.latent_loss=='BCE':
+                loss_bin = nn.BCELoss(reduction='mean')((1+concepts[rn_mask][:, :cluster_dims ])/2, label1[:, :cluster_dims ][rn_mask] ) * 100
+            else:
+                loss_bin = torch.tensor(0, dtype=torch.float, device=self.device)
 
 
         loss_dict = self.loss_fn(losses, reduce_rec=False, **loss_fn_args)
@@ -370,7 +376,7 @@ class GrayVAE_Join(VAE):
                 label = label.to(self.device, dtype=torch.float)
             
             y_true =  y_true.to(self.device, dtype=torch.long)
-
+           
             g_array = g_array[:,:label.size(1)]
 
             mu, logvar = self.model.encode(x=x_true, )
@@ -422,6 +428,9 @@ class GrayVAE_Join(VAE):
                 for i in range(label.size(1)):
                     err_latent.append(nn.BCELoss(reduction='mean')((1+mu_processed[:, i])/2,
                                                                     label[:, i] ).detach().item())
+            elif self.latent_loss == 'None':
+                loss_bin = torch.tensor(0)
+                err_latent = []
             else:
                 NotImplementedError('Wrong argument for latent loss.')
 
@@ -439,8 +448,19 @@ class GrayVAE_Join(VAE):
             self.visualize_traverse(limit=(self.traverse_min, self.traverse_max),
                                     spacing=self.traverse_spacing,
                                     data=(x_true, label), test=True)
-
+        
+        
         if out_path is not None and self.save_model and not validation:
+            if self.dset_name == 'dsprites_leakage':
+                y_hot = torch.tensor([[1., 0., 0.],
+                                      [0., 1., 0.],
+                                      [0., 0., 1.]], device=self.device)
+                centroids = self.enc_z_from_y(y_hot)
+                print(centroids)
+                
+                with open( os.path.join(out_path,'eval_results/centroids.npy'), 'wb') as f:
+                    np.save(f, centroids.cpu().detach().numpy())
+            
             with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
                 print(np.shape(z_array[:20000]))
                 print(np.shape(g_array[:20000]))
@@ -448,8 +468,9 @@ class GrayVAE_Join(VAE):
                 np.save(f, z_array[:20000])
                 np.save(f, g_array[:20000])
             with open(os.path.join(out_path,'eval_results/downstream_obtained.npy'), 'wb') as f:
-                y_test      = np.array([a.squeeze().tolist() for a in y_test])
-                y_pred_list = np.array([a.squeeze().tolist() for a in y_pred_list])
+                
+                y_test      = np.array([a.squeeze().tolist() for a in y_test[:-1]])
+                y_pred_list = np.array([a.squeeze().tolist() for a in y_pred_list[:-1]])
                 np.save(f, self.epoch)
                 np.save(f, y_test)
                 np.save(f, y_pred_list) 

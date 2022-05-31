@@ -66,6 +66,9 @@ def main(_args):
     ### REMOVED AIRCROWD ###
 
 if __name__ == "__main__":
+    
+    os.environ['CUDA_VISIBLE_DEVICES'] = '0'
+    
     _args = get_args(sys.argv[1:])
     setup_logging(_args.verbose)
     initialize_seeds(_args.seed)
