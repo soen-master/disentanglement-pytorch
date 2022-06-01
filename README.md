@@ -1,30 +1,29 @@
-[![CircleCI](https://circleci.com/gh/amir-abdi/disentanglement-pytorch.svg?style=svg&circle-token=40d47183b78c6f1959ff584259c89ac7d49e36b0)](https://circleci.com/gh/amir-abdi/disentanglement-pytorch)
 
-# Disentanglement-PyTorch
-Pytorch Implementation of **Disentanglement** algorithms for Variational Autoencoders. This library was developed as a contribution to the ***[Disentanglement Challenge of NeurIPS 2019](https://aicrowd.com/challenges/neurips-2019-disentanglement-challenge)***.
+# GlanceNets: Interpretabile, Leak-proof Concept-based Models
+Code implementiation for the homonymous paper. The article can be found at https://arxiv.org/abs/2205.15612 and consider citing it if useful:
 
-If the library helped your research, consider citing the corresponding submission of the NeurIPS 2019 Disentanglement Challenge:
+@misc{https://doi.org/10.48550/arxiv.2205.15612,
+  doi = {10.48550/ARXIV.2205.15612},
+  url = {https://arxiv.org/abs/2205.15612},
+  author = {Marconato, Emanuele and Passerini, Andrea and Teso, Stefano},
+  keywords = {Machine Learning (cs.LG), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  title = {GlanceNets: Interpretabile, Leak-proof Concept-based Models},
+  publisher = {arXiv},
+  year = {2022},
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
 
-    @article{abdiDisentanglementPytorch,
-        Author = {Amir H. Abdi and Purang Abolmaesumi and Sidney Fels},
-        Title = {Variational Learning with Disentanglement-PyTorch},
-        Year = {2019},
-        journal={arXiv preprint arXiv:1912.05184},    
-    }
-
-The following algorithms are implemented:
+This repo was created upon orginal work on **disentanglement-pytorch**, please consider citing also the original library (https://github.com/amir-abdi/disentanglement-pytorch).
+   
+The following VAE variants can be included to the original GlanceNet loss:
 - VAE
 - β-VAE ([Understanding disentangling in β-VAE](https://arxiv.org/pdf/1804.03599.pdf))
 - Info-VAE ([InfoVAE: Information Maximizing Variational Autoencoders](https://arxiv.org/abs/1706.02262))
 - Beta-TCVAE ([Isolating Sources of Disentanglement in Variational Autoencoders](https://arxiv.org/abs/1802.04942))
 - DIP-VAE I & II ([Variational Inference of Disentangled Latent Concepts from Unlabeled Observations ](https://openreview.net/forum?id=H1kG7GZAW))
-- Factor-VAE ([Disentangling by Factorising](https://arxiv.org/pdf/1802.05983.pdf))
-- CVAE ([Learning Structured Output Representation using Deep Conditional Generative Models](https://papers.nips.cc/paper/5775-learning-structured-output-representation-using-deep-conditional-generative-models.pdf))
-- IFCVAE ([Adversarial Information Factorization](https://arxiv.org/pdf/1711.05175.pdf))
 
 ***Note:*** *Everything* is modular, you can mix and match neural architectures and algorithms.
-Also, multiple loss terms can be included in the `--loss_terms` argument, each with their respective 
-weights. This enables us to combine a set of disentanglement algorithms for representation learning. 
+Also, multiple loss terms can be included in the `--loss_terms` argument, each with their respective weights. This enables us to combine a set of disentanglement algorithms for representation learning. 
 
 
 ### Requirements and Installation
@@ -34,100 +33,82 @@ Or build conda environment: `conda env create -f environment.yml`
 
 The library visualizes the ***reconstructed images*** and the ***traversed latent spaces*** and saves them as static frames as well as animated GIFs. It also extensively uses the web-based Weights & Biases toolkit for logging and visualization purposes.
 
+***Note:** The leakage test on MNIST is implemented with a newer version of pytorch, which includes tensorboard loggers. Be sure to create a new environment with `conda env create -f MNIST_TEST/mnist_env.yml` or by installing the dependencies with `pip install -r MNIST_TEST/mnist_requirements.txt`. Using the original environment may cause conflicts. * 
+### Dataset setup
+
+We considered variants of celebA, dSprites and MNIST to perform our experiments. In particular, the datasets dsprites_leakage, mpi3dtoy and celebA-64 must be preprocessed in order to be used during pipelines. Please consider to place all of them to the same folder and set `$DISENTANGLEMENT_LIB_DATA` environment variable to the directory holding all the datasets , or choose everytime with the flag `--dset_dir`   (the latter is given priority). \ 
+
+Different datasets are called with `--dset_name` flag or or the `$DATASET_NAME` environment variable to the name of the dataset (the former is given priority).  The supported datasets are: 
+[mnist](http://yann.lecun.com/exdb/mnist/),
+[dsprites](https://github.com/deepmind/dsprites-dataset/raw/master/dsprites_ndarray_co1sh3sc6or40x32y32_64x64.npz),
+[mpi3d_toy](https://storage.googleapis.com/disentanglement_dataset/data_npz/sim_toy_64x_ordered_without_heldout_factors.npz),
+[celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html).
+
+**Pre-processing:** 
+Different preparations are included in the compressed file `preprocessing.zip` but are not automatized. Be sure to have at least 20 Gb  for datasets storage. Extract the content of `preprocessing.zip` to the selected data folder (default: `data/`). For each dataset, some preprocessing is required. In order:
+- **dSprites:**  download the original dataset from https://github.com/deepmind/dsprites-dataset and make sure to move the .npz file to the chosen datafolder; 
+- **dSprites_leakage:** run the script `prepare_leakage_dsprites.py` to create the train and test .npz files for concept leakage; 
+- **MPI3D:**  download the original .npz folder from https://storage.googleapis.com/disentanglement_dataset/Final_Dataset/mpi3d_toy.npz for toy version.  Then, run the script `mpi_prepare_labels.py` to update the npz archive with latent factors;
+- **CelebA:** download the original dataset from https://www.kaggle.com/datasets/jessicali9530/celeba-dataset and extract the content in a selected folder.  Move the folder `preprocess_celebA/` to the same folder and run the script `preprocess_celebA-64.sh` to rescale all images to 64x64 resolution. Then, run the python file `create_labels.py` to include only the selected attributes to the dataset. At the end of the process there will be a npz archive containg fewer data;
+- **MNIST:** The download procedure is  automatized in the code. Be sure to have enough free space in the original project folder.
+
+**Classes selection:**
+Each dataset comes with its labels, but they are generated in different ways. Labels are predefined in dSprites, but they can be changed following the paper procedure. For MPI3D and CelebA, be sure to include the `km.pkl` files into the correct folder and with the correct name. In `preprocessing.zip`  they are collected in the respective folders (the cluster creation is also included in those folders). Labels for MNIST and dSprites_leakage are automatically included in the original datasets. 
+ 
+
 ### Training
+
+Training processes can be either launched alone with:
 
     python main.py [[--ARG ARG_VALUE] ...]
 
-or
+or to reproduce experiments:
 
     bash scripts/SCRIPT_NAME
     
-#### Flags and Configs
+  
+    
+#### 1) Important Flags
+- `--alg`: The model for training.  ***Values**:  GrayVAE_Join, CBM_Join* 
+- `--masking_fact`: Selects the percentage of supervised training examples possessing latent factors information. It is a float variable in the interval [0,100]. 
+- `--conditional_prior`: Choose between the GlanceNet conditional prior (True) and the unconditional one (False).  The conditional prior requires class labels. ***Values**: True, False.* 
 
-- `--alg`: The main formulation for training. \
-  ***Values**: 
-AE (AutoEncoder), 
-VAE (Variational AutoEncoder), 
-BetaVAE, 
-CVAE (Conditional VAE), 
-IFCVAE (Information Factorization CVAE)*
-
-- `--loss_terms`: Extensions to the VAE algorithm 
-are implemented as plug-ins to the original forumation. 
-As a result, if the loss terms of two learning algorithms (*e.g.*, A and B) 
-were found to be compatible, they can simultaneously be included in the objective 
-function with the flag set as `--loss_terms A B`. 
-The `loss_terms` flag can be used with VAE, BetaVAE, CVAE, and 
-IFCVAE algorithms. \
-   ***Values**: FACTORVAE, DIPVAEI, DIPVAEII, BetaTCVAE, INFOVAE*
+- `--loss_terms`: Extensions to the VAE algorithm  are implemented as plug-ins to the original formulation.  As a result, if the loss terms of two learning algorithms (*e.g.*, A and B)  were found to be compatible, they can simultaneously be included in the objective function with the flag set as:
+		 `--loss_terms A B`.  The `loss_terms` flag can be used only with GRAYVAE algorithm. \
+   ***Values**:  DIPVAEI, DIPVAEII, BetaTCVAE, INFOVAE, and FACTORVAE (not available for now)*.
     
 - `--evaluation_metric`: Metric(s) to use for disentanglement evaluation (see `scripts/aicrowd_challenge`). \
 ***Values**: mig, sap_score, irs, factor_vae_metric, dci, beta_vae_sklearn*
 
-For the complete list of arguments, please check the [source](./common/arguments.py).
- 
+**WARNING:** disentanglement metrics work only on dSprites and MPI3D, for now. Be sure not to include the evaluation process on other datasets.   
+
+#### 2) Following Training/Validation/Test Performances
+In this current library implementation, tensorboard loggers are **not** available. The training/validation/test losses are saved in the `/logs` folder, with the name of the dataset and of the model chosen. It is possible to choose the log directory name setting the variable `--out_path` to the desired string, otherwise a new one will be created with the date time information. Jupyter notebooks are available in the folder `analysis/` but existing implementations can be customized to your liking. 
+
+#### 3) Saving and Loading Checkpoints
+The current implementation allows to choose where to save the model checkpoints and whether to load trained models. To access them use the flags:
+- `--ckpt_dir` to select the folder where to save model parameters (default: `checkpoints/`):
+- `--ckpt_load` to load an existing trained model. Be sure to call it from `your_path/last`.
+
+#### 4) Replicate the experiments
+The folder scripts contains various sh configurations to replicate our paper experiments. In particular, GlanceNet and CBNM training pipelines can be found for *dSprites, mpi3D_toy* and *CelebA*. One can vary `--seed` and `--masking_fact`  flags to choose between different scenarios.   Be sure to select the correct environment (default name `dis`). Also, the script `leakage_dsprites.sh` contains the specifications to test leakage on either *GlanceNet, CBNM, and VAE*.
+
+On the other hand, it is sufficient to run `MNIST_TEST/parity_test.py` to replicate *MNIST* leakage test. Be sure to select the correct environment (default name `mnist_test`).
 
 
-### Data Setup
-To run the scripts:
+### Evaluate the performances
+Evaluation of performances is done post training, from saved .csv and .npy files in logs folders. In particular, the trend of training losses can be found in the  `log_name/train_runs/metrics.csv` and those on test in `log_name/eval_results/test_metrics.csv`. If disentanglement metrics are used during training, evaluations are saved in `log_name/eval_results/dis_metrics.csv`.  The log folder includes also the latent factors and their model encodings, both for training and test, in  `latents_obtained.npy`. Downstream prediction and groundtruth values are saved into `downstream_obtained.npy`.
 
-1- Set the `-dset_dir` flag or the `$DISENTANGLEMENT_LIB_DATA` environment variable to the directory 
-holding all the datasets (the former is given priority). 
+- **Accuracy:** The model accuracy is evaluated with sklearn.metrics from  `log_name/eval_results/downstream_obtained.npy`;
 
-2- Set the `dset_name` flag or the `$DATASET_NAME` environment variable to the name of the dataset (the former is given priority).
-The supported datasets are: 
-[celebA](http://mmlab.ie.cuhk.edu.hk/projects/CelebA.html),
-[dsprites](https://github.com/deepmind/dsprites-dataset/raw/master/dsprites_ndarray_co1sh3sc6or40x32y32_64x64.npz)
-(and the Deppmind's variants: color, noisy, scream, introduced [here](https://github.com/google-research/disentanglement_lib/blob/master/disentanglement_lib/data/ground_truth/named_data.py)),
-[smallnorb](https://cs.nyu.edu/~ylclab/data/norb-v1.0-small/), 
-[cars3d](http://www.scottreed.info/files/nips2015-analogy-data.tar.gz), 
-[mpi3d_toy](https://storage.googleapis.com/disentanglement_dataset/data_npz/sim_toy_64x_ordered_without_heldout_factors.npz), and 
-[mpi3d_realistic](https://storage.googleapis.com/disentanglement_dataset/data_npz/sim_realistic_64x_ordered_without_heldout_factors.npz), and
-[mpi3d_real](https://storage.googleapis.com/disentanglement_dataset/Final_Dataset/mpi3d_real.npz).
+- **Alignment:** The model alignmnent is evaluated with the aid of `disentanglement_lib` for dSprites and MPI3D, and it is contained in `log_name/eval_results/dis_metrics.csv`. For CelebA, the performances are calclulated from `log_name/eval_results/latents_obtained.npy`;  
+- **Explicitness:** Similarly, for CelebA the performances are calclulated from `log_name/eval_results/latents_obtained.npy`. Explicitness for dSprites and MPI3D can be found into the `dci/.../evaluation_result.json` from the saved checkpoint.
 
-Please check the [repository](https://github.com/rr-learning/disentanglement_dataset)
- for the mpi3d datasets for license agreements
-and consider citing their work.
-
-<!--- [shapes3d](https://storage.cloud.google.com/3d-shapes/3dshapes.h5)*.-->
- 
-Currently, there are two dataloaders in place: 
-- One handles labels for semi-supervised and conditional (class-aware) training (*e.g.* CVAE, IFCVAE) , 
-but only supports the *celebA* and *dsprites_full* datasets for now. 
-- The other leverages Google's implementations of [disentanglement_lib](https://github.com/google-research/disentanglement_lib),
-and is based on the starter kit of the 
-[Disentanglement Challenge of NeurIPS 2019](https://github.com/AIcrowd/neurips2019_disentanglement_challenge_starter_kit/blob/master/utils_pytorch.py),
-hosted by [AIcrowd](http://aicrowd.com).
-
-
-### NeurIPS 2019 Disentanglement Challenge
-To use this code in the 
-[NeurIPS 2019 Disentanglement Challenge](https://www.aicrowd.com/challenges/neurips-2019-disentanglement-challenge)
-
-- Run `source train_environ.sh NAME_OF_DATASET_TO_TEST`
-- Set `--aicrowd_challenge=true` in your bash file
-- Use `--evaluate_metric mig sap_score irs factor_vae_metric dci` 
-to assess the progression of disentanglement metrics during training. 
-- Set the last line of `run.sh` to your highest performing configuration.
-- Follow the instructions on this [starter kit](https://github.com/AIcrowd/neurips2019_disentanglement_challenge_starter_kit)
-to setup your AIcrowd and gitlab credentials and keys, and push the source code 
-to your repository on GitLab.
-
-
-### Sample Results
-
-| Method    | Latent traversal visualization  | 
-| ----- | -----|
-| VAE | ![](sample_results/dsprite_VAE/gif_fixed_ellipse.gif) |
-| FactorVAE | ![](sample_results/dsprite_FactorVAE/gif_fixed_ellipse.gif) |
-| CVAE (conditioned on shape)| ![](sample_results/dsprite_CVAE/gif_fixed_ellipse.gif) <br>Right-most item is traversing the condition |
-| IFCVAE (factorized on shape)| ![](sample_results/dsprite_IFCVAE/gif_fixed_ellipse.gif) <br>Right-most factor is enforced to encode the shape |
-| BetaTCVAE | ![](sample_results/mpi3d_realistic_BetaTCVAE/gif_rand1.gif) |
-| VAE | ![](sample_results/mpi3d_realistic_VAE/gif_rand0.gif) |
+Visualization and code implementations are present inside some jupyter notebooks in the folder `analysis/`.
 
 
 ### Contributions
-Any contributions, especially around implementing more disentanglement algorithms, 
-are welcome. Feel free to submit bugs, feature requests, or questions as issues,
-or contact me directly via email at: [amirabdi@ece.ubc.ca](mailto:amirabdi@ece.ubc.ca)
+Any contributions, suggestions or questions are welcome. Feel free to submit bugs, feature requests, or questions as issues, or contact me directly via email at: [emanuele.marconato@unitn.it](mailto:emanuele.marconato@unitn.it) 
+
+The original implementation can be found at https://github.com/amir-abdi/disentanglement-pytorch 
 
