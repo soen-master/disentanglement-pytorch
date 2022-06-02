@@ -1,0 +1,27 @@
+python main.py \
+--name=$NAME \
+--alg=GrayVAE_Join \
+--dset_dir=data  \
+--dset_name=celebA \
+--gif_save=False \
+--encoder=EncConv64 \
+--decoder=SimpleConv64 \
+--z_dim=10 \
+--z_class=10 \
+--batch_size=100 \
+--use_wandb=false \
+--test_iter=1627 \
+--evaluate_iter=1000000 \
+--classification_epoch=1000 \
+--max_epoch=70 \
+--latent_loss=BCE \
+--w_recon=0.01 \
+--label_weight=1000 \
+--latent_weight=7000 \
+--lr_scheduler=ExponentialLR \
+--lr_scheduler_args=gamma=0.9 \
+--n_classes=4 \
+--w_kld=1 \
+--conditional_prior=True \
+--masking_fact=1 \
+--seed=883 \

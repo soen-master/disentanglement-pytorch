@@ -1,0 +1,27 @@
+python main.py \
+--name=$NAME \
+--alg=GrayVAE_Join \
+--dset_dir=data \
+--dset_name=dsprites_full \
+--traverse_z=true \
+--encoder=SimpleGaussianConv64 \
+--decoder=SimpleConv64 \
+--z_dim=7 \
+--z_class=7 \
+--w_kld=1 \
+--w_recon=1 \
+--include_labels 0 1 2 3 4 5 \
+--batch_size=64 \
+--use_wandb=false \
+--seed=883 \
+--show_loss=1000 \
+--max_iter=250000 \
+--evaluation_metric dci \
+--classification_epoch=20 \
+--d_version=full \
+--evaluate_iter=125000 \
+--test_iter=9216 \
+--label_weight=100 \
+--masking_fact=1 \
+--conditional_prior=True \
+
