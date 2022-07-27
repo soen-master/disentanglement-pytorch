@@ -187,7 +187,7 @@ class CBM_Join(VAE):
             
             if epoch < 5:
                 self.class_G_all.param_groups[0]['lr'] = lr_log_scale[epoch]
-
+            print('lr:',  self.class_G_all.param_groups[0]['lr'])
             epoch += 1
             self.net_mode(train=True)
             vae_loss_sum = 0
@@ -360,7 +360,7 @@ class CBM_Join(VAE):
             g_enc = np.asarray(label.detach().cpu())
             bs = len(label)
             z_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :] = z_enc
-            g_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :] = g_enc
+            g_array[self.batch_size * internal_iter:self.batch_size * internal_iter + bs, :label.size(1)] = g_enc
 
             if self.latent_loss == 'MSE':
                 loss_bin = nn.MSELoss(reduction='mean')(mu_processed[:, :label.size(1)],
@@ -393,7 +393,7 @@ class CBM_Join(VAE):
             with open( os.path.join(out_path,'eval_results/latents_obtained.npy'), 'wb') as f:
                 np.save(f, self.epoch)
                 np.save(f, z_array[:20000])
-                np.save(f, g_array[:20000])
+                np.save(f, g_array[:20000, :label.size(1)])
                 
             with open(os.path.join(out_path,'eval_results/downstream_obtained.npy'), 'wb') as f:
                     y_test      = np.array([a.squeeze().tolist() for a in y_test])

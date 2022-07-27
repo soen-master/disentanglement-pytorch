@@ -1,56 +1,24 @@
-usage: main.py [-h] [--aicrowd_challenge AICROWD_CHALLENGE]
-               [--evaluation_metric {dci,factor_vae_metric,sap_score,mig,irs,beta_vae_sklearn} [{dci,factor_vae_metric,sap_score,mig,irs,beta_vae_sklearn} ...]]
-               [--alg {AE,VAE,BetaVAE,CVAE,IFCVAE,GRAYVAE,GrayVAE_Standard,GrayVAE_Join,CBM_Seq,CBM_Join}]
-               [--controlled_capacity_increase CONTROLLED_CAPACITY_INCREASE]
-               [--loss_terms [{FactorVAE,DIPVAEI,DIPVAEII,BetaTCVAE,InfoVAE,grayvae,grayvae_standard,grayvae_join,cbm_seq,cbm_join} [{FactorVAE,DIPVAEI,DIPVAEII,BetaTCVAE,InfoVAE,grayvae,grayvae_standard,grayvae_join,cbm_seq,cbm_join} ...]]]
-               [--name NAME] --encoder
-               {SimpleConv64,SimpleGaussianConv64,PadlessConv64,PadlessGaussianConv64,ShallowGaussianLinear,DeepGaussianLinear,EncConv64}
-               [{SimpleConv64,SimpleGaussianConv64,PadlessConv64,PadlessGaussianConv64,ShallowGaussianLinear,DeepGaussianLinear,EncConv64} ...]
-               --decoder {SimpleConv64,ShallowLinear,DeepLinear,DeConv64}
-               [{SimpleConv64,ShallowLinear,DeepLinear,DeConv64} ...]
-               [--label_tiler [{MultiTo2DChannel} [{MultiTo2DChannel} ...]]]
-               [--discriminator [{SimpleDiscriminator,SimpleDiscriminatorConv64} [{SimpleDiscriminator,SimpleDiscriminatorConv64} ...]]]
-               [--test TEST] [--max_iter MAX_ITER] [--max_epoch MAX_EPOCH]
-               [--batch_size BATCH_SIZE] [--num_disc_layers NUM_DISC_LAYERS]
-               [--size_disc_layers SIZE_DISC_LAYERS] [--z_dim Z_DIM]
-               [--z_class Z_CLASS]
-               [--include_labels [INCLUDE_LABELS [INCLUDE_LABELS ...]]]
-               [--l_dim L_DIM] [--beta1 BETA1] [--beta2 BETA2] [--lr_G LR_G]
-               [--lr_D LR_D] [--num_layer_disc NUM_LAYER_DISC]
-               [--size_layer_disc SIZE_LAYER_DISC] [--w_recon W_RECON]
-               [--w_kld W_KLD] [--max_c MAX_C] [--iterations_c ITERATIONS_C]
-               [--w_tc W_TC] [--w_infovae W_INFOVAE] [--w_dipvae W_DIPVAE]
-               [--w_le W_LE] [--w_aux W_AUX]
-               [--lambda_d_factor LAMBDA_D_FACTOR] [--lambda_od LAMBDA_OD]
-               [--dset_dir DSET_DIR] [--dset_name DSET_NAME]
-               [--image_size IMAGE_SIZE] [--num_workers NUM_WORKERS]
-               [--pin_memory PIN_MEMORY] [--train_output_dir TRAIN_OUTPUT_DIR]
-               [--test_output_dir TEST_OUTPUT_DIR] [--file_save FILE_SAVE]
-               [--gif_save GIF_SAVE] [--use_wandb USE_WANDB]
-               [--wandb_resume_id WANDB_RESUME_ID]
-               [--traverse_spacing TRAVERSE_SPACING]
-               [--traverse_min TRAVERSE_MIN] [--traverse_max TRAVERSE_MAX]
-               [--traverse_z TRAVERSE_Z] [--traverse_l TRAVERSE_L]
-               [--traverse_c TRAVERSE_C] [--verbose VERBOSE]
-               [--ckpt_dir CKPT_DIR] [--ckpt_load CKPT_LOAD]
-               [--ckpt_load_iternum CKPT_LOAD_ITERNUM]
-               [--ckpt_load_optim CKPT_LOAD_OPTIM]
-               [--treat_iter_as_epoch TREAT_ITER_AS_EPOCH]
-               [--ckpt_save_iter CKPT_SAVE_ITER]
-               [--evaluate_iter EVALUATE_ITER] [--test_iter TEST_ITER]
-               [--float_iter FLOAT_ITER] [--print_iter PRINT_ITER]
-               [--all_iter ALL_ITER] [--recon_iter RECON_ITER]
-               [--traverse_iter TRAVERSE_ITER]
-               [--schedulers_iter SCHEDULERS_ITER]
-               [--lr_scheduler {ReduceLROnPlateau,StepLR,MultiStepLR,ExponentialLR,CosineAnnealingLR,CyclicLR,LambdaLR}]
-               [--lr_scheduler_args KEY=VAL [KEY=VAL ...]]
-               [--w_recon_scheduler {LinearScheduler}]
-               [--w_recon_scheduler_args KEY=VAL [KEY=VAL ...]] [--seed SEED]
-               [--d_version D_VERSION] [--out_path OUT_PATH]
-               [--save_iter SAVE_ITER] [--show_loss SHOW_LOSS]
-               [--latent_loss {BCE,MSE,1st_BCE,1st_MSE,exact_MSE,exact_BCE,Hybrid}]
-               [--latent_weight LATENT_WEIGHT] [--masking_fact MASKING_FACT]
-               [--label_weight LABEL_WEIGHT] [--n_classes N_CLASSES]
-               [--classification_epoch CLASSIFICATION_EPOCH]
-               [--reduce_recon REDUCE_RECON]
-main.py: error: unrecognized arguments: --conditional_prior=True
+(INFO)[utils.py:342]  $AICROWD_DATASET_NAME=celebA
+(INFO)[utils.py:343]  $DATASET_NAME=celebA
+(INFO)[utils.py:344]  $DISENTANGLEMENT_LIB_DATA=/home/emanuele.marconato/data
+(INFO)[base_disentangler.py:25]  Device: cuda
+(INFO)[data_loader.py:713]  Datasets root: /home/emanuele.marconato/data
+(INFO)[data_loader.py:714]  Dataset: celebA
+(INFO)[data_loader.py:317]  include_labels: None
+(INFO)[base_disentangler.py:88]  Number of samples: 102635
+(INFO)[base_disentangler.py:89]  Number of batches per epoch: 3111
+(INFO)[base_disentangler.py:90]  Number of channels: 3
+0it [00:00, ?it/s][33;40m(WARNING)[base_disentangler.py:471]  Could not load optim_G[0m
+[33;40m(WARNING)[base_disentangler.py:472]  loaded state dict contains a parameter group that doesn't match the size of optimizer's group[0m
+0it [00:02, ?it/s](INFO)[base_disentangler.py:480]  Model Loaded: checkpoints/last @ iter:0, lr:0.000100
+Traceback (most recent call last):
+  File "main.py", line 78, in <module>
+    main(_args)
+  File "main.py", line 63, in main
+    model.test(out_path=out_path, name=_args.dset_name)
+  File "/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py", line 449, in test
+    test=True)
+  File "/home/emanuele.marconato/disentanglement-pytorch/models/base/base_disentangler.py", line 379, in visualize_traverse
+    self.num_channels, self.image_size, self.image_size).transpose(1, 2)
+RuntimeError: shape '[33, 64, 10, 3, 64, 64]' is invalid for input of size 40550400
+

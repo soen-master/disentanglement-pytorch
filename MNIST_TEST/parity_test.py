@@ -133,6 +133,15 @@ def information_leakage():
             #z = torch.randn( size=(64, 10)).cuda()
             sample = osr_vae.decoder(z).cuda()
             save_image(sample.view(64, 1, 28, 28), path+'samples/osr_sample_MNIST' + '.png')
+            
+            # recon
+            for batch in test_loader:
+                x_true, y_true  = batch
+                x_true = x_true.cuda()
+            x_recon, _ , _, z_obtained = osr_vae(x_true)
+            save_image(x_true.view(100, 1, 28, 28), path+'samples/osr_test_MNIST' + '.png' )
+            save_image(x_recon.view(100, 1, 28, 28), path+'samples/osr_recon_MNIST' + '.png' )
+
     else:
         osr_vae = OSR_VAE(x_dim=784,h_dim1=128, h_dim2=128, z_dim=10, beta=5)
         if torch.cuda.is_available(): osr_vae.cuda()

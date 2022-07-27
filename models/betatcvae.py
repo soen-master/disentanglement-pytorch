@@ -42,8 +42,15 @@ def total_correlation(z, z_mean, z_logvar):
 
     # Compute log(q(z(x_j))) as log(sum_i(q(z(x_j)|x_i))) + constant =
     # log(sum_i(prod_l q(z(x_j)_l|x_i))) + constant.
-    log_qz = log_qz_prob.sum(dim=2, keepdim=False).exp().sum(dim=1, keepdim=False).log()
+    log_qz = (log_qz_prob.sum(dim=2, keepdim=False).exp().sum(dim=1, keepdim=False) + 10**-7).log()
 
+    ## DEBUG CELEB A
+    #print('TC:', (log_qz - log_qz_product).mean())
+    
+    #print(z.unsqueeze(dim=1).size(), 
+     #     z_mean.unsqueeze(dim=0).size(),
+      #    z_logvar.unsqueeze(dim=0).size())
+    
     return (log_qz - log_qz_product).mean()
 
 

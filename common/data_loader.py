@@ -341,7 +341,8 @@ def _get_dataloader_with_labels(name, dset_dir, batch_size, seed, num_workers, i
         with open(km_files, 'rb') as f:
             km = pickle.load(f)
 
-        targets = km.predict(labels)
+        l_dims = [4,8,9,11,15,17,20,24,31,35]
+        targets = km.predict(labels) #[:,l_dims])
         targets = np.asarray(targets, dtype=int)
         
         ## CHECK PERCS OF CLASSES

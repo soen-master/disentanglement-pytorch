@@ -19,7 +19,10 @@ def kl_divergence_mu0_var1(mu, logvar):
     return kld
 
 
-def kl_divergence_mu_var1(mu, logvar, target_mu):
+def kl_divergence_mu_var1(mu, logvar, target_mu, lat_dim = 0):
+    if lat_dim != 0:
+        target_mu[:, :lat_dim] = target_mu[:, :lat_dim]
+        target_mu[:, lat_dim:] = torch.zeros(target_mu.size(1)-lat_dim)
     kld = -0.5 * (1 + logvar - (mu - target_mu) ** 2 - logvar.exp()).sum(1).mean()
     return kld
 

@@ -155,6 +155,8 @@ def get_args(sys_args):
     parser.add_argument('--out_path', default=None, type=str, help='Select the output folder where record training Loss over time-- default=None, => no registration.')
     parser.add_argument('--save_iter', default=2500, type=int, help='Save on .csv on the chosen iter.') #todo
     parser.add_argument('--show_loss', default=500, type=float, help='Choose iter when to show behaviour of the model')
+    parser.add_argument('--val_start', default=15, type=int, help='The epoch when starting of validation evaluation for early stopping.') 
+
 
     # Methodology on Latents
     parser.add_argument('--latent_loss', default='MSE', type=str, choices=['BCE', 'MSE', '1st_BCE', '1st_MSE', 'exact_MSE', 'exact_BCE', 'Hybrid'], help='Select the error function on the latent variables')

@@ -37,23 +37,23 @@ dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7
 Losses: {'total_vae': tensor(2.2906, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2906, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Losses: {'total_vae': tensor(2.2884, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2884, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Losses: {'total_vae': tensor(2.2721, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2721, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.2267, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2267, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.2264, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2264, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
 Losses: {'total_vae': tensor(2.2404, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2404, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.2782, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2782, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.2781, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2781, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Losses: {'total_vae': tensor(2.2087, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2087, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.2291, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2291, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.2408, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2408, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.2290, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2290, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.2409, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2409, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
 Losses: {'total_vae': tensor(2.1775, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.1775, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Losses: {'total_vae': tensor(2.2286, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2286, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Losses: {'total_vae': tensor(2.2005, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2005, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.2473, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2473, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.1967, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.1967, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.2474, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2474, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.1966, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.1966, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
@@ -64,106 +64,528 @@ Losses: {'total_vae': tensor(2.2482, device='cuda:0', grad_fn=<AddBackward0>), '
 samples_images_dict
 dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
 Losses: {'total_vae': tensor(2.2030, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2030, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(2.2094, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2094, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(2.2096, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(2.2096, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.8651, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8651, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.8502, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8502, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.8722, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8722, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.6900, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6900, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.7149, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7149, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.8661, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8661, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.8506, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8506, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.8693, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8693, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.6899, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6899, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.7158, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7158, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.7651, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7651, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.5466, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5466, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.8599, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8599, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.5965, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5965, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.6095, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6095, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.7652, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7652, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.5471, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5471, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.8575, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.8575, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.5946, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5946, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.6122, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6122, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.7499, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7499, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.6900, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6900, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.5879, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5879, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.6510, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6510, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.7391, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7391, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[2:24881]  loss_total_vae=1.788  loss_total=0.000  loss_prediction=1.788  loss_true_values=-1.000  loss_total_vae_epoch=1.786  
+Losses: {'total_vae': tensor(1.7501, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7501, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.6917, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6917, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.5863, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5863, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.6517, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.6517, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.7399, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7399, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[2:24881]  loss_total_vae=1.786  loss_total=0.000  loss_prediction=1.786  loss_true_values=-1.000  loss_total_vae_epoch=1.786  
 samples_images_dict
 dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
-Losses: {'total_vae': tensor(1.7178, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7178, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.7159, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.7159, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.5164, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5164, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.5293, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5293, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.4677, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4677, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.2789, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2789, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.4138, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4138, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.5166, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5166, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.5507, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.5507, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.4727, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4727, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.2808, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2808, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.4219, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4219, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.3961, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3961, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.4769, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4769, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.4111, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4111, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.2527, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2527, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.2512, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2512, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.4086, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4086, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.4866, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.4866, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.3919, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.3919, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.2646, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2646, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.2372, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2372, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.2664, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2664, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.1799, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1799, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.1550, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1550, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.9972, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9972, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.0653, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0653, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.2680, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.2680, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.1812, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1812, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.1482, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1482, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.0144, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0144, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.0422, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0422, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.0833, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0833, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[3:33175]  loss_total_vae=1.072  loss_total=0.000  loss_prediction=1.072  loss_true_values=-1.000  loss_total_vae_epoch=1.315  
+Losses: {'total_vae': tensor(1.0525, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0525, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[3:33175]  loss_total_vae=1.083  loss_total=0.000  loss_prediction=1.083  loss_true_values=-1.000  loss_total_vae_epoch=1.319  
 samples_images_dict
 dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
-Losses: {'total_vae': tensor(0.9935, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9935, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.0638, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0638, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.8843, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.8843, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(1.1381, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1381, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.0113, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0113, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.0930, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0930, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.9283, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.9283, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.1376, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.1376, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(1.0675, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0675, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.7679, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7679, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.7290, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7290, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.7151, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7151, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.7458, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7458, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(1.0188, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(1.0188, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.8083, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.8083, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.8163, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.8163, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.7545, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7545, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.7193, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7193, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(0.6321, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.6321, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.7624, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7624, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.6145, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.6145, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.6606, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.6606, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.7526, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7526, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.6454, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.6454, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.7123, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.7123, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.6761, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.6761, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.5911, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.5911, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.8026, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.8026, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(0.6214, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.6214, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.5416, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.5416, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.4156, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4156, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-[4:41469]  loss_total_vae=0.531  loss_total=0.000  loss_prediction=0.531  loss_true_values=-1.000  loss_total_vae_epoch=0.769  
+Losses: {'total_vae': tensor(0.6972, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.6972, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.5438, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.5438, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.3739, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3739, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[4:41469]  loss_total_vae=0.665  loss_total=0.000  loss_prediction=0.665  loss_true_values=-1.000  loss_total_vae_epoch=0.772  
 samples_images_dict
 dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
-Losses: {'total_vae': tensor(0.4666, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4666, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.3907, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3907, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.4935, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4935, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.4652, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4652, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.4380, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4380, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.5340, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.5340, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
 Done testing
 Now val counter at: 1
-Latent 12.257229577620517   8.341189234413235
-BCE 0.4369067656142371 0.907392421840394
+Latent 12.345357979586685   7.77565745435933
+BCE 0.4731041404156151 0.9137006549876631
 Done testing
 Saved test_metrics
-Losses: {'total_vae': tensor(0.4938, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4938, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.3738, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3738, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.3408, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3408, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.3664, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3664, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
-Losses: {'total_vae': tensor(0.3812, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3812, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.6108, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.6108, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.4684, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4684, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.4535, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4535, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.4153, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4153, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.3885, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3885, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 12.895104993724456   7.214116388919884
+BCE 0.3857741429970301 0.7332261927914896
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.3768, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3768, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.4787, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4787, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.4120, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.4120, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.3120, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3120, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.3585, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3585, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 12.980199584629545   9.390504771984988
+BCE 0.3466855647567386 0.591244936085269
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.2649, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2649, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2682, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2682, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2614, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2614, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2917, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2917, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[5:49763]  loss_total_vae=0.302  loss_total=0.000  loss_prediction=0.302  loss_true_values=-1.000  loss_total_vae_epoch=0.389  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.2972, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2972, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 14.587570955394318   11.03940698048016
+BCE 0.27381584031011147 0.47882098958203073
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.3239, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3239, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.3126, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3126, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.3126, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.3126, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2424, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2424, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2445, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2445, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 15.640875094645732   12.740220852646894
+BCE 0.23484365618338227 0.4018546160564613
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.2230, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2230, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2821, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2821, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1845, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1845, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2020, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2020, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2194, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2194, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 16.67845014347533   13.487625177916106
+BCE 0.2567171698299499 0.33542518268796
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.1799, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1799, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2430, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2430, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2432, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2432, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1395, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1395, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2231, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2231, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 16.838627859432265   14.402881878223198
+BCE 0.22256745409551273 0.2851150204167441
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.2281, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2281, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[6:58057]  loss_total_vae=0.202  loss_total=0.000  loss_prediction=0.202  loss_true_values=-1.000  loss_total_vae_epoch=0.232  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.2352, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2352, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1582, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1582, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1721, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1721, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2090, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2090, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 18.308244336986174   15.635632064505126
+BCE 0.16572629960980195 0.25512555544114784
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.1812, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1812, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1533, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1533, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1616, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1616, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1225, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1225, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1792, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1792, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.2526, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2526, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1218, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1218, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1182, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1182, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1117, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1117, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.2151, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.2151, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 18.779751827357817   17.275107446631257
+BCE 0.15548561840645364 0.21500364117842152
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.1528, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1528, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1222, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1222, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1632, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1632, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[7:66351]  loss_total_vae=0.179  loss_total=0.000  loss_prediction=0.179  loss_true_values=-1.000  loss_total_vae_epoch=0.153  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.1004, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1004, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1426, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1426, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1404, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1404, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 19.40113537652152   17.80002079476414
+BCE 0.12433637392034746 0.17927335577260614
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.1656, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1656, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0859, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0859, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1567, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1567, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1145, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1145, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0942, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0942, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 19.933953176594148   18.44706211740599
+BCE 0.11941585988956989 0.15691274387625306
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.1007, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1007, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0944, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0944, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0651, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0651, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1153, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1153, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1701, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1701, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 19.989448742516714   18.81135913058444
+BCE 0.11219163089055698 0.14311610197976823
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0580, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0580, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1486, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1486, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0718, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0718, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1603, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1603, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[8:74645]  loss_total_vae=0.064  loss_total=0.000  loss_prediction=0.064  loss_true_values=-1.000  loss_total_vae_epoch=0.108  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.0896, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0896, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 20.55853455775493   19.37161346015783
+BCE 0.09743474431975986 0.13307928407212366
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0761, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0761, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0640, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0640, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0292, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0292, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0819, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0819, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.1787, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1787, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 20.79238979972928   19.774845765210795
+BCE 0.09111563758529061 0.11864795490015811
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0584, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0584, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0501, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0501, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0517, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0517, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0741, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0741, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0422, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0422, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 20.894180141360604   20.160645492288594
+BCE 0.08530759561130899 0.10968074503329557
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.1005, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.1005, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0654, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0654, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0978, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0978, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0944, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0944, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0532, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0532, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 21.103378179911022   20.44679103333364
+BCE 0.08255435822668222 0.10024733759853582
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0465, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0465, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[9:82939]  loss_total_vae=0.066  loss_total=0.000  loss_prediction=0.066  loss_true_values=-1.000  loss_total_vae_epoch=0.079  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.0858, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0858, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0593, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0593, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0640, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0640, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0694, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0694, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0948, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0948, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 21.55486506568879   20.748368166281605
+BCE 0.07184704610966433 0.09128599250545315
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0451, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0451, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0368, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0368, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0305, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0305, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0732, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0732, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0476, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0476, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 21.803726929034966   20.929982707000303
+BCE 0.06731871128330388 0.0863258638077606
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0405, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0405, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0865, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0865, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0270, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0270, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0413, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0413, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0324, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0324, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 21.903750502464852   21.184141128986806
+BCE 0.0674582359742402 0.07990299998255185
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0395, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0395, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0387, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0387, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[10:91233]  loss_total_vae=0.051  loss_total=0.000  loss_prediction=0.051  loss_true_values=-1.000  loss_total_vae_epoch=0.059  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.0854, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0854, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0668, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0668, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0201, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0201, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 22.434417054459857   21.48732339154493
+BCE 0.06063218492633415 0.07390670520655014
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0618, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0618, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0274, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0274, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0440, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0440, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0307, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0307, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0547, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0547, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 22.823946739255693   21.754114165729533
+BCE 0.05933107264810979 0.06887466445573613
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0257, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0257, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0631, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0631, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0758, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0758, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0771, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0771, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0621, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0621, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 22.87125304122689   22.04729816198656
+BCE 0.058367354415076636 0.06513637739462608
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0438, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0438, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0365, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0365, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0415, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0415, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0630, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0630, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[11:99527]  loss_total_vae=0.034  loss_total=0.000  loss_prediction=0.034  loss_true_values=-1.000  loss_total_vae_epoch=0.046  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.0363, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0363, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0282, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0282, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0351, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0351, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0164, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0164, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0508, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0508, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0623, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0623, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 23.397941335287793   22.709872278314148
+BCE 0.051705082511245254 0.05944353732984018
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0357, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0357, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0200, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0200, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0206, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0206, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0290, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0290, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0198, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0198, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 23.217664188399738   22.845158845761564
+BCE 0.05776761240742986 0.05624722617563277
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0444, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0444, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0615, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0615, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0211, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0211, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0216, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0216, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0538, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0538, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 2
+Latent 23.538400708938656   23.036490377772267
+BCE 0.046565132256971245 0.0537052294633446
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0203, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0203, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[12:107821]  loss_total_vae=0.012  loss_total=0.000  loss_prediction=0.012  loss_true_values=-1.000  loss_total_vae_epoch=0.036  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.0261, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0261, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0133, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0133, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0343, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0343, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0458, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0458, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0243, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0243, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 23.800616472384185   23.151960760163217
+BCE 0.04302209012415332 0.05350531546079567
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0407, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0407, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0319, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0319, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0484, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0484, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0183, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0183, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0181, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0181, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.013054739094148   23.384668744208728
+BCE 0.0418416578232753 0.052012609058548785
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0136, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0136, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0132, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0132, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0418, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0418, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0416, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0416, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0172, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0172, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.07367401785832   23.518893789907526
+BCE 0.04153197528803398 0.04911827826285147
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0230, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0230, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0496, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0496, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[13:116115]  loss_total_vae=0.052  loss_total=0.000  loss_prediction=0.052  loss_true_values=-1.000  loss_total_vae_epoch=0.029  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.0291, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0291, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0127, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0127, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0367, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0367, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.265404128660105   23.78402397347233
+BCE 0.03898190643007302 0.043809626734799954
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0107, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0107, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0184, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0184, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0248, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0248, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0286, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0286, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0317, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0317, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.399523026234395   23.962448409778887
+BCE 0.039133934140057954 0.042131907745154205
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0464, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0464, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0277, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0277, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0222, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0222, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0270, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0270, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0258, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0258, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.54695870241143   24.117377628537525
+BCE 0.039729996569073514 0.04078517984712743
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0533, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0533, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0143, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0143, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0208, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0208, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0106, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0106, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+[14:124409]  loss_total_vae=0.034  loss_total=0.000  loss_prediction=0.034  loss_true_values=-1.000  loss_total_vae_epoch=0.025  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])
+Losses: {'total_vae': tensor(0.0320, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0320, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0247, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0247, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.785229161899522   24.246200390917608
+BCE 0.0352150358391825 0.03988260528605498
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0099, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0099, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0317, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0317, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0303, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0303, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0168, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0168, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0111, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0111, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.797722341471196   24.40396195243531
+BCE 0.03553258574659429 0.039281945713068166
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0103, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0103, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0365, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0365, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0144, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0144, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0086, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0086, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0095, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0095, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.908139324556448   24.577236963515116
+BCE 0.03489225647820368 0.03802632218277133
+Done testing
+Saved test_metrics
+Losses: {'total_vae': tensor(0.0368, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0368, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0119, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0119, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0165, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0165, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0192, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0192, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Losses: {'total_vae': tensor(0.0196, device='cuda:0', grad_fn=<AddBackward0>), 'total': 0, 'prediction': tensor(0.0196, device='cuda:0', grad_fn=<MulBackward0>), 'true_values': tensor(-1)}
+Done testing
+Now val counter at: 1
+Latent 24.90261566316759   24.70997006859405
+BCE 0.03493672271500051 0.036825872718283435
+Done testing
+Saved test_metrics
+[15:132703]  loss_total_vae=0.018  loss_total=0.000  loss_prediction=0.018  loss_true_values=-1.000  loss_total_vae_epoch=0.021  
+samples_images_dict
+dict_keys(['rand0', 'rand1', 'rand2', 'rand3', 'rand4', 'rand5', 'rand6', 'rand7', 'rand8', 'rand9', 'random'])

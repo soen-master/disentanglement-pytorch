@@ -70,7 +70,7 @@ class BaseDisentangler(object):
         #EMANUELE
         self.out_path = args.out_path
         self.validation_scores = {}
-
+        self.seed = args.seed
 
         self.data_loader, self.val_loader, self.test_loader  = get_dataloader(args.dset_name, args.dset_dir, args.batch_size, args.seed, args.num_workers,
                                                                 args.image_size, args.include_labels, args.pin_memory, not args.test,
@@ -104,6 +104,7 @@ class BaseDisentangler(object):
         self.epoch = 0
         self.evaluate_results = dict()
         self.val_stop = False
+        self.val_start = args.val_start
 
         # logging iterations
         self.print_iter = args.print_iter if args.print_iter else self.num_batches
@@ -204,6 +205,8 @@ class BaseDisentangler(object):
 
         # visualize the reconstruction of the current batch every recon_iter
         if is_time_for(self.iter, self.recon_iter):
+            
+
             self.visualize_recon(kwargs[c.INPUT_IMAGE], kwargs[c.RECON_IMAGE])
 
         # traverse the latent factors every traverse_iter
@@ -255,9 +258,9 @@ class BaseDisentangler(object):
         input_image = torchvision.utils.make_grid(input_image)
         recon_image = torchvision.utils.make_grid(recon_image)
 
-        if self.white_line is None:
-            self.white_line = torch.ones((3, input_image.size(1), 10)).to(self.device)
-
+        #if self.white_line is None:
+        self.white_line = torch.ones((3, input_image.size(1), 10)).to(self.device)
+        
         samples = torch.cat([input_image, self.white_line, recon_image], dim=2)
 
         if self.file_save:
@@ -581,7 +584,7 @@ class BaseDisentangler(object):
                 self.save_model = True
                 self.wait_counter = 0
             
-        if self.wait_counter > 10:
+        if self.wait_counter > 2:
             print('---Validation stop---')
             self.val_stop=True
         if self.wait_counter > 5 and self.masking == 0:

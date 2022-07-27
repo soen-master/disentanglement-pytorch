@@ -57,7 +57,7 @@ class GrayVAE_Join(VAE):
                                decoder(decoder_input_channels, self.num_channels, self.image_size),
                                ).to(self.device)
                                
-        self.classification = nn.Linear(args.z_class, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
+        self.classification = nn.Linear(self.z_class, args.n_classes, bias=True).to(self.device) ### CHANGED OUT DIMENSION
         if args.conditional_prior:
             self.push_cluster = True
             self.enc_z_from_y = nn.Linear(args.n_classes, args.z_dim, bias=True).to(self.device)
@@ -140,8 +140,9 @@ class GrayVAE_Join(VAE):
             if self.push_cluster and self.latent_loss=='BCE':
                 loss_bin = nn.BCELoss(reduction='mean')((1+concepts[rn_mask][:, :label1.size(1)])/2, label1[rn_mask] )
             else:
-                loss_bin = torch.tensor(0, device=self.device)
-
+                loss_bin = torch.tensor(0., device=self.device)
+        else:
+            loss_bin = torch.tensor(0., device=self.device)
 
         loss_dict = self.loss_fn(losses, reduce_rec=False, **loss_fn_args)
         losses.update(loss_dict)
@@ -201,11 +202,11 @@ class GrayVAE_Join(VAE):
         latent_errors = []
         epoch = 0
         max_lr = np.log10(self.optim_G.param_groups[0]['lr']) 
-        lr_log_scale = np.logspace(-7, max_lr, 5)
+        lr_log_scale = np.logspace(-7, max_lr, 15)
         
         while not self.training_complete():
             # added annealing
-            if epoch < 5:
+            if epoch < 15:
                 self.optim_G.param_groups[0]['lr'] = lr_log_scale[epoch] 
             print('lr:',  self.optim_G.param_groups[0]['lr'])
             epoch += 1
@@ -281,7 +282,7 @@ class GrayVAE_Join(VAE):
                         self.validation_scores.to_csv(os.path.join(out_path+'/train_runs', 'val_metrics.csv'), index=False)
                         del sofar
                     # validation check
-                    if epoch > 10: 
+                    if epoch > self.val_start: 
                         print('Validation stop evaluation')
                         print(self.iter, self.epoch)
                         print(self.validation_scores)
@@ -361,7 +362,12 @@ class GrayVAE_Join(VAE):
 
         y_pred_list = []
         y_test = []
-        for internal_iter, (x_true, label, y_true, _) in enumerate(loader):
+        print('Test set len:', len(loader.dataset))
+        
+        loader = torch.utils.data.DataLoader(loader.dataset, batch_size=self.batch_size, 
+                                            shuffle=True)
+        
+        for internal_iter, (x_true, label, y_true, _) in enumerate(loader   ):
             x_true = x_true.to(self.device)
 
             if self.dset_name == 'dsprites_full':
@@ -377,7 +383,7 @@ class GrayVAE_Join(VAE):
             z = reparametrize(mu, logvar)
         
             mu_processed = torch.tanh(z / 2)
-            prediction, forecast = self.predict(latent=mu[:,:self.z_class] )
+            prediction, forecast = self.predict(latent=mu_processed[:,:self.z_class] )
             x_recon = self.model.decode(z=z,)    
         
             zs = self.reparametrize_many(mu, logvar, 100)
@@ -435,9 +441,11 @@ class GrayVAE_Join(VAE):
                                 y_true, dims=self.n_classes).detach().item() )
 
         if end_of_epoch:
+            print(len(x_true))
             self.visualize_recon(x_true, x_recon, test=True)
             self.visualize_traverse(limit=(self.traverse_min, self.traverse_max),
                                     spacing=self.traverse_spacing,
+                                    data = (x_true, label),
                                     test=True)
 
         if out_path is not None and self.save_model and not validation:
@@ -448,8 +456,10 @@ class GrayVAE_Join(VAE):
                 np.save(f, z_array[:20000])
                 np.save(f, g_array[:20000])
             with open(os.path.join(out_path,'eval_results/downstream_obtained.npy'), 'wb') as f:
-                y_test      = np.array([a.squeeze().tolist() for a in y_test])
-                y_pred_list = np.array([a.squeeze().tolist() for a in y_pred_list])
+                y_test      = np.array([a.squeeze().tolist() for a in y_test[:-1]])
+                y_pred_list = np.array([a.squeeze().tolist() for a in y_pred_list[:-1]])
+                
+                
                 np.save(f, self.epoch)
                 np.save(f, y_test)
                 np.save(f, y_pred_list) 
