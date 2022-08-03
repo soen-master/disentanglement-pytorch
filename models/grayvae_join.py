@@ -96,6 +96,129 @@ class GrayVAE_Join(VAE):
         self.dataframe_dis = pd.DataFrame() #columns=self.evaluation_metric)
         self.dataframe_eval = pd.DataFrame()
         self.validation_scores = pd.DataFrame()
+        
+        ## OSR MECHANISM
+        self.zy = torch.zeros(size=(args.n_classes, args.z_dim), device=self.device)
+        self.thr_rec = torch.zeros(size=(), device=self.device)
+        self.thr_y = torch.zeros(size=(args.n_classes,), device=self.device)
+        
+        
+    def update_osr(self):
+        # to evaluate performances on disentanglement
+        
+        recons = torch.zeros(len(self.data_loader.dataset), device=self.device)
+        z = torch.zeros(len(self.data_loader.dataset), self.z_dim, device=self.device)
+        y = torch.zeros(len(self.data_loader.dataset), device=self.device)
+    
+        for internal_iter, (x_true1, label1, y_true1, examples) in enumerate(self.data_loader):
+            
+            x_true1 = x_true1.to(self.device)
+            y_true1 = y_true1.to(self.device, dtype=torch.long)
+
+            if self.dset_name == 'dsprites_full':
+                label1 = label1[:, 1:].to(self.device)
+            else:
+                label1 = label1.to(self.device)
+
+            losses, params = self.vae_classification(losses, x_true1, label1, y_true1, examples)
+
+            ## ADD FOR EVALUATION PURPOSES
+            z[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size, :] = params['z']
+            y[internal_iter*self.batch_size:(internal_iter+1)*self.batch_size] = y_true1
+ 
+            for i in range(self.batch_size):
+                x_recon = params['x_recon']
+                x_true = x_true1
+                rec = F.binary_cross_entropy(input=x_recon[i], target=x_true[i],reduction='sum') / self.w_recon
+                recons[i + internal_iter*self.batch_size] = rec
+            
+        ## EVALUATE THE RECON THR ##    
+        print('## Updating thr in rec')
+        l = len(recons)
+        r_min, r_max = torch.min(recons).item(), torch.max(recons).item()
+        good_r = []
+        
+        for eta in np.linspace(r_min, r_max, 1000):
+            mask = (recons < eta)
+            if len( recons[mask] )/l > 0.945 and len( recons[mask] )/l < 0.955:
+                good_r.append(eta)
+        self.thr_rec = torch.mean(good_r).to(self.device)
+        
+        print('Updated the threshold on reconstruction')
+        
+        
+        ## EVALUATE THE zy THR ##
+        print('## Updating thr in latent representations')
+
+        clusters = self.enc_z_from_y(torch.eye(self.n_classes, dtype=torch.float, device=self.device))
+        good_dist = []
+
+        for yclass in range(self.n_classes):
+            mask = (y == yclass)
+            l = len(y[mask])
+            
+            dist = [clusters[yclass] - k for k in z[mask] ]
+            dist = np.array([torch.norm(value[:self.z_class]).item() for value in dist])
+            
+            dmin = np.min(dist)
+            dmax = np.max(dist)
+            
+            for eta in np.linspace(dmin, dmax, 1000):
+                conds = dist < eta 
+            
+                if conds.sum()/l > 0.945 and  conds.sum()/l < 0.955:
+                    good_dist.append(eta)
+            self.thr_y[yclass] = torch.mean(good_dist).to(device=self.device)
+
+        print('Updated the threshold on latent representations')
+        
+        ## SAVE INFO TO FOLDER
+        eta_rec  = pd.DataFrame.from_dict({'thr_rec': self.thr_rec.item() })
+        eta_y    = pd.DataFrame(colums=['thr_y'], data=self.thr_y.detach().cpu().numpy())
+        
+        eta_rec.to_csv(os.path.join(self.out_path+'/train_runs', 'thr_rec.csv'), index=False)
+        eta_y.to_csv(os.path.join(self.out_path+'/train_runs',   'thr_y.csv'), index=False)
+        
+            
+    def rejection_mech(self, recon, z):
+        mask_rec = (recon < self.thr_rec)
+        
+        mask_zy = torch.zeros(len(mask_rec), dtype=torch.bool, device=self.device )
+  
+        clusters = self.enc_z_from_y(torch.eye(self.n_classes, dtype=torch.float, device=self.device))
+        
+        for i in range(self.n_classes):
+            
+            #EVALUATE DISTANCE
+            dist = [clusters[i] - k for k in z]
+            dist = np.array([torch.norm(value[:self.z_class]).item() for value in dist])
+
+            mask_zy = mask_zy | (dist < self.thr_y[i])
+            
+        return mask_rec & mask_zy
+    
+    def reject_test_set(self):
+        
+        passed_test_samples = torch.zeros(dim=())    
+        for internal_iter, (x_true, label, y_true, _) in enumerate(self.test_loader):
+            x_true = x_true.to(self.device)
+
+            if self.dset_name == 'dsprites_full':
+                label = label[:, 1:].to(self.device)
+            else:
+                label = label.to(self.device, dtype=torch.float)
+            
+            y_true =  y_true.to(self.device, dtype=torch.long)
+
+            mu, logvar = self.model.encode(x=x_true, )
+            
+            z = reparametrize(mu, logvar)
+            x_recon = self.model.decode(z=z,)   
+            
+            mask =self.rejection_mech(x_recon,z )
+            passed_test_samples.cat(mask)
+             
+        return passed_test_samples
 
     def predict(self, **kwargs):
         """
@@ -343,6 +466,7 @@ class GrayVAE_Join(VAE):
                 del z, g
                 
         self.pbar.close()
+        self.update_osr()
 
     def test(self, end_of_epoch=True, validation=False, name='dsprites_full', out_path=None):
         self.net_mode(train=False)

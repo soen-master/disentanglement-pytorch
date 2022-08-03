@@ -8,17 +8,17 @@
 (INFO)[base_disentangler.py:88]  Number of samples: 102635
 (INFO)[base_disentangler.py:89]  Number of batches per epoch: 3111
 (INFO)[base_disentangler.py:90]  Number of channels: 3
-0it [00:00, ?it/s][33;40m(WARNING)[base_disentangler.py:471]  Could not load optim_G[0m
-[33;40m(WARNING)[base_disentangler.py:472]  loaded state dict contains a parameter group that doesn't match the size of optimizer's group[0m
-0it [00:02, ?it/s](INFO)[base_disentangler.py:480]  Model Loaded: checkpoints/last @ iter:0, lr:0.000100
+0it [00:00, ?it/s][33;40m(WARNING)[base_disentangler.py:474]  Could not load optim_G[0m
+[33;40m(WARNING)[base_disentangler.py:475]  loaded state dict contains a parameter group that doesn't match the size of optimizer's group[0m
+0it [00:02, ?it/s](INFO)[base_disentangler.py:483]  Model Loaded: checkpoints/celebA40/TCVAE_w2_sup100/last @ iter:0, lr:0.000100
 Traceback (most recent call last):
   File "main.py", line 78, in <module>
     main(_args)
   File "main.py", line 63, in main
     model.test(out_path=out_path, name=_args.dset_name)
-  File "/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py", line 449, in test
+  File "/home/emanuele.marconato/disentanglement-pytorch/models/grayvae_join.py", line 541, in test
     test=True)
-  File "/home/emanuele.marconato/disentanglement-pytorch/models/base/base_disentangler.py", line 379, in visualize_traverse
+  File "/home/emanuele.marconato/disentanglement-pytorch/models/base/base_disentangler.py", line 382, in visualize_traverse
     self.num_channels, self.image_size, self.image_size).transpose(1, 2)
 RuntimeError: shape '[33, 64, 10, 3, 64, 64]' is invalid for input of size 40550400
 
